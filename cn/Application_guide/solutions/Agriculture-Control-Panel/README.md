@@ -1,0 +1,21 @@
+# 智慧农业中控面板解决方案
+
+
+
+该智慧农业中控面板方案基于 U-235标准开发板实现，具有以下特性：
+
+- 提供实时显示天气预报、农业环境数据监测、实时数据显示、历史数据曲线、农业设备控制等功能。
+- 高度的可定制性，用户可以根据具体情况和需求精细调整农业操作的各个方面
+- 拥有丰富外设接口，支持连接大多数常用的传感器，如：温湿度传感器、气体传感器等
+- 使用 Python 语言，便于二次开发。
+
+<img src="../../media/solutions/Agriculture-Control-Panel/Agriculture-Control-Panel.png" style="zoom:100%;display: block; margin: 0 auto;" />	
+
+------
+
+
+
+- [开发资源汇总](./dev_resources.md)
+- [快速上手](./quick_start.md)
+- [软件设计讲解](./software_design.md)
+

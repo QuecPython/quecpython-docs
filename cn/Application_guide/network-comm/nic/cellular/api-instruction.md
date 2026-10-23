@@ -1,0 +1,394 @@
+# 蜂窝网络API说明
+
+本文会结合用户常用到的场景来说明需要使用哪些API，以及这些API的一些使用说明和注意事项。
+
+## 查询/设置模组工作模式
+
+设备工作模式是指移动终端的功能模式，即我们常说的CFUN状态。QuecPython支持设置和查询模组的工作模式，相关方法的详细说明，请参考QuecPython官网wiki说明的[工作模式配置](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE)。
+
+### 查询模组工作模式
+
+```python
+net.getModemFun()
+```
+
+结合蜂窝网络基础概念介绍中的[CFUN](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/common-concepts.html#CFUN)部分说明，模组有3种工作模式，只有处于模式1（全功能模式）时，模组才能与蜂窝网络进行通信。
+
+### 设置模组工作模式
+
+```
+net.setModemFun(fun [, rst])
+```
+
+第一个参数表示要设置的模式。第二个参数为可选参数，表示是否重启设备。一般我们都不需要填写第二个参数，即默认在设置工作模式时不重启设备。
+
+### 应用场景说明 - 模组工作模式
+
+在遇到如下一些问题或者场景时，用户可以使用上述方法来查询和设置模组的工作模式：
+
+* 模组开机自动激活网卡失败，用户可以先查询模组当前工作模式是否为`1`，如果不是`1`，需要先设置为`1`。
+
+* 用户希望模组在不需要进行网络业务时，能关闭模组的射频功能，以降低设备的功耗，此时可以将模组工作模式设置为0或者4。
+
+* 模组当前网络通信质量不好，用户可以尝试先将模组工作模式设置为4（飞行模式），然后再设置为1（全功能模式），这样模组就会重新搜索网络并注册。
+* 在使用中，用户在不关机的情况下，进行了SIM卡插拔或者是换了一张卡，如果用户不想重启设备，也可以先将模组的工作模式设置为0，然后再设置为1。这样模组会重新进行SIM卡的初始化，然后重新搜索网络并注册。
+
+
+
+## 查询/设置网卡参数
+
+网卡参数的设置，主要包括IP协议类型、APN、用户名、密码以及加密方式。QuecPython支持设置和查询蜂窝无线网卡的参数，相关方法的详细说明，请参考QuecPython官网wiki说明的[APN配置与获取功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#APN%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%8E%B7%E5%8F%96%E5%8A%9F%E8%83%BD)。
+
+### 查询网卡参数
+
+```python
+dataCall.getPDPContext(profileID)
+```
+
+### 设置网卡参数
+
+```python
+dataCall.setPDPContext(profileID, ipType, apn, username, password, authType)
+```
+
+使用该接口设置网卡参数后，需要重启一次设备才能生效。另外，该接口设置的信息是掉电保存的。
+
+### 应用场景说明 - 网卡参数
+
+在遇到如下一些问题或者场景时，用户可以使用上述方法来查询和设置蜂窝无线网卡的参数：
+
+* 有的特殊的SIM卡需要配置APN后，网络注册才能成功。这种情况需要用户先和运营商确认这张卡应该使用什么APN以及用户名和密码，然后使用设置网卡参数的接口来将APN信息配置给蜂窝无线网卡，最后重启设备。
+
+* 当用户需要模组同时激活多路蜂窝无线网卡，并且使用不同的网卡去连接访问不同的网络。比如第一路网卡用于访问公共网络，第二路网卡用于访问某个专用网络。此时用户需要使用`dataCall.setPDPContext`方法分别给第一路和第二路蜂窝无线网卡配置对应的APN信息。
+
+关于如何配置APN，可以参考《场景使用说明》章节中的下面几个部分，这几部分都提供了详细的APN配置示例：
+
+* [开机自动激活一路网卡且配置APN](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%E4%B8%80%E8%B7%AF%E7%BD%91%E5%8D%A1%E4%B8%94%E6%B2%A1%E6%9C%89%E9%85%8D%E7%BD%AEAPN)
+
+* [开机自动激活多路网卡且配置APN](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%A4%9A%E8%B7%AF%E7%BD%91%E5%8D%A1%E4%B8%94%E9%85%8D%E7%BD%AEAPN)
+
+* [手动激活一路网卡](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E6%89%8B%E5%8A%A8%E6%BF%80%E6%B4%BB%E4%B8%80%E8%B7%AF%E7%BD%91%E5%8D%A1)
+
+* [手动激活多路网卡](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E6%89%8B%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%A4%9A%E8%B7%AF%E7%BD%91%E5%8D%A1)
+
+
+
+## 激活/去激活网卡
+
+QuecPython支持用户手动进行蜂窝无线网卡的激活与去激活，相关方法的详细说明，请参考QuecPython官网wiki说明的[激活与去激活功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#%E6%BF%80%E6%B4%BB%E4%B8%8E%E5%8E%BB%E6%BF%80%E6%B4%BB%E5%8A%9F%E8%83%BD)。
+
+### 激活网卡
+
+```python
+dataCall.activate(profileID)
+```
+
+### 去激活网卡
+
+```python
+dataCall.deactivate(profileID)
+```
+
+### 应用场景说明 - 网卡
+
+QuecPython的模组默认开机都会自动激活蜂窝无线网卡，因此大部分情况下，用户是不需要手动进行蜂窝无线网卡的激活和去激活操作的。但是一些特殊场景或者用户的特殊需求，需要使用上述方法来手动激活或者去激活蜂窝无线网卡，比如：
+
+用户关闭了开机自动激活蜂窝无线网卡功能，由用户应用程序根据需要在某个时间进行网卡的激活和去激活操作。这种情况下，就需要用户在其应用程序中，根据需要来调用`dataCall.activate`和`dataCall.deactivate`方法。比如有的电表，平时不需要建立网络连接，只有在需要上报电表数据的时候，才会激活网卡，等数据上报完成，又会将网卡去激活，让网络连接断开。这样既节约了流量，也降低了设备的功耗。
+
+关于如何手动激活无线网卡，可以参考《场景使用说明》章节中的下面几个部分，这几部分都提供了详细的APN配置示例：
+
+* [手动激活一路网卡](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E6%89%8B%E5%8A%A8%E6%BF%80%E6%B4%BB%E4%B8%80%E8%B7%AF%E7%BD%91%E5%8D%A1)
+
+* [手动激活多路网卡](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/application.html#%E6%89%8B%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%A4%9A%E8%B7%AF%E7%BD%91%E5%8D%A1)
+
+
+
+## DNS配置
+
+模组在进行蜂窝无线网卡激活的时候，如果激活成功，核心网是会自动分配好DNS服务器地址给模组的。也就是说正常情况下，用户是不需要手动去配置DNS服务器地址的。但是有时候会遇到核心网分配的DNS服务器地址无法使用的情况，此时就需要用户手动去配置DNS服务器地址了。QuecPython支持用户手动进行DNS配置，相关方法的详细说明，请参考QuecPython官网wiki说明的[DNS配置功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#DNS%E9%85%8D%E7%BD%AE%E5%8A%9F%E8%83%BD)。
+
+### 配置DNS
+
+```python
+dataCall.setDNSServer(profileID, simID, priDNS, secDNS)
+```
+
+### 应用场景说明 - DNS配置
+
+有时候会遇到核心网分配的DNS服务器地址无法使用的情况，此时需要用户手动去配置DNS服务器地址。
+
+
+
+## 获取网卡状态信息
+
+QuecPython支持网卡状态信息的查询，比如网卡激活状态、IP地址、DNS服务器地址等。相关方法的详细说明，请参考QuecPython官网wiki说明的[获取拨号信息功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#%E8%8E%B7%E5%8F%96%E6%8B%A8%E5%8F%B7%E4%BF%A1%E6%81%AF%E5%8A%9F%E8%83%BD)。
+
+### 获取网卡状态信息
+
+```python
+dataCall.getInfo(profileID, ipType)
+```
+
+### 应用场景说明 - 获取网卡状态信息
+
+查询网卡状态信息这一操作，是用户必须进行的。不管是什么应用场景，只要用户需要进行网络业务操作，就必须先查询网卡激活状态，确认蜂窝无线网卡已经激活成功。具体而言，只要用户有如下需求，都需要使用`dataCall.getInfo`来查询：
+
+* 确认蜂窝无线网卡激活是否成功，通过`dataCall.getInfo`方法返回值的state来确定，为1表示激活成功。
+
+* 用户使用QuecPython的socket功能时，需要知道模组当前的IP地址。
+
+* 激活多路蜂窝无线网卡后，需要建立多路socket，不同的socket使用不同的网卡，此时需要获取每一路网卡的IP地址信息，然后与对应的socket进行绑定。
+
+* 获取蜂窝无线网卡当前使用DNS地址。
+
+
+
+## 设置网卡开机自动激活
+
+QuecPython的模组默认开机都会自动激活第一路蜂窝无线网卡，并且使用的IP协议类型是IPv4，APN/用户名/密码默认都为空。用户可以通过API来配置激活任意一路或者多路蜂窝无线网卡开机自动激活。相关方法的详细说明，请参考QuecPython官网wiki说明的[开机自动拨号功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7%E5%8A%9F%E8%83%BD)。
+
+### 设置网卡是否开机自动激活
+
+```python
+dataCall.setAutoActivate(profileID, enable)
+```
+
+该方法设置的参数掉电保存。设置后，需要重启才能生效。
+
+### 应用场景说明 - 网卡开机自动激活
+
+可能会有如下一些场景，用户需要使用上述方法来配置某一路网卡是否需要开机自动激活：
+
+* 用户希望关闭模组开机自动激活蜂窝无线网卡功能，此时需要使用`dataCall.setAutoActivate(profileID, 0)`来关闭。
+
+* 用户希望开机自动激活多路蜂窝无线网卡，此时需要使用`dataCall.setAutoActivate(profileID, 1)`来分别设置需要激活的网卡。比如，用户希望开机自动激活第一路和第二路蜂窝无线网卡，则配置如下：
+
+  ```python
+  dataCall.setAutoActivate(1, 1) # 使能第一路蜂窝无线网卡开机自动激活功能
+  dataCall.setAutoActivate(2, 1) # 使能第二路蜂窝无线网卡开机自动激活功能
+  ```
+
+
+
+## 设置网卡自动重连
+
+QuecPython的模组默认开机都会使能第一路蜂窝无线网卡的自动重连功能。用户可以通过API来配置任意一路或者多路蜂窝无线网卡的自动重连功能。相关方法的详细说明，请参考QuecPython官网wiki说明的[拨号自动重连功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#%E6%8B%A8%E5%8F%B7%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BF%9E%E5%8A%9F%E8%83%BD)。
+
+建议如果没有特殊需求，不要关闭网卡的自动重连功能。
+
+### 设置网卡是否自动重连
+
+```python
+dataCall.setAutoConnect(profileID, enable)
+```
+
+该方法配置的参数掉电保存。设置后，需要重启才能生效。
+
+### 应用场景说明 - 网卡自动重连
+
+如下一些场景，用户需要使用上述方法来配置某一路网卡是否需要自动重连：
+
+* 用户因为一些特殊需求，不需要网卡自动重连。用户可以使用`dataCall.setAutoConnect(profileID, 0)`方法来将这一路网卡的自动重连功能关闭。
+
+* 用户使用`dataCall.setAutoActivate(profileID, 1)`方法设置了某一路或者多路蜂窝无线网卡开机自动激活，此时需要确认这一路或者多路蜂窝无线网卡是否需要自动重连功能，如果需要，则使用`dataCall.setAutoConnect(profileID, 1)`方法来使能这一路或者多路蜂窝无线网卡的自动重连功能；如果不需要，则使用`dataCall.setAutoConnect(profileID, 0)`方法来关闭这一路或者多路蜂窝无线网卡的自动重连功能。
+
+
+
+## 网络事件监听
+
+QuecPython提供了方法让用户监听网络状态变化事件。具体方案是让用户注册回调函数，当蜂窝无线网卡与网络的连接状态发生变化时，系统会通过用户注册的回调函数来通知当前网络连接状态。相关方法的详细说明，请参考QuecPython官网wiki说明的[回调注册功能](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/dataCall.html#%E5%9B%9E%E8%B0%83%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD)。
+
+### 注册回调函数
+
+```
+dataCall.setCallback(fun)
+```
+
+### 应用场景说明 - 网络事件监听
+
+在实际使用中，因为一些原因（比如网络异常、环境干扰、信号差、SIM卡欠费等）可能会导致终端设备与网络之间的连接断开，此时终端设备将无法再继续进行网络相关业务。因此需要用户监听终端设备的网络状态，确保当网络连接断开和恢复正常时，能及时进行相应的处理。
+
+关于网络事件监听具体如何使用，可以参考《网络异常处理》章节中的如下部分：
+
+* [网络异常事件处理示例](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/exception-handling.html#%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A4%BA%E4%BE%8B)
+
+
+
+## 获取信号强度
+
+QuecPython提供了相关API用来获取信号强度和信号质量等参数。这些参数可以帮助用户确定当前设备所处环境的信号强度和信号质量。用户常用的几个参数有CSQ、RSSI、SINR、RSRP以及RSRQ。建议用户结合前面的蜂窝网络基础概念章节中的[信号质量](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/common-concepts.html#%E4%BF%A1%E5%8F%B7%E8%B4%A8%E9%87%8F)部分一起看看。下面这些方法的详细说明，请请参考QuecPython官网wiki说明的[获取CSQ信号强度](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96CSQ%E4%BF%A1%E5%8F%B7%E5%BC%BA%E5%BA%A6)和[获取详细信号强度](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E8%AF%A6%E7%BB%86%E4%BF%A1%E5%8F%B7%E5%BC%BA%E5%BA%A6)。
+
+### 查询信号强度与质量
+
+查询CSQ使用如下方法：
+
+```
+net.csqQueryPoll()
+```
+
+查询RSSI、SINR以及RSRQ使用如下方法：
+
+```
+net.getSignal([sinrEnable])
+```
+
+要注意：
+
+CSQ表示信号强度，是用来指示RSSI强度的参数，也就是说CSQ本质上和RSSI是同一个指标的两种表现形式。一般用户通过CSQ来看信号强度即可。取值范围为0 ~ 31，数值越大信号越好。
+
+SINR是指接收到的有用信号的强度与接收到的干扰信号（噪声和干扰）的强度的比值，反映当前信道的链路质量。SINR的取值范围：-10 ~ 40dBm，比值越大越好。
+
+RSRP反映了当前信道的路径损耗强度，用于小区信号覆盖的测量和小区选择/重选。即我们可以通过这个参数值来判断小区信号的覆盖情况。RSRP的取值范围：-140 ~ -44dBm，值越大越好。
+
+RSRQ表示当前信道质量的信噪比和干扰水平。RSRQ是随着网络负荷和干扰发生变化，网络负荷越大，干扰越大，RSRQ测量值越小。其取值范围是-20 ~ -3 dB，值越大越好。
+
+### 应用场景说明 - 信号强度
+
+一般在如下一些问题或者场景中，用户需要查询一下信号强度和信号质量：
+
+* 模组网络注册失败时，用户需要使用`net.csqQueryPoll`来查询当前的CSQ信号强度，如果CSQ小于6，模组基本无法进行网络通信。
+
+* 模组在网络通信过程中，网络连接经常断开，此时用户需要使用上述两个方法，将CSQ、SINR、RSRP以及RSRQ这些参数值都查询看看，而且最好能连续查看一段时间，以获取更多的数据样本。通过CSQ先看当前的信号强度如何，如果信号强度还可以，通过SINR的值确认当前的信号质量，以及结合RSRQ来判断当前通信中的干扰情况。同时也可以结合RSRP来看当前小区的信号覆盖情况综合判断。
+
+
+
+## 获取小区信息
+
+QuecPython提供了相关API用来获取小区的相关信息，包括当前服务小区和邻区。小区信息主要包括：小区类型（服务小区、邻区）、Cid、MCC/MNC、无线频道编号、物理小区标识号等。相关方法的详细说明，请参考QuecPython官网wiki说明的[获取小区信息](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E5%B0%8F%E5%8C%BA%E4%BF%A1%E6%81%AF)。
+
+### 查询小区小区
+
+```python
+net.getCellInfo()
+```
+
+当调用该方法查询小区信息时，模组会进行实时的扫描，该过程一般会花费几秒钟。另外，模组能扫描到哪些小区，和模组自身支持的BAND也有关系，如果有的小区的BAND模组不支持，模组是扫描不到这个小区的。
+
+### 应用场景说明 - 获取小区信息
+
+需要查询小区信息的场景主要如下：
+
+* 用户使用基站定位功能时，需要获取周边小区信息。如果是使用QuecPython提供的基站定位功能，用户不需要直接获取小区信息，该操作已经由基站定位功能的代码自动完成。如果用户是自己去借助第三方平台实现基站定位功能，则需要用户使用`net.getCellInfo`方法来获取小区信息并上传相关服务器。
+
+* 用户想知道当前环境中，有哪些小区，可以通过`net.getCellInfo`方法查询。
+
+
+
+## 蜂窝网络制式
+
+QuecPython支持的模组中，有的模组仅支持LTE，有的支持GSM和LTE，也有的支持GSM、WCDMA和LTE。用户可以通过相关API来查询和配置模组的网络制式。相关方法的详细说明，请参考QuecPython官网wiki说明的[网络制式及漫游配置](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E7%BD%91%E7%BB%9C%E5%88%B6%E5%BC%8F%E5%8F%8A%E6%BC%AB%E6%B8%B8%E9%85%8D%E7%BD%AE)。
+
+### 查询网络制式
+
+```python
+net.getConfig()
+```
+
+### 设置网络制式
+
+```python
+net.setConfig(mode [, roaming])
+```
+
+该方法的第一个参数，就是用户需要设置的网络制式。第二个参数为是否开启漫游功能，可选参数，一般不需要设置。
+
+通过[网络制式及漫游配置](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E7%BD%91%E7%BB%9C%E5%88%B6%E5%BC%8F%E5%8F%8A%E6%BC%AB%E6%B8%B8%E9%85%8D%E7%BD%AE)章节中`net.getConfig`的返回值说明，可以看出，可以配置的网络制式比较多，有配置成单一的某一种网络制式，也有配置成几种网络制式组合模式的。这里有如下几点需要说明清楚：
+
+* `net.getConfig`的返回值说明中虽然列举了很多模式，但是并不是所有模组都支持这些模式。每一个型号的模组具体支持哪些网络制式，需要用户查阅对应模组的模块产品规格书来确定。
+
+* 当用户配置网络制式为几种网络制式的组合模式时，比如用户配置的是GSM和LTE两种网络制式的组合。则模组开网络搜索时，就会有一个优先级，即先搜索哪种网络制式的小区，然后搜索哪种网络制式的小区。具体按照什么样的优先级顺序，取决于用户选择的是`net.getConfig`的返回值说明中网络制式表格中的哪一种。例如，用户配置GSM和LTE两种网络制式的组合时，选择的是网络制式表格中的模式8，则模组会优先搜索LTE网络的小区，如果没有搜到或者搜到了但是没有在LTE小区上附着成功，则模组会再去搜索GSM小区进行附着。
+* 如果模组支持多种网络制式，其默认配置一般都是其支持的网络制式的组合。
+
+### 应用场景说明 - 蜂窝网络制式
+
+一般如下一些场景中，用户需要设置模组的网络制式：
+
+* 如果模组支持多种网络制式，但是用户使用`net.getConfig`方法查询，发现模组当前被配置为仅支持某一种网络制式，用户希望将其配置为支持多种网络制式，则需要用户使用`net.setConfig`方法来重新配置。
+
+* 模组支持多种网络制式，并且默认配置为多种网络制式的组合。但是用户使用的SIM卡仅支持其中一种网络制式，此时用户可以使用`net.setConfig`方法直接将模组配置为SIM卡支持的那一种网络制式。这样模组开机搜网时，就会直接在SIM卡支持的那种网络制式上搜索小区，可以加快模组网络注册的速度。
+
+* 模组支持多种网络制式，并且默认配置为多种网络制式的组合。但是模组所处的环境中，其周边小区都仅支持一种网络制式，比如仅支持GSM。此时用户可以使用`net.setConfig`方法直接将模组配置为周边小区支持的那一种网络制式。
+
+
+
+## 蜂窝网络技术
+
+前面我们提到有的模组支持多种网络制式，那么当模组配置为多种网络制式组合的情况下，如果模组网络注册成功了，那么它到底注册的是哪一种网络呢？此时就涉及到网络技术了，通过查询模组当前网络技术就可以判断出当前接入的是哪一种网络制式。QuecPython提供了相关API用来查询模组当前的网络技术，相关方法的详细说明，请参考QuecPython官网wiki说明的[获取网络配置模式](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E6%A8%A1%E5%BC%8F)。
+
+### 查询网络技术
+
+```python
+net.getNetMode()
+```
+
+### 应用场景说明 - 蜂窝网络技术
+
+主要应用场景就是，当模组支持多种网络制式，并且配置为多种网络制式组合的情况下，模组网络注册成功后，用于确认模组具体接入的是哪一种网络。
+
+
+
+## 获取运营商信息
+
+运营商信息是指模组当前接入的小区所属的运营商信息，包括运营商名称、MCC和MNC。QuecPython提供了相关API用来查询这些运营商信息，相关方法的详细说明，请参考QuecPython官网wiki说明的[获取运营商信息](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E8%BF%90%E8%90%A5%E5%95%86%E4%BF%A1%E6%81%AF)。
+
+### 查询运营商信息
+
+```python
+net.operatorName()
+```
+
+这里需要强调一件事，模组当前接入的小区所属的运营商，不一定就是模组当前使用的SIM卡所属的运营商。比如，如果模组是通过漫游的方式接入的某个小区，那么此时获取的就是这个小区所属的运营商，但是SIM卡却是其他运营商的。
+
+### 应用场景说明 - 获取运营商信息
+
+如上所述，该方法用来查询模组当前接入的小区所属的运营商信息。如果用户希望获取这方面信息，则可以使用`net.operatorName`方法来获取。
+
+
+
+## 获取设备网络注册状态
+
+设备的蜂窝无线网络注册状态是非常重要的参数。成功激活蜂窝无线网卡的前提，就是设备必须先注网成功。QuecPython提供了相关API用来查询设备的注网状态。相关方法的详细说明，请参考QuecPython官网wiki说明的[获取网络注册信息](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF)。
+
+### 查询设备注网状态
+
+```python
+net.getState()
+```
+
+### 应用场景说明 - 获取设备网络注册状态
+
+正常情况下，只要模组网卡能激活成功，用户是不需要查询注网状态的。需要查询设备注网状态的场景主要如下：
+
+* 模组蜂窝无线网卡激活失败，需要依次排查SIM卡和注网状态。此时可以使用`net.getState`来查询注网状态，确认设备注网有没有成功。
+
+
+
+## BAND设置
+
+模组一般都支持多个BAND，并且默认所有支持的BAND都是开启状态。QuecPython提供了相关方法来查询和设置模组当前支持的BAND。相关方法的详细说明，请参考QuecPython官网wiki说明的[band设置与获取](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#band%E8%AE%BE%E7%BD%AE%E4%B8%8E%E8%8E%B7%E5%8F%96)。
+
+> QuecPython中目前支持BAND查询和设置的API模组较少，仅BG95系列和EG912NENAA支持。
+
+### BAND查询
+
+```python
+net.getBand(netRat)
+```
+
+### BAND设置
+
+```python
+net.setBand(netRat, gsmBand, bandTuple)
+```
+
+### 应用场景说明 - BAND设置
+
+一般如下场景中，用户会需要查询和设置BAND：
+
+* 用户想了解模组当前支持哪些BAND，此时用户可以通过`net.getBand`来查询，也可以查阅模组的《模块产品规格书》。需要注意的是，模组的《模块产品规格书》中描述的是模组理论上支持的BAND；而`net.getBand`方法查询的是模组实际配置的支持哪些BAND。
+
+* 一些特殊的SIM卡仅支持特定的BAND，此时可以使用`net.setBand`方法来将模组锁定到特定的BAND。
+
+* 模组所处的环境中有多个BAND，并且这些BAND模组都支持。但是有的BAND上信号质量较差，有的BAND上信号很好，用户可以通过`net.setBand`方法将模组锁定在这些信号很好的BAND上，这样模组就可以直接选择这些信号很好的BAND接入。
+
+* 用户希望将模组锁定到某一个BAND，进行一些功能验证或者测试，可以使用`net.setBand`方法将模组锁定到指定的BAND上。

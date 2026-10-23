@@ -1,0 +1,80 @@
+# BSP开发常见问题
+
+### GPIO的负载能力如何
+
+GPIO输出电流能力：4mA
+
+### 支持哪些中断模式
+
+- 上升沿中断模式
+- 下降沿中断模式
+- 上升和下降沿中断模式
+- 高低电平中断模式
+
+### 哪些管脚可以用做GPIO
+
+具体哪些引脚可以用作GPIO，需要参考wiki上面machine.Pin这一节。
+
+> 具体详情链接：[GPIO引脚说明]([class Pin - 控制I/O引脚 - QuecPython (quectel.com)](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/machine.Pin.html))
+
+### 哪些引脚可以用作外部中断
+
+有多少个GPIO引脚就能用作多少个外部中断，具体可以参考GPIO引脚wiki上面machine.Pin和machine.Extlnt。
+
+> 具体详情链接：[GPIO引脚说明]([class Pin - 控制I/O引脚 - QuecPython (quectel.com)](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/machine.Pin.html))；[Extlnt外部中断说明]([class ExtInt - 外部中断 - QuecPython (quectel.com)](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/machine.ExtInt.html))
+
+### 哪些引脚可以用作唤醒中断
+
+- 展锐平台：PSM 引脚唤醒PSM_EXT_INT（拉高）
+- 移芯平台：AGPIOWU引脚唤醒
+
+### 从硬件上电到脚本可控制GPIO状态，这段时间内的管脚电平状态如何变化
+
+1. 上电初始化状态：当硬件上电时，通常GPIO管脚处于未定义状态，这意味着管脚的电平可能是高电平（VCC）、低电平（GND）或者悬空状态。
+2. 脚本控制之前：在脚本开始执行之前，GPIO管脚的电平状态可能保持不变，或者根据硬件或其它外部因素自由变化。
+3. 脚本控制阶段：一旦脚本开始对GPIO进行设置，管脚的电平状态将根据脚本中的相关代码和指令进行改变，根据具体的脚本逻辑和要求，可以通过控制GPIO的输入输出方向、写入高电平或低电平等方式来改变管脚的电平状态。
+
+### **如何查询模组BSP外设资源数量**
+
+查看官网文档中心wiki的的[machine](../../../API_reference/zh/peripherals/machine.md)章节，包含引脚，该章节包含中断串口等外设资源介绍。
+
+### **当前LCD外设支持的最大驱动像素是多少？**
+
+屏幕像素不得超过500*500。
+
+### **是否支持DAC？**
+
+目前暂不支持DAC功能。
+
+### **ADC的电压范围是多少？**
+
+EC600U：0~VBAT；
+
+EC600N：0~1.3 V；
+
+EC600S：0~1.3 V；
+
+其他型号可通过查询模块对应硬件设计手册进行确认。
+
+### **I2C的通信速率是多少？**
+
+通信模式支持标准模式与快速模式，其中标准模式为100KHz，快速模式为400KHz。
+
+### **USB串口是否可以进行数据交互？**
+
+UART3（USB_CDC口）可用于数据交互，就是模块的交互口。
+
+### **串口一次最多可以接收多少字节的数据？**
+
+实测正常接收2000字节，发送最大512，超过会自动分包发送。
+
+### **模组的管脚有没有默认电平的说明文档？**
+
+用户可参考相应型号的 *QuecPython_GPIO配置* 文档，了解各 GPIO 管脚的默认电平。
+
+此外，在模组上电开机的过程中，部分管脚的电平可能会发生变动。建议用户在自行设计硬件前对管脚的电平变化情况进行测量，避免盲目选用 GPIO 导致损失。
+
+### **EC600S模块RTC时间可以做到断电续航吗？**
+
+断电没有办法续航，因为EC600S没有RTC后备电池引脚。
+

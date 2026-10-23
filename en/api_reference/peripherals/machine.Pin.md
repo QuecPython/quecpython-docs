@@ -1,0 +1,8320 @@
+# Pin - Control I/O Pins
+
+This class provides methods of reading and writing GPIO. A pin object is used to control I/O pins (also known as GPIO - general-purpose input/output). The pin class has methods to set the mode of the pin (IN, OUT, etc) and methods to get and set the digital logic level.
+
+**Example:**
+
+```python
+from machine import Pin
+
+# Creates a GPIO object
+gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 1)
+
+# Gets the pin level
+gpio1.read()
+
+# Sets the pin level
+gpio1.write(0)
+gpio1.write(1)
+
+# Sets input and output modes
+gpio1.set_dir(Pin.IN)
+gpio1.set_dir(Pin.OUT)
+
+# Gets input and output modes
+gpio1.get_dir()
+```
+
+## Constructor
+
+### `machine.Pin`
+
+```python
+class machine.Pin(GPIOn, direction, pullMode, level)
+```
+
+**Parameter:**
+
+- `GPIOn` - Integer type. GPIO number. <a href="#label_pinmap">Click here to view</a> the mapping relationship between GPIO pin numbers and physical pins.
+- `direction` - Integer type. I/O mode. `IN` - Input mode. `OUT` - Output mode.
+- `pullMode` - Integer type. Pull selection mode. Descriptions are as follows:<br />`PULL_DISABLE` - Floating mode<br />`PULL_PU` - Pull-up mode<br />`PULL_PD` - Pull-down mode
+- `level` - Integer type. Pin level. `0` - Set pin to low level.  `1`- Set pin to high level.
+
+**Example:**
+
+```python
+>>> # Creates a GPIO object
+>>> from machine import Pin
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+```
+
+<span id="label_pinmap">**Mapping Relationship Between GPIO Pin Numbers and Physical Pins:**</span>
+
+> Description of GPIO corresponding pin numbers: GPIO pin numbers provided in the document correspond to external pin numbers of the module. For example, for EC600M-CN module, GPIO1 corresponds to pin10, which is an external pin number of the module. See the provided hardware documents for external pin numbers of the module.
+
+<div class="table-QuecPython">
+<table class="EC600M">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin10</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin11</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin14</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin15</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin48</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin58</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin59</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin60</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin61</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin62</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin63</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin70</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin55</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin71</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin72</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin109</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin110</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin112</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin111</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG950S">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin86</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin35</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin36</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin37</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin98</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin85</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin87</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin88</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600U">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin61 (It cannot be used together with GPIO31.)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin58 (It cannot be used together with GPIO32.)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin34 (It cannot be used together with GPIO41.)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin60 (It cannot be used together with GPIO34.)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin69 (It cannot be used together with GPIO35.)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin70 (It cannot be used together with GPIO36.)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin123 (It cannot be used together with GPIO43.)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin118</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin9 (It cannot be used together with GPIO47.)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin1 (It cannot be used together with GPIO37.)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin4 (It cannot be used together with GPIO38.)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin3 (It cannot be used together with GPIO39.)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin2 (It cannot be used together with GPIO40.)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin33 (It cannot be used together with GPIO42.)</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin124 (It cannot be used together with GPIO44.)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin122 (It cannot be used together with GPIO45.)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin121 (It cannot be used together with GPIO46.)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin48</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin59 (It cannot be used together with GPIO33.)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin66 (It cannot be used together with GPIO1.)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin63 (It cannot be used together with GPIO2.)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin67 (It cannot be used together with GPIO30.)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin65 (It cannot be used together with GPIO4.)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin137 (It cannot be used together with GPIO5.)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin62 (It cannot be used together with GPIO6.)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin98 (It cannot be used together with GPIO10.)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin95 (It cannot be used together with GPIO11.)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin119 (It cannot be used together with GPIO12.)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin100 (It cannot be used together with GPIO13.)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin120 (It cannot be used together with GPIO3.)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin16 (It cannot be used together with GPIO18.)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin10 (It cannot be used together with GPIO7.)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin14 (It cannot be used together with GPIO19.)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin15 (It cannot be used together with GPIO20.)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin13 (It cannot be used together with GPIO21.)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin99 (It cannot be used together with GPIO9.)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200U">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin27 (It cannot be used together with GPIO31.)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin26 (It cannot be used together with GPIO32.)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin24 (It cannot be used together with GPIO33.)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin25 (It cannot be used together with GPIO34.)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin13 (It cannot be used together with GPIO17.)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin135 (It cannot be used together with GPIO36.)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin136 (It cannot be used together with GPIO44.)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin133</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin3 (It cannot be used together with GPIO37.)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin40 (It cannot be used together with GPIO38.)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin37 (It cannot be used together with GPIO39.)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin38 (It cannot be used together with GPIO40.)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin39 (It cannot be used together with GPIO41.)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin141</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin142</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin121 (It cannot be used together with GPIO5.)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin65 (It cannot be used together with GPIO42.)</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin64 (It cannot be used together with GPIO43.)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin139 (It cannot be used together with GPIO45.)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin126 (It cannot be used together with GPIO46.)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin127 (It cannot be used together with GPIO47.)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin125 (It cannot be used together with GPIO1.)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin124 (It cannot be used together with GPIO2.)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin123 (It cannot be used together with GPIO3.)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin122 (It cannot be used together with GPIO4.)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin119 (It cannot be used together with GPIO6.)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin134 (It cannot be used together with GPIO9.)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin132 (It cannot be used together with GPIO10.)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin131 (It cannot be used together with GPIO11.)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin130 (It cannot be used together with GPIO12.)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin129 (It cannot be used together with GPIO13.)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin61 (It cannot be used together with GPIO18.)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin62 (It cannot be used together with GPIO19.)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin63 (It cannot be used together with GPIO7.)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin66 (It cannot be used together with GPIO20.)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin6 (It cannot be used together with GPIO21.)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin23 (It cannot be used together with GPIO22.)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A/UC200A">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin24</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin135</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin136</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin37</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin139</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin127</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin119</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin62</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin63(Not supported by EC200ACN_LA)  
+  <br>For EC200A series modules with built-in GNSS, this pin is GNSS_TXD.</br></td>
+
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin66<br>
+  For EC200A series modules with built-in GNSS, this pin is GNSS_RXD.</br></td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin23</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A-V1">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin24</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin135</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin136</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin37</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin139</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin127</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin62</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin63</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin23</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800N">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin86</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC25PA">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin8</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG95">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin85</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin86</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin87</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin88</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915U">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4 (It cannot be used together with GPIO41.)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5 (It cannot be used together with GPIO36.)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6 (It cannot be used together with GPIO35.)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7 (It cannot be used together with GPIO24.)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin1 (It cannot be used together with GPIO37.)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin27 (It cannot be used together with GPIO32.)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin28 (It cannot be used together with GPIO31.)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin20 (It cannot be used together with GPIO30.)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin88</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin36 (It cannot be used together with GPIO40.)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin37 (It cannot be used together with GPIO38.)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin16 (It cannot be used together with GPIO4.)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin42 (It cannot be used together with GPIO27.)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin78 (It cannot be used together with GPIO26.)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin83 (It cannot be used together with GPIO33.)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin92 (It cannot be used together with GPIO16.)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin95 (It cannot be used together with GPIO12.)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin97 (It cannot be used together with GPIO11.)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin98 (It cannot be used together with GPIO28.)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin105 (It cannot be used together with GPIO3.)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin106 (It cannot be used together with GPIO2.)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin108 (It cannot be used together with GPIO4.)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin111 (It cannot be used together with GPIO23.)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin114</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin115 (It cannot be used together with GPIO22.)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin116 (It cannot be used together with GPIO1.)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800M/EG810M">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin86(EG810M_EU unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin87(EG810M_EU unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin75</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin84(EG810M_EU unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin85(EG810M_EU unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912N">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin35</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin36</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin37</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin92</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin95</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin96</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin97</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin98</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin103</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin105</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin106</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin107</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin114</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin115</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin116</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600E">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin10(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin11(57)(I&PU)(It cannot be used together with GPIO41)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin12(56)(I&PU)(It cannot be used together with GPIO40)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin13(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin14(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin15(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin16(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin39(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin40(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin48(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin58(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin59(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin60(I&PD)(It cannot be used together with GPIO36)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin61(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin62(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin63(I&PD)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin69(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin70(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+  <td>GPIO22</td>
+  <td>Pin50(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin51(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin52(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin53(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin54(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin66(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin65(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin67(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin64(I&PU)(EC600ECN_LE&LQ Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin31(I&PU)(It cannot be used together with GPIO13)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin32(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin33(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin34(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin71(I&PU)(It cannot be used together with GPIO3)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin72(I&PU)(It cannot be used together with GPIO2)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800E">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33(I&PD)(It cannot be used together with GPIO25)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49(I&PD)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55(I&PU)(EC800ECN_LE&LQ&CG Unavailable，It cannot be used together with Pin64)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57(67)(I&PU)(EC800ECN_LE&LQ&CG pin number 57 cannot be used)(It cannot be used together with GPIO34)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58(66)(I&PU)(EC800ECN_LE&LQ&CG Pin number 58 cannot be used)(It cannot be used together with GPIO35)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80(I&PU)(EC800ECN_LE&LQ&CG Unavailable，It cannot be used together with Pin63)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81(I&PU)(EC800ECN_LE&LQ&CG Unavailable，It cannot be used together with Pin62)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin25(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17(I&PU)(It cannot be used together with GPIO4)</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18(I&PU)</td>
+</tr>
+  <td>GPIO27</td>
+  <td>Pin19(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin38(I&PU)(It cannot be used together with GPIO13)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin39(I&PU)(It cannot be used together with GPIO14)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78(I&PU)(EC800ECN_LE&LQ&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin85(I&PD)(EC800ECN_LE&LQ&LC&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin108(I&PD)(EC800ECN_LE&LQ&LC&CG Unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin109(I&PD)(EC800ECN_LE&LQ&LC&CG Unavailable)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800Z">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin25(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66(It cannot be used together with GPIO26)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67(It cannot be used together with GPIO25)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17(It cannot be used together with GPIO24)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>Pin18(It cannot be used together with GPIO23)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19(AGPIO, the driving ability is weak, it is recommended to use only as an input pin)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin85(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin108(AGPIO, the driving ability is weak, it is recommended to use only as an input pin)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin109(AGPIO, the driving ability is weak, it is recommended to use only as an input pin)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin101</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600G">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin61(It cannot be used together with GPIO24)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin58(It cannot be used together with GPIO25)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin60</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin69(It cannot be used together with GPIO10)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin70(It cannot be used together with GPIO11)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin123</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin132</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin9</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin1(It cannot be used together with GPIO5)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin4(It cannot be used together with GPIO6)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin124(It cannot be used together with GPIO37)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin104</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin103</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin48</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin39(It cannot be used together with GPIO46)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin40(It cannot be used together with GPIO1)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin49(It cannot be used together with GPIO2)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>Pin50(It cannot be used together with GPIO30)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin59(It cannot be used together with GPIO26)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin63</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin137</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin62</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin105(It cannot be used together with GPIO19)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin106</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin107</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin126</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin120</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin10</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin14</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin13(It cannot be used together with GPIO23)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin116</td>
+</tr>
+<tr>
+  <td>GPIO48</td>
+  <td>Pin31</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800G">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30(It cannot be used together with GPIO45)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31(It cannot be used together with GPIO46)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32(It cannot be used together with GPIO47)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33(It cannot be used together with GPIO48)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50(It cannot be used together with GPIO50)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57(It cannot be used together with GPIO49)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58(It cannot be used together with GPIO20)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin84</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin76(It cannot be used together with GPIO35)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin83(It cannot be used together with GPIO14)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin86(It cannot be used together with GPIO34)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin38(It cannot be used together with GPIO21)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin39(It cannot be used together with GPIO17)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin85</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin80(It cannot be used together with GPIO44)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin107</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin103</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin101(It cannot be used together with GPIO41)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>Pin79(It cannot be used together with GPIO1)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>Pin100(It cannot be used together with GPIO2)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin108(It cannot be used together with GPIO3)</td>
+</tr>
+<tr>
+  <td>GPIO48</td>
+  <td>Pin109(It cannot be used together with GPIO4)</td>
+</tr>
+<tr>
+  <td>GPIO49</td>
+  <td>Pin75(It cannot be used together with GPIO13)</td>
+</tr>
+<tr>
+  <td>GPIO50</td>
+  <td>Pin74(It cannot be used together with GPIO6)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912U">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4(It cannot be used together with GPIO40)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5(It cannot be used together with GPIO36)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6(It cannot be used together with GPIO35)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7(It cannot be used together with GPIO8)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin1(It cannot be used together with GPIO19)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin16(It cannot be used together with GPIO4)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin26(EG912UGuLAA unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin27(It cannot be used together with GPIO31)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin28(It cannot be used together with GPIO29)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin64(EG912UGLAA unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin20(It cannot be used together with GPIO28)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin108(It cannot be used together with GPIO7)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin88(EG912UGLAA unsupported)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin36(It cannot be used together with GPIO39)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin37(It cannot be used together with GPIO30)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin42(It cannot be used together with GPIO26)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>Pin78(It cannot be used together with GPIO25)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin83(It cannot be used together with GPIO32)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin92(It cannot be used together with GPIO16)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin95(It cannot be used together with GPIO12)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin111(It cannot be used together with GPIO22)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin97(It cannot be used together with GPIO11)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin98(It cannot be used together with GPIO27)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin105(It cannot be used together with GPIO3)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin106(It cannot be used together with GPIO2)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin114</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin115(It cannot be used together with GPIO21)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin116(It cannot be used together with GPIO1)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600K">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin10</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin11</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin14</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin15</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin48</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin58</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin59</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin60</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin61</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin62</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin63</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin70</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin3</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin54</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin55（boot pin, internal pull-up）</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin56</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin57</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin2</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin65</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin34</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800K/EG800K">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin57(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin58(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin86</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29(The EG800KCN is unavailable)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin75</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800AK">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54(The GNSS model has been designated as GNSS_RST)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55(The GNSS model has been designated as GNSS_PWR_EN)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80 (The GNSS model has been designated as GNSS_32KHz_CLK)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin86 (The GNSS model has been designated as GNSS_UART_RTS)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin87 (The GNSS model has been designated as GNSS_UART_CTS)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28(The GNSS model has been designated as GNSS_UART3_RXD)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29(The GNSS model has been designated as GNSS_UART3_TXD)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin75</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>Pin79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800Z">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin54 Built-in GNSS RESET occupation</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin55 Built-in GNSS UART occupation</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin56 Built-in GNSS UART occupation</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin25(AGPIO pin status is not affected by sleep mode)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin20(AGPIO pin status is not affected by sleep mode)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin16(AGPIO pin status is not affected by sleep mode)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin6(AGPIOWU can be used as WAKEUP and AGPIO types)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin5(AGPIOWU can be used as WAKEUP and AGPIO types)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin100(AGPIO pin status is not affected by sleep mode)
+  
+  (At the same time, it is the enabling pin for GNSS)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin101(AGPIO pin status is not affected by sleep mode)
+  
+  (At the same time, it is the VMAIN_EN pin for GNSS)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>Pin64</td>
+</tr>
+</tbody>
+</table>
+
+<table class="FCM360W">
+<thead>
+<tr>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>Pin8</td>
+</tr>
+<tr>
+  <td>Pin9</td>
+</tr>
+<tr>
+  <td>Pin10</td>
+</tr>
+<tr>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>Pin14</td>
+</tr>
+<tr>
+  <td>Pin15</td>
+</tr>
+<tr>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>Pin29</td>
+</tr>
+</tbody>
+</table>
+
+<table class="FCM362K">
+<thead>
+<tr>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>Pin8</td>
+</tr>
+<tr>
+  <td>Pin9</td>
+</tr>
+<tr>
+  <td>Pin14</td>
+</tr>
+<tr>
+  <td>Pin15</td>
+</tr>
+<tr>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>Pin29</td>
+</tr>
+<tr>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>Pin31</td>
+</tr>
+<tr>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>Pin35</td>
+</tr>
+<tr>
+  <td>Pin37</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC32">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin24</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin43</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin44</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC92">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin12</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin13</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin42</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin24</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin43</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin44</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915N">
+<thead>
+<tr>
+  <th>GPIO number</th>
+  <th>Pin number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>Pin4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>Pin5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>Pin6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>Pin7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>Pin18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>Pin19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>Pin1</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>Pin38</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>Pin25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>Pin26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>Pin27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>Pin28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>Pin40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>Pin41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>Pin64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>Pin20</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>Pin21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>Pin34</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>Pin35</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>Pin30</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>Pin22</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>Pin36</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>Pin37</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>Pin16</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>Pin39</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>Pin23</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>Pin78</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>Pin83</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>Pin107</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>Pin92</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>Pin95</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>Pin97</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>Pin98</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>Pin104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>Pin105</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>Pin106</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>Pin103</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>Pin96</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>Pin114</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>Pin115</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>Pin116</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br/>
+<div class="content-QuecPython">
+<div class="EC600E">
+<blockquote>
+<p>Note:</p>
+        <p>1.I&PU: In the input mode, only the floating and pull-up modes are supported</p >
+        <p>2.I&PD: In the input mode, only floating and drop-down modes are supported</p >
+        <p>3.The ExtInt function of the EC600E does not support both rising and falling edges to trigger an interrupt</p >
+</blockquote>
+</div>
+
+<div class="EC800E">
+<blockquote>
+<p>Note:</p>
+        <p>1.I&PU: In the input mode, only the floating and pull-up modes are supported</p >
+        <p>2.I&PD: In the input mode, only floating and drop-down modes are supported</p >
+        <p>3.EC800ECN_LE&LQ&CG Unavailable: The pin of this model module is suspended internally, so it cannot be used</p >
+        <p>4.Pin67, Pin66, Pin57, and Pin58 of the module share the same internal IO, that is, when the level of GPIO13 is changed, Pin57 and Pin67 will change simultaneously</p >
+        <p>5.On the module of EC800ECN_LE&LQ&CG model, Pin57 and Pin58 are suspended internally, so only Pin67 and Pin66 can be used as GPIO13 and 14</p >
+        <p>6. The ExtInt function of the EC800E does not support the simultaneous rise and fall of the ExTINt edge</p >
+        <p>7.Pin55, 80, and 81 cannot be used with Pin64, 63, and 62 (SIM2 pins), respectively</p >
+</blockquote>
+</div>
+
+<div class="EC800Z">
+<blockquote>
+<p>Note:</p>
+        <p>1.When AGPIO is in sleep mode, the level state remains unchanged, while the level of ordinary GPIO cannot be maintained during sleep</p >
+        <p>2.GPIO27, GPIO39, and GPIO40 have weak driving capabilities, so it is recommended to use them only as input pins</p >
+</blockquote>
+</div>
+
+<div class="EG800Z">
+<blockquote>
+<p>Note:</p>
+        <p>1.When AGPIO is in sleep mode, the level state remains unchanged, while the level of ordinary GPIO cannot be maintained during sleep</p >
+        <p>2.GPIO38, and GPIO39 have weak driving capabilities, so it is recommended to use them only as input pins</p >
+</blockquote>
+</div>
+
+<div class="EC200U">
+<blockquote>
+<p>Note:</p>
+        <p>1.Pin37-GPIO11,Pin38-GPIO12,Pin39-GPIO13,Module that support GNSS function do not enable the multiplexing function of this pin and it need to be left open.</p >
+</blockquote>
+</div>
+
+</div>
+
+
+## Methods
+
+### `Pin.read`
+
+```python
+Pin.read()
+```
+
+This method reads the pin level.
+
+**Return Value:**
+
+Pin level.  `0`  - low level.  `1`  - high level.
+
+### `Pin.write`
+
+```
+Pin.write(value)
+```
+
+This method sets the pin level.
+
+> Note: You need to ensure that the pin is in the output mode before you set the pin level.
+
+**Parameter:**
+
+- `value` - Integer type. Pin level. `0` - low level. `1` - high level.
+
+**Return Value:**
+
+`0` - Successful execution
+
+`-1` - Failed execution
+
+**Example:**
+
+```python
+>>> from machine import Pin
+#GPIO Output Mode - Set Pin Level
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+>>> gpio1.write(1)
+0
+# GPIO Input Mode - Reading Pin Level
+>>> gpio1 = Pin(Pin.GPIO1, Pin.IN, Pin.PULL_DISABLE, 0)
+>>> gpio1.read()
+0
+```
+
+### `Pin.set_dir`
+
+```python
+Pin.set_dir(value)
+```
+
+This method sets I/O mode of the pin.
+
+**Parameter:**
+
+- `value` - Integer type. I/O mode of the pin. `0` - Input mode. `1` - Output mode.
+
+**Return Value:**
+
+`0` - Successful execution
+
+`-1` - Failed execution
+
+### `Pin.get_dir`
+
+```python
+Pin.get_dir()
+```
+
+This method gets I/O mode of the pin.
+
+**Return Value:**
+
+I/O mode of pins.
+
+`0` - Input mode.
+
+`1` - Output mode.
+
+**Example:**
+
+```python
+>>> from machine import Pin
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+>>> gpio1.get_dir()
+1
+>>> gpio1.set_dir(Pin.IN)
+0
+>>> gpio1.get_dir()
+0
+```
+
+## Constants
+<div class="table-cons-QuecPython">
+<table class="EC600M" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG950S" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>>
+</tbody>
+</table>
+
+<table class="EC600U" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>>
+</tbody>
+</table>
+
+<table class="EC200U" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A/UC200A" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A-V1" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800N" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC25PA" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG95" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915U" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800M/EG810M" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912N" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+<table class="EC600E" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+<table class="EC800E" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800Z" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600G" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.GPIO48</td>
+  <td>GPIO48</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800G" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.GPIO48</td>
+  <td>GPIO48</td>
+</tr>
+<tr>
+  <td>Pin.GPIO49</td>
+  <td>GPIO49</td>
+</tr>
+<tr>
+  <td>Pin.GPIO50</td>
+  <td>GPIO50</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912U" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600K" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800K/EG800K" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800AK" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800Z" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC32" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC92" style="width: 100%;">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915N">
+<thead>
+<tr>
+  <th>Constant</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>Input mode</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>Output mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>Floating mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>Pull-up mode</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>Pull-down mode</td>
+</tr>
+</tbody>
+</table>
+</div>

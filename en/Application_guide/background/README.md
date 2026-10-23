@@ -1,0 +1,13 @@
+# Basics Introduction
+
+The Internet of Things (IoT) is a hot topic in the field of technology and an important direction for future development. Developing IoT devices requires knowledge and skills in multiple disciplines such as hardware, software, networking, and communication, which is a big challenge for beginners without hardware development and programming experience, this can be a significant challenge.
+
+QuecPython is a new solution of developing IoT applications, which is an embedded development framework designed by Quectel for our customers, enabling you to quickly develop various IoT applications in the Python language. The advantage of QuecPython lies in its ability to lower the threshold and difficulties of IoT development. You can easily control wireless communication modules, and perform functions such as data acquisition, transmission, and processing by writing simple Python scripts, without the process of compilation, download, or debugging. As a result, QuecPython has gained attention and popularity from various types and levels of users, ranging from amateurs to veterans.
+
+This document series provides a systematic and practical QuecPython guide for beginners and industry entry-level users. We will start from scratch and guide you step by step to master the basic concepts, features, usage, and application scenarios of QuecPython. QuecPython documents are example-oriented with abundant codes and cases so that you can enjoy the charm and convenience of QuecPython through hands-on practice.
+
+Before diving into the formal learning of QuecPython, we need to briefly introduce some basic concepts involved in IoT development. In this chapter, we will provide an overview of IoT, wireless communication modules, QuecPython, and other concepts from the user's perspective, explaining their relationships and functionality. After the introduction, you can gain a preliminary understanding of the basic knowledge of IoT development and have a clear perception of the characteristics and advantages of QuecPython.
+
+> Please note that this document series is not a professional textbook. It is written to help you quickly understand the most basic knowledge required for QuecPython and IoT development. Therefore, this chapter does not guarantee the integrity and preciseness of the content. Professional users can skip this chapter and proceed to the next one.
+>
+> For the knowledge relatively important but not frequently used during the development process, such as computer architecture, computer networks, and communication principles, this chapter does not provide a systematic introduction. It is recommended that users with sufficient capacity for learning read textbooks in those disciplines for further study.

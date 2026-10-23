@@ -1,0 +1,8306 @@
+# class Pin - 控制I/O引脚
+
+该类提供GPIO读写操作。引脚是控制I/O的基本对象，它有设置引脚的模式(输入,输出等)、获取和设置数字逻辑电平的方法。
+
+**示例：**
+
+```python
+from machine import Pin
+
+# 创建gpio对象
+gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 1)
+
+# 获取引脚电平
+gpio1.read()
+
+# 设置引脚电平
+gpio1.write(0)
+gpio1.write(1)
+
+# 设置输入输出模式
+gpio1.set_dir(Pin.IN)
+gpio1.set_dir(Pin.OUT)
+
+# 获取输入输出模式
+gpio1.get_dir()
+```
+
+## 构造函数
+
+### `machine.Pin`
+
+```python
+class machine.Pin(GPIOn, direction, pullMode, level)
+```
+
+**参数描述：**
+
+- `GPIOn` - GPIO号，int类型，<a href="#label_pinmap">点此查看 </a>GPIO引脚编号与物理引脚的映射关系。
+- `direction` - 输入输出模式，int类型，`IN` - 输入模式，`OUT` - 输出模式。
+- `pullMode` - 上下拉模式，int类型，说明如下：<br />`PULL_DISABLE` - 浮空模式 <br />`PULL_PU` - 上拉模式 <br />`PULL_PD` - 下拉模式
+- `level` - 引脚电平，int类型，`0` - 设置引脚为低电平, `1`- 设置引脚为高电平。
+
+**示例：**
+
+```python
+>>> # 创建gpio对象
+>>> from machine import Pin
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+```
+
+<span id="label_pinmap">**GPIO引脚编号与物理引脚的映射关系：**</span>
+
+> GPIO对应引脚号说明：文档中提供的GPIO引脚号对应的为模块外部的引脚编号，例如EC600MCN下GPIO1对应引脚号10，这里的引脚号10为模块外部的引脚编号。可参考提供的硬件资料查看模块外部的引脚编号。
+
+**平台引脚对应关系：**
+<div class="table-QuecPython">
+<table class="EC600M">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号10</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号11</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号14</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号15</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号48</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号58</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号59</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号60</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号61</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号62</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号63</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号70</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号55</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号71</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号72</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号109</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号110</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号112</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号111</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG950S">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号86</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号35</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号36</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号37</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号98</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号85</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号87</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号88</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600U">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号61(不可与GPIO31同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号58(不可与GPIO32同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号34(不可与GPIO41同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号60(不可与GPIO34同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号69(不可与GPIO35同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号70(不可与GPIO36同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号123(不可与GPIO43同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号118</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号9(不可与GPIO47同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号1(不可与GPIO37同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号4(不可与GPIO38同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号3(不可与GPIO39同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号2(不可与GPIO40同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号33(不可与GPIO42同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号124(不可与GPIO44同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号122(不可与GPIO45同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号121(不可与GPIO46同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号48</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号59(不可与GPIO33同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号66(不可与GPIO1同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号63(不可与GPIO2同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号67(不可与GPIO30同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号65(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号137(不可与GPIO5同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号62(不可与GPIO6同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号98(不可与GPIO10同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号95(不可与GPIO11同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号119(不可与GPIO12同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号100(不可与GPIO13同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号120(不可与GPIO3同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号16(不可与GPIO18同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号10(不可与GPIO7同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号14(不可与GPIO19同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号15(不可与GPIO20同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号13(不可与GPIO21同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号99(不可与GPIO9同时为gpio)</td>
+</tr>
+</tbody>
+</table>
+<table class="EC200U">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号27(不可与GPIO31同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号26(不可与GPIO32同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号24(不可与GPIO33同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号25(不可与GPIO34同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号13(不可与GPIO17同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号135(不可与GPIO36同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号136(不可与GPIO44同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号133</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号3(不可与GPIO37同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号40(不可与GPIO38同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号37(不可与GPIO39同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号38(不可与GPIO40同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号39(不可与GPIO41同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号141</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号142</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号121(不可与GPIO5同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号65(不可与GPIO42同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号64(不可与GPIO43同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号139(不可与GPIO45同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号126(不可与GPIO46同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号127(不可与GPIO47同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号125(不可与GPIO1同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号124(不可与GPIO2同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号123(不可与GPIO3同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号122(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号119(不可与GPIO6同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号134(不可与GPIO9同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号132(不可与GPIO10同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号131(不可与GPIO11同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号130(不可与GPIO12同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号129(不可与GPIO13同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号61(不可与GPIO18同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号62(不可与GPIO19同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号63(不可与GPIO7同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号66(不可与GPIO20同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号6(不可与GPIO21同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号23(不可与GPIO22同时为gpio)</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="EC200A/UC200A">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号24</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号135</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号136</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号37</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号139</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号127</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号119</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号62</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号63(EC200ACN_LA不支持)
+  <br> 被带有内置GNSS的EC200A系列作为GNSS_TXD</br></td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号66
+  <br> 被带有内置GNSS的EC200A系列作为GNSS_RXD</br></td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号23</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A-V1">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号24</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号135</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号136</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号37</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号139</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号127</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号62</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号63</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号23</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800N">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号86</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC25PA">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号8</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG95">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号85</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号86</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号87</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号88</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915U">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4(不可与GPIO41同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5(不可与GPIO36同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6(不可与GPIO35同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7(不可与GPIO24同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号1(不可与GPIO37同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号27(不可与GPIO32同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号28(不可与GPIO31同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号20(不可与GPIO30同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号88</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号36(不可与GPIO40同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号37(不可与GPIO38同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号16(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号42(不可与GPIO27同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号78(不可与GPIO26同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号83(不可与GPIO33同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号92(不可与GPIO16同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号95(不可与GPIO12同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号97(不可与GPIO11同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号98(不可与GPIO28同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号105(不可与GPIO3同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号106(不可与GPIO2同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号108(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号111(不可与GPIO23同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号114</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号115(不可与GPIO22同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号116(不可与GPIO1同时为gpio)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800M/EG810M">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号86(EG810M_EU不支持)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号87(EG810M_EU不支持)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号75</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号84(EG810M_EU不支持)</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号85(EG810M_EU不支持)</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912N">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号35</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号36</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号37</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号92</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号95</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号96</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号97</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号98</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号103</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号105</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号106</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号107</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号114</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号115</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号116</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600E">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号10(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号11(57)(I&PU)(不可与GPIO41同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号12(56)(I&PU)(不可与GPIO40同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号13(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号14(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号15(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号16(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号39(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号40(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号48(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号58(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号59(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号60(I&PD)(不可与GPIO36同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号61(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号62(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号63(I&PD)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号69(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号70(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+  <td>GPIO22</td>
+  <td>引脚号50(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号51(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号52(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号53(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号54(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号66(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号65(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号67(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号64(I&PU)(EC600ECN_LE&LQ不可用)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号31(I&PU)(不可与GPIO13同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号32(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号33(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号34(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号71(I&PU)(不可与GPIO3同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号72(I&PU)(不可与GPIO2同时为gpio)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800E">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33(I&PD)(不可与GPIO25同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49(I&PD)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55(I&PU)(EC800ECN_LE&LQ&CG不可用，不可与64脚同时使用)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57(67)(I&PU)(EC800ECN_LE&LQ&CG引脚号57无法使用)(不可与GPIO34同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58(66)(I&PU)(EC800ECN_LE&LQ&CG引脚号58无法使用)(不可与GPIO35同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80(I&PU)(EC800ECN_LE&LQ&CG不可用，不可与63脚同时使用)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81(I&PU)(EC800ECN_LE&LQ&CG不可用，不可与62脚同时使用)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号25(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17(I&PU)(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18(I&PU)</td>
+</tr>
+  <td>GPIO27</td>
+  <td>引脚号19(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29(I&PU)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号38(I&PU)(不可与GPIO13同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号39(I&PU)(不可与GPIO14同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16(I&PD)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78(I&PU)(EC800ECN_LE&LQ&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号85(I&PD)(EC800ECN_LE&LQ&LC&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号108(I&PD)(EC800ECN_LE&LQ&LC&CG不可用)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号109(I&PD)(EC800ECN_LE&LQ&LC&CG不可用)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800Z">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号25(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66(不可与GPIO26同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67(不可与GPIO25同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17(不可与GPIO24同时为gpio)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>引脚号18(不可与GPIO23同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19(AGPIO，驱动能力较弱，建议仅作输入引脚使用)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号85(AGPIO)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号108(AGPIO，驱动能力较弱，建议仅作输入引脚使用)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号109(AGPIO，驱动能力较弱，建议仅作输入引脚使用)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号101</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600G">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号61(不可与GPIO24同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号58(不可与GPIO25同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号60</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号69(不可与GPIO10同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号70(不可与GPIO11同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号123</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号132</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号9</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号1(不可与GPIO5同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号4(不可与GPIO6同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号124(不可与GPIO37同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号104</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号103</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号48</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号39(不可与GPIO46同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号40(不可与GPIO1同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号49(不可与GPIO2同时为gpio)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>引脚号50(不可与GPIO30同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号59(不可与GPIO26同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号63</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号137</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号62</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号105(不可与GPIO19同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号106</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号107</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号126</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号120</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号10</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号14</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号13(不可与GPIO23同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号116</td>
+</tr>
+<tr>
+  <td>GPIO48</td>
+  <td>引脚号31</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800G">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30(不可与GPIO45同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31(不可与GPIO46同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32(不可与GPIO47同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33(不可与GPIO48同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50(不可与GPIO50同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57(不可与GPIO49同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58(不可与GPIO20同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号84</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号76(不可与GPIO35同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号83(不可与GPIO14同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号86(不可与GPIO34同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号38(不可与GPIO21同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号39(不可与GPIO17同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号85</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号80(不可与GPIO44同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号107</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号103</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号101(不可与GPIO41同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO45</td>
+  <td>引脚号79(不可与GPIO1同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO46</td>
+  <td>引脚号100(不可与GPIO2同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号108(不可与GPIO3同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO48</td>
+  <td>引脚号109(不可与GPIO4同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO49</td>
+  <td>引脚号75(不可与GPIO13同时为gpio)</td>
+</tr>
+<tr>
+  <td>GPIO50</td>
+  <td>引脚号74(不可与GPIO6同时为gpio)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912U">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4(不可与GPIO40同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5(不可与GPIO36同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6(不可与GPIO35同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7(不可与GPIO8同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号1(不可与GPIO19同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号16(不可与GPIO4同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号26(EG912UGLAA不支持)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号27(不可与GPIO31同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号28(不可与GPIO29同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号64(EG912UGLAA不支持)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号20(不可与GPIO28同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号108(不可与GPIO7同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号88(EG912UGLAA不支持)</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号36(不可与GPIO39同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号37(不可与GPIO30同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号42(不可与GPIO26同时为GPIO)</td>
+</tr>
+  <td>GPIO26</td>
+  <td>引脚号78(不可与GPIO25同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号83(不可与GPIO32同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号92(不可与GPIO16同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号95(不可与GPIO12同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号111(不可与GPIO22同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号97(不可与GPIO11同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号98(不可与GPIO27同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号105(不可与GPIO3同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号106(不可与GPIO2同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号114</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号115(不可与GPIO21同时为GPIO)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号116(不可与GPIO1同时为GPIO)</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600K">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号10</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号11</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号14</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号15</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号48</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号58</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号59</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号60</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号61</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号62</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号63</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号70</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号3</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号54</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号55（boot脚，内部有上拉）</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号56</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号57</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号2</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号65</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号34</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800K/EG800K">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号57(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号58(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号86</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号87</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29(EG800KCN不可用)</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号75</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800AK">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54（GNSS型号已作为 GNSS_RST）</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55（GNSS型号已作为 GNSS_PWR_EN）</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80（GNSS型号已作为 GNSS_32KHz_CLK）</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号76</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号77</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号82</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号86（GNSS型号已作为 GNSS_UART_RTS）</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号87（GNSS型号已作为 GNSS_UART_CTS）</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28（GNSS型号已作为 GNSS_UART3_RXD）</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29（GNSS型号已作为 GNSS_UART3_TXD）</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号68</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号69</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号74</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号75</td>
+</tr>
+<tr>
+  <td>GPIO44</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO47</td>
+  <td>引脚号79</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800Z">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号32</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号33</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号49</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号50</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号51</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号52</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号53</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号54（内置GNSS RESET PIN）</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号55（内置GNSS UART占用）</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号56（内置GNSS UART占用）</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号80</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号81</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号25(AGPIO的状态不受睡眠模式的影响)</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号66</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号67</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号17</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号20(AGPIO的状态不受睡眠模式的影响)</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号16(AGPIO的状态不受睡眠模式的影响)</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号6(AGPIOWU可作为WAKEUP和AGPIO类型)</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号5(AGPIOWU可作为WAKEUP和AGPIO类型)</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号100(AGPIO的状态不受睡眠模式的影响)
+  
+  (同时其也是GNSS的LDO_EN引脚)</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号101(AGPIO的状态不受睡眠模式的影响)
+  
+  (同时其也是GNSS的VMAIN_EN 电源控制引脚)</td>
+</tr>
+<tr>
+  <td>GPIO42</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO43</td>
+  <td>引脚号64</td>
+</tr>
+</tbody>
+</table>
+
+<table class="FCM360W">
+<thead>
+<tr>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>引脚号8</td>
+</tr>
+<tr>
+  <td>引脚号9</td>
+</tr>
+<tr>
+  <td>引脚号10</td>
+</tr>
+<tr>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>引脚号14</td>
+</tr>
+<tr>
+  <td>引脚号15</td>
+</tr>
+<tr>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>引脚号19</td>
+<tr>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>引脚号29</td>
+</tr>
+</tbody>
+</table>
+
+<table class="FCM362K">
+<thead>
+<tr>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>引脚号8</td>
+</tr>
+<tr>
+  <td>引脚号9</td>
+</tr>
+<tr>
+  <td>引脚号14</td>
+</tr>
+<tr>
+  <td>引脚号15</td>
+</tr>
+<tr>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>引脚号29</td>
+</tr>
+<tr>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>引脚号31</td>
+</tr>
+<tr>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>引脚号35</td>
+</tr>
+<tr>
+  <td>引脚号37</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC32">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号24</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号43</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号44</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC92">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号12</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号13</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号42</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号24</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号43</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号44</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915N">
+<thead>
+<tr>
+  <th>GPIO号</th>
+  <th>引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPIO1</td>
+  <td>引脚号4</td>
+</tr>
+<tr>
+  <td>GPIO2</td>
+  <td>引脚号5</td>
+</tr>
+<tr>
+  <td>GPIO3</td>
+  <td>引脚号6</td>
+</tr>
+<tr>
+  <td>GPIO4</td>
+  <td>引脚号7</td>
+</tr>
+<tr>
+  <td>GPIO5</td>
+  <td>引脚号18</td>
+</tr>
+<tr>
+  <td>GPIO6</td>
+  <td>引脚号19</td>
+</tr>
+<tr>
+  <td>GPIO7</td>
+  <td>引脚号1</td>
+</tr>
+<tr>
+  <td>GPIO8</td>
+  <td>引脚号38</td>
+</tr>
+<tr>
+  <td>GPIO9</td>
+  <td>引脚号25</td>
+</tr>
+<tr>
+  <td>GPIO10</td>
+  <td>引脚号26</td>
+</tr>
+<tr>
+  <td>GPIO11</td>
+  <td>引脚号27</td>
+</tr>
+<tr>
+  <td>GPIO12</td>
+  <td>引脚号28</td>
+</tr>
+<tr>
+  <td>GPIO13</td>
+  <td>引脚号40</td>
+</tr>
+<tr>
+  <td>GPIO14</td>
+  <td>引脚号41</td>
+</tr>
+<tr>
+  <td>GPIO15</td>
+  <td>引脚号64</td>
+</tr>
+<tr>
+  <td>GPIO16</td>
+  <td>引脚号20</td>
+</tr>
+<tr>
+  <td>GPIO17</td>
+  <td>引脚号21</td>
+</tr>
+<tr>
+  <td>GPIO18</td>
+  <td>引脚号34</td>
+</tr>
+<tr>
+  <td>GPIO19</td>
+  <td>引脚号35</td>
+</tr>
+<tr>
+  <td>GPIO20</td>
+  <td>引脚号30</td>
+</tr>
+<tr>
+  <td>GPIO21</td>
+  <td>引脚号22</td>
+</tr>
+<tr>
+  <td>GPIO22</td>
+  <td>引脚号36</td>
+</tr>
+<tr>
+  <td>GPIO23</td>
+  <td>引脚号37</td>
+</tr>
+<tr>
+  <td>GPIO24</td>
+  <td>引脚号16</td>
+</tr>
+<tr>
+  <td>GPIO25</td>
+  <td>引脚号39</td>
+</tr>
+<tr>
+  <td>GPIO26</td>
+  <td>引脚号23</td>
+</tr>
+<tr>
+  <td>GPIO27</td>
+  <td>引脚号78</td>
+</tr>
+<tr>
+  <td>GPIO28</td>
+  <td>引脚号83</td>
+</tr>
+<tr>
+  <td>GPIO29</td>
+  <td>引脚号107</td>
+</tr>
+<tr>
+  <td>GPIO30</td>
+  <td>引脚号92</td>
+</tr>
+<tr>
+  <td>GPIO31</td>
+  <td>引脚号95</td>
+</tr>
+<tr>
+  <td>GPIO32</td>
+  <td>引脚号97</td>
+</tr>
+<tr>
+  <td>GPIO33</td>
+  <td>引脚号98</td>
+</tr>
+<tr>
+  <td>GPIO34</td>
+  <td>引脚号104</td>
+</tr>
+<tr>
+  <td>GPIO35</td>
+  <td>引脚号105</td>
+</tr>
+<tr>
+  <td>GPIO36</td>
+  <td>引脚号106</td>
+</tr>
+<tr>
+  <td>GPIO37</td>
+  <td>引脚号103</td>
+</tr>
+<tr>
+  <td>GPIO38</td>
+  <td>引脚号96</td>
+</tr>
+<tr>
+  <td>GPIO39</td>
+  <td>引脚号114</td>
+</tr>
+<tr>
+  <td>GPIO40</td>
+  <td>引脚号115</td>
+</tr>
+<tr>
+  <td>GPIO41</td>
+  <td>引脚号116</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br/>
+<div class="content-QuecPython">
+<div class="EC600E">
+<blockquote>
+<p>注：</p>
+        <p>1.I&PU：输入模式下，仅支持浮空和上拉模式</p >
+        <p>2.I&PD：输入模式下，仅支持浮空和下拉模式</p >
+        <p>3.EC600E的ExtInt功能不支持上升和下降沿同时触发中断</p >
+</blockquote>
+</div>
+
+<div class="EC800E">
+<blockquote>
+<p>注：</p>
+        <p>1.I&PU：输入模式下，仅支持浮空和上拉模式</p >
+        <p>2.I&PD：输入模式下，仅支持浮空和下拉模式</p >
+        <p>3.EC800ECN_LE&LQ&CG不可用：指该型号模块的引脚内部悬空，所以无法使用</p >
+        <p>4.模组的Pin67、Pin66 和Pin57、Pin58 共用内部同一路IO，即改变GPIO13的电平，Pin57和Pin67会同时变化</p >
+        <p>5.在EC800ECN_LE&LQ&CG型号的模组上，Pin57、Pin58内部悬空，所以仅可使用Pin67、Pin66作为GPIO13、14</p >
+        <p>6.EC800E的ExtInt功能不支持上升和下降沿同时触发中断</p >
+        <p>7.Pin55、80、81分别不可与Pin64、63、62（SIM2管脚）同时使用</p >
+</blockquote>
+</div>
+
+<div class="EC800Z">
+<blockquote>
+<p>注：</p>
+        <p>1.AGPIO在睡眠模式状态下，电平状态保持不变，普通GPIO在睡眠状态下电平不能保持</p >
+        <p>2.GPIO27、GPIO39、GPIO40驱动能力较弱，建议仅做输入引脚使用</p >
+</blockquote>
+</div>
+
+<div class="EG800Z">
+<blockquote>
+<p>注：</p>
+        <p>1.AGPIO在睡眠模式状态下，电平状态保持不变，普通GPIO在睡眠状态下电平不能保持</p >
+        <p>2.GPIO38、GPIO49驱动能力较弱，建议仅做输入引脚使用</p >
+</blockquote>
+</div>
+
+<div class="EC200U">
+<blockquote>
+<p>注：</p>
+        <p>1.Pin37-GPIO11,Pin38-GPIO12,Pin39-GPIO13,支持GNSS的模块不会启用此引脚的复用功能，因此该引脚需要保持处于断开状态。</p >
+</blockquote>
+</div>
+
+
+</div>
+
+## 方法
+
+### `Pin.read`
+
+```python
+Pin.read()
+```
+
+该方法用于读取PIN脚电平。
+
+**返回值描述：**
+
+返回引脚电平，`0`表示获取到的引脚电平为低电平，`1` 表示获取到的引脚电平为高电平。
+
+### `Pin.write`
+
+```
+Pin.write(value)
+```
+
+该方法用于设置PIN脚电平。
+
+> 设置高低电平前需要保证引脚为输出模式。
+
+**参数描述：**
+
+- `value` - 引脚电平，int类型，`0`表示设置当前PIN脚输出低电平，`1`表示设置当前PIN脚输出高电平。
+
+**返回值描述：**
+
+设置成功返回整型值`0`，设置失败返回整型值`-1`。
+
+**示例：**
+
+```python
+>>> from machine import Pin
+#GPIO输出模式 设置引脚电平
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+>>> gpio1.write(1)
+0
+#GPIO输入模式 读取引脚电平
+>>> gpio1 = Pin(Pin.GPIO1, Pin.IN, Pin.PULL_DISABLE, 0)
+>>> gpio1.read()
+0
+```
+
+### `Pin.set_dir`
+
+```python
+Pin.set_dir(value)
+```
+
+该方法用于设置PIN脚GPIO的输入输出模式。
+
+**参数描述：**
+
+- `value` - 引脚电平，int类型，说明如下：<br />Pin.IN : `0` - 输入模式 <br />Pin.OUT : `1` - 输出模式
+
+**返回值描述：**
+
+设置成功返回整型值`0`，设置失败返回整型值`-1`。
+
+### `Pin.get_dir`
+
+```python
+Pin.get_dir()
+```
+
+该方法用于获取PIN脚GPIO的输入输出模式。
+
+**返回值描述：**
+
+返回PIN脚输入输出模式，`0`表示输入模式，`1` 表示输出模式。
+
+**示例：**
+
+```python
+>>> from machine import Pin
+>>> gpio1 = Pin(Pin.GPIO1, Pin.OUT, Pin.PULL_DISABLE, 0)
+>>> gpio1.get_dir()
+1
+>>> gpio1.set_dir(Pin.IN)
+0
+>>> gpio1.get_dir()
+0
+```
+
+## 常量
+<div class="table-cons-QuecPython">
+<table class="EC600M" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG950S" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600U" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200U" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A/UC200A" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC200A-V1" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800N" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC25PA" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BG95" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915U" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800M/EG810M" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG912N" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600E" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+<table class="EC800E" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC800Z" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EC600G" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.GPIO48</td>
+  <td>GPIO48</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+<table class="EC800G" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO45</td>
+  <td>GPIO45</td>
+</tr>
+<tr>
+  <td>Pin.GPIO46</td>
+  <td>GPIO46</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.GPIO48</td>
+  <td>GPIO48</td>
+</tr>
+<tr>
+  <td>Pin.GPIO49</td>
+  <td>GPIO49</td>
+</tr>
+<tr>
+  <td>Pin.GPIO50</td>
+  <td>GPIO50</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+<table class="EG912U" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+<table class="EC600K" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+<table class="EC800K/EG800K" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800AK" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO44</td>
+  <td>GPIO44</td>
+</tr>
+<tr>
+  <td>Pin.GPIO47</td>
+  <td>GPIO47</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG800Z" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.GPIO42</td>
+  <td>GPIO42</td>
+</tr>
+<tr>
+  <td>Pin.GPIO43</td>
+  <td>GPIO43</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC32" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="BC92" style="width: 100%;">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+
+<table class="EG915N">
+<thead>
+<tr>
+  <th>常量</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pin.GPIO1</td>
+  <td>GPIO1</td>
+</tr>
+<tr>
+  <td>Pin.GPIO2</td>
+  <td>GPIO2</td>
+</tr>
+<tr>
+  <td>Pin.GPIO3</td>
+  <td>GPIO3</td>
+</tr>
+<tr>
+  <td>Pin.GPIO4</td>
+  <td>GPIO4</td>
+</tr>
+<tr>
+  <td>Pin.GPIO5</td>
+  <td>GPIO5</td>
+</tr>
+<tr>
+  <td>Pin.GPIO6</td>
+  <td>GPIO6</td>
+</tr>
+<tr>
+  <td>Pin.GPIO7</td>
+  <td>GPIO7</td>
+</tr>
+<tr>
+  <td>Pin.GPIO8</td>
+  <td>GPIO8</td>
+</tr>
+<tr>
+  <td>Pin.GPIO9</td>
+  <td>GPIO9</td>
+</tr>
+<tr>
+  <td>Pin.GPIO10</td>
+  <td>GPIO10</td>
+</tr>
+<tr>
+  <td>Pin.GPIO11</td>
+  <td>GPIO11</td>
+</tr>
+<tr>
+  <td>Pin.GPIO12</td>
+  <td>GPIO12</td>
+</tr>
+<tr>
+  <td>Pin.GPIO13</td>
+  <td>GPIO13</td>
+</tr>
+<tr>
+  <td>Pin.GPIO14</td>
+  <td>GPIO14</td>
+</tr>
+<tr>
+  <td>Pin.GPIO15</td>
+  <td>GPIO15</td>
+</tr>
+<tr>
+  <td>Pin.GPIO16</td>
+  <td>GPIO16</td>
+</tr>
+<tr>
+  <td>Pin.GPIO17</td>
+  <td>GPIO17</td>
+</tr>
+<tr>
+  <td>Pin.GPIO18</td>
+  <td>GPIO18</td>
+</tr>
+<tr>
+  <td>Pin.GPIO19</td>
+  <td>GPIO19</td>
+</tr>
+<tr>
+  <td>Pin.GPIO20</td>
+  <td>GPIO20</td>
+</tr>
+<tr>
+  <td>Pin.GPIO21</td>
+  <td>GPIO21</td>
+</tr>
+<tr>
+  <td>Pin.GPIO22</td>
+  <td>GPIO22</td>
+</tr>
+<tr>
+  <td>Pin.GPIO23</td>
+  <td>GPIO23</td>
+</tr>
+<tr>
+  <td>Pin.GPIO24</td>
+  <td>GPIO24</td>
+</tr>
+<tr>
+  <td>Pin.GPIO25</td>
+  <td>GPIO25</td>
+</tr>
+<tr>
+  <td>Pin.GPIO26</td>
+  <td>GPIO26</td>
+</tr>
+<tr>
+  <td>Pin.GPIO27</td>
+  <td>GPIO27</td>
+</tr>
+<tr>
+  <td>Pin.GPIO28</td>
+  <td>GPIO28</td>
+</tr>
+<tr>
+  <td>Pin.GPIO29</td>
+  <td>GPIO29</td>
+</tr>
+<tr>
+  <td>Pin.GPIO30</td>
+  <td>GPIO30</td>
+</tr>
+<tr>
+  <td>Pin.GPIO31</td>
+  <td>GPIO31</td>
+</tr>
+<tr>
+  <td>Pin.GPIO32</td>
+  <td>GPIO32</td>
+</tr>
+<tr>
+  <td>Pin.GPIO33</td>
+  <td>GPIO33</td>
+</tr>
+<tr>
+  <td>Pin.GPIO34</td>
+  <td>GPIO34</td>
+</tr>
+<tr>
+  <td>Pin.GPIO35</td>
+  <td>GPIO35</td>
+</tr>
+<tr>
+  <td>Pin.GPIO36</td>
+  <td>GPIO36</td>
+</tr>
+<tr>
+  <td>Pin.GPIO37</td>
+  <td>GPIO37</td>
+</tr>
+<tr>
+  <td>Pin.GPIO38</td>
+  <td>GPIO38</td>
+</tr>
+<tr>
+  <td>Pin.GPIO39</td>
+  <td>GPIO39</td>
+</tr>
+<tr>
+  <td>Pin.GPIO40</td>
+  <td>GPIO40</td>
+</tr>
+<tr>
+  <td>Pin.GPIO41</td>
+  <td>GPIO41</td>
+</tr>
+<tr>
+  <td>Pin.IN</td>
+  <td>输入模式</td>
+</tr>
+<tr>
+  <td>Pin.OUT</td>
+  <td>输出模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_DISABLE</td>
+  <td>浮空模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PU</td>
+  <td>上拉模式</td>
+</tr>
+<tr>
+  <td>Pin.PULL_PD</td>
+  <td>下拉模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,339 @@
+# USB 应用指导
+
+USB（Universal Serial Bus） 是一种通用的总线标准，用于连接主机和外设设备。USB 主机可以通过 USB 接口与 USB 设备连接，实现数据传输、电源供给等功能。
+
+USB IF（USB Implementers Forum）是 USB 标准的制定者，它制定了 USB 标准，包括 USB 1.1、USB 2.0、USB 3.0 等，定义了 USB 接口的物理层、数据链路层、传输层、会话层、表示层等协议，以及 USB 设备类（Device  Class）标准，常见的设备类包括 HID（Human Interface Device，人机接口设备）、MSC（Mass Storage  Class，大容量存储设备）、CDC（Communication Device Class，通信设备）、Audio、Video 等。
+
+
+
+## 概述
+
+蜂窝通信模组具有USB接口，以方便将模组连接到主机设备（如微控制器或处理器）。USB接口不仅提供数据通信，还可以为蜂窝通信模组提供电源。
+
+ 蜂窝通信模组的USB接口通常用于以下目的：
+
+1. **数据通信**：主机设备通过USB接口与蜂窝通信模组通信。
+2. **模组控制**：通过USB接口发送AT命令至模组，进行网络通信、文件操作、硬件控制等。
+3.  **固件下载**：USB接口可以用于将新的固件下载到蜂窝通信模组。
+4.  **USB网卡**：某些蜂窝通信模组支持USB网卡模式。在这种模式下，设备可以将USB接口视为网络接口，就像以太网接口一样。这允许设备通过USB接口直接进行网络通信，就像通过有线网络一样。通常，这需要在设备上安装适当的驱动程序。
+5. **诊断和调试**：USB接口还可以用于诊断和调试蜂窝通信模组。例如，设备可以通过USB接口获取模组的状态信息，或者发送特殊的命令来测试模组的功能。
+7. **电源供应**：USB接口通常也用于为蜂窝通信模组供电。
+
+QuecPython系列模组支持情况如下：
+
+| 模组       | USB Host | USB Device | USB OTG |
+| ---------- | -------- | ---------- | ------- |
+| EC200U | *        | √          | *       |
+| EC600U | *        | √          | *       |
+| EG912U | *        | √          | *       |
+| EG915U | *        | √          | *       |
+| EC600G | *        | √          | √       |
+| EC800G | *        | √          | √       |
+| EG912N | ×        | √          | ×       |
+| EG915N | ×        | √          | ×       |
+| EC600N | ×        | √          | ×       |
+| EC600S | ×        | √          | ×       |
+| EC800N | ×        | √          | ×       |
+| EC600M | ×        | √          | ×       |
+| EC800M | ×        | √          | ×       |
+| EG810M | ×        | √          | ×       |
+| EC200A | ×        | √          | ×       |
+| UC200A | ×        | √          | ×       |
+| EC600E | ×        | √          | ×       |
+| EC800E | ×        | √          | ×       |
+| BG95_XX| ×        | √          | ×       |
+| BG600L | ×        | √          | ×       |
+
+> 注释：
+>
+> - √：支持
+> - ×：不支持
+> - *：开发中
+
+
+
+QuecPython支持各种各样的USB应用，包括USB多媒体类应用。
+
+![usb_solutions](../media/hardware/USB-interfaces/usb_solutions.png)
+
+## USB速率
+
+目前QuecPython支持的，并且带USB接口的模组，USB协议为 <font color='red'>*USB2.0*</font>。
+
+USB 2.0标准中包含三种数据传输速率：
+
+1. **低速（Low-Speed）**：此速率最高达到1.5 Mbps（Megabits per second），这种模式主要用于鼠标和键盘等低带宽设备。
+2. **全速（Full-Speed）**：全速模式的传输速度最高达到12 Mbps，这是USB 1.1的最高速率，对于许多常规设备（如USB摄像头，打印机等）来说，全速模式已经足够使用。
+3. **高速（High-Speed）**：高速模式是USB 2.0的主要新特性，最高传输速度可达480 Mbps。这使得USB 2.0能够支持大量数据传输需求的设备，如外部硬盘，高分辨率的摄像头，网络适配器等。
+
+以上的速率都是理论上的最高值，在实际应用中，由于各种原因（包括但不限于USB控制器的性能，设备的性能，线缆的质量，以及系统的负载等），实际的传输速率可能会低于这些值。
+
+
+
+## USB 电气属性
+
+Type-A 接口的 USB 电气属性如下：
+
+| **Pin** | **Name** | **Cable color** | **Description**  |
+| ------- | -------- | --------------- | ---------------- |
+| 1       | VBUS     | **Red**         | +5V              |
+| 2       | D-       | **White**       | Data-（0或3.3V） |
+| 3       | D+       | **Green**       | Data+（0或3.3V） |
+| 4       | GND      | **Black**       | Ground           |
+
+- 对于**自供电设备，需要使用 1 个额外 IO 检测 VBUS 电压**，用于检测设备是否拔出。
+- D- D+ 接反不会损坏硬件，但是主机将无法识别。
+
+
+
+## 驱动安装
+
+驱动程序（device driver）是一种可以使计算机和设备通信的特殊程序，操作系统只能通过这个接口，才能控制硬件设备的工作。
+
+详细安装请参考[快速入门文档](https://developer.quectel.com/doc/quecpython/Getting_started/zh/index.html)
+
+**目前QuecPython主要生成如下类型的串口和设备类型（以EC600M为例，其它平台类似）：**
+
+<img src="../media/hardware/USB-interfaces/Device_Manager.png" alt="Device_Manager" style="zoom:150%;" />
+
+![1688367069194](../media/hardware/USB-interfaces/Net_Manager.png)
+
+- AT串口：用于AT命令交互
+- DIAG：用于USB Debug 输出
+- REPL：用于QuecPython交互使用
+- RNDIS:网卡
+
+具体各个平台支持情况如下：
+#### UNISOC8910平台（EC200U、EC600U、EG912U、EG915U）
+
+* Quectel Modem：该端口主要用于ppp拨号，也可用于发送AT，但是一般不用该端口发送AT，而是使用专用AT端口。
+
+* Quectel USB AP Log Port：该端口用于抓取AP Log。
+
+* Quectel USB AT Port：该端口用于发送AT指令，是专用AT端口。
+
+* Quectel USB CP Log Port：该端口用于抓取CP Log。
+
+* Quectel USB Diag Port：该端口保留。
+
+* Quectel USB MOS Port：该端口保留。
+
+* Quectel USB REPL Port：对于QuecPython固件而言，该端口是python的REPL端口，用户可通过该端口执行一些python代码。
+
+#### UNISOC8850平台（EC600G、EC800G）
+
+* Quectel USB AT Port：该端口用于发送AT指令。
+* Quectel USB CP Port：该端口用于抓取CP Log。
+* Quectel USB Debug Port：在USB连接下，该端口保留，用户可忽略。
+
+* Quectel USB DIAG Port：该端口用于抓取AP Log。
+
+* Quectel USB REPL Port：对于QuecPython固件而言，该端口是python的REPL端口，用户可通过该端口执行一些python代码。
+
+#### Qualcomm平台（BG95_XX、BG600L）
+
+* Quectel USB DM Port：该端口是AP和CP log的输出端口。
+* Quectel USB Modem：该端口可用于发送AT指令。
+* Quectel USB REPL Port：对于QuecPython固件而言，该端口是python的REPL端口，用户可通过该端口执行一些python代码。
+
+#### EIGEN平台（EC600E、EC600E）
+
+* Quectel USB AT Port：该端口用于发送AT指令，是专用AT端口。
+* Quectel USB Diag Port：该端口用于AP/CP log的抓取以及dump文件的导出。
+* USB 串行设备：对于QuecPython固件而言，该端口是python的REPL端口，用户可通过该端口执行一些python代码。需要注意的是，不同的平台，python的REPL端口名称可能是不同的。如果用户不清楚哪个端口是python的REPL端口，可以咨询我司的FAE进行确认。
+
+
+### AT
+
+ 蜂窝通信模组的USB-AT通信是基于USB Communication Device Class (CDC)规范。通常，蜂窝通信模组会在USB接口上提供一或多个虚拟的串行接口，这些接口可以被主机系统识别为标准的COM口，从而可以通过AT命令与模组进行交互。
+
+实际操作中，主机系统通过USB线连接蜂窝通信模组，模组的驱动程序将在主机系统中创建一个或多个虚拟COM口。这些虚拟COM口可以被主机系统中的应用程序如同真实的串行接口那样使用，以实现AT命令的收发。
+
+> 注：若想了解蜂窝通信模组支持的AT命令集,请联系QuecPython团队的技术支持
+>
+
+### DIAG
+
+USB-DIAG是一种用于诊断和调试的通信协议。DIAG，也称为诊断接口，主要用于访问和控制蜂窝通信模组的内部状态和功能。以下是关于蜂窝通信模组USB模拟DIAG的基本原理和应用的详细说明：
+
+**原理**：
+
+蜂窝通信模组的USB模拟DIAG是通过USB接口实现的。当主机设备（如计算机或嵌入式系统）通过USB接口与蜂窝通信模组连接时，模组可以识别主机设备发送的特定命令，并返回相应的诊断信息。这种诊断信息可能包括硬件状态、网络状态、固件版本、系统日志等。
+
+诊断命令通常包括获取状态信息、设置参数、执行特定操作等。具体的命令集和返回的信息取决于模组的固件和硬件设计。
+
+**应用**：
+
+1. **硬件和网络状态诊断**：通过DIAG接口，可以获取模组的硬件状态（如功率、温度、电压等）和网络状态（如信号强度、数据速率等）。
+2. **固件升级和配置**：DIAG接口还可以用于下载新的固件到模组，或更改模组的配置参数。
+3. **故障排查和调试**：如果模组出现问题，可以通过DIAG接口获取详细的系统日志和错误信息，帮助排查和解决问题。
+4. **性能测试和优化**：通过获取模组的详细状态信息，可以进行性能测试和优化。例如，可以通过调整网络参数来优化数据传输速率。
+
+总的来说，蜂窝通信模组的USB模拟DIAG功能是一种强大的工具，可以用于设备状态监控、故障排查和调试、性能测试和优化等多种应用。
+
+### REPL
+
+REPL，全称 Read-Eval-Print Loop（读取-评估-打印循环），是一种简单的交互式编程环境。它允许用户输入代码（或命令），然后立即看到执行结果。Python是著名的语言之一，支持REPL环境。
+
+在蜂窝通信模组上，USB-REPL的原理是通过USB接口提供一种交互式的编程和调试环境。在这个环境中，用户可以通过输入命令（或代码）并立即看到执行结果，以便于进行实时的交互式编程和调试。
+
+应用方面，USB模拟REPL的主要用途包括：
+
+1. **实时编程和测试**：用户可以通过REPL环境，输入命令或代码，立即看到执行结果，这对于开发人员进行快速原型开发或实时测试非常有用。
+2. **设备配置和管理**：在REPL环境中，用户可以输入命令来查询和更改模组的配置，以便于进行设备的配置和管理。
+3. **故障排查和调试**：当模组出现问题时，用户可以通过REPL环境输入命令或代码，查看执行结果，从而帮助排查和修复问题。
+
+总的来说，USB模拟REPL的原理是通过USB接口，提供一种实时的交互式编程和调试环境，它的主要应用是在实时编程和测试、设备配置和管理，以及故障排查和调试等方面。
+
+> 在QuecPython系列部分模组中REPL口也可以通过[machine.UART](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/machine.UART.html#%3Ccode%3Emachine.UART%3C/code%3E)初始化UART3来实现普通串口功能。当我们使用UART3时，该REPL口为普通串口功能，关闭UART3时，该口自动恢复为REPL。
+
+
+
+### Modem
+
+Modem 是Modulator（调制器）与Demodulator（解调器）的简称，原本是指将数字信号转换为可以通过电话线路传输的模拟信号的设备。但在计算机领域，我们常说的"Modem模式"，通常是指USB设备模拟一个虚拟的串行端口(COM端口)，使得计算机可以通过这个虚拟串行端口与USB设备通信。
+
+在蜂窝通信模组中，USB模拟Modem的原理是通过USB接口将模组模拟为一个虚拟的Modem设备。通过模拟Modem，蜂窝通信模组可以与主机（如计算机、嵌入式设备）进行数据通信。
+
+应用方面，USB模拟Modem的主要用途包括：
+
+1. **数据通信**：主机可以通过虚拟的Modem端口与蜂窝通信模组进行数据通信，例如发送AT命令进行控制操作，或者收发网络数据。
+2. **网络连接**：蜂窝通信模组可以通过模拟Modem，提供拨号上网的功能。这就是我们常说的"3G Modem"或"4G Modem"，也就是通过蜂窝网络提供Internet连接的设备。
+3. **设备管理**：主机可以通过Modem端口进行设备管理操作，例如查询设备状态、更新固件等。
+
+因此，USB模拟Modem在蜂窝通信模组中，可以提供数据通信、网络连接和设备管理等功能。
+
+
+
+### ECM/RNDIS
+
+蜂窝通信模组的USB接口可以模拟ECM（Ethernet Control Model）和RNDIS（Remote Network Driver Interface Specification）接口，这两种接口都是用于实现USB以太网的功能。
+
+**ECM** 是USB接口的一种工作模式，用于实现USB网络。USB ECM模式的工作原理是将USB接口模拟为一个以太网接口，从而可以通过USB接口进行以太网通信。USB ECM接口可以支持TCP/IP等网络协议，可以用于实现USB设备与主机的网络通信。
+
+**RNDIS** 是微软提出的一种用于USB设备的网络接口标准，是一种USB以太网的实现方式。RNDIS通过将USB设备模拟为一个虚拟的以太网设备，从而实现USB设备与主机的网络通信。
+
+在蜂窝通信模组中，USB模拟ECM和RNDIS的主要应用包括：
+
+1. **网络共享**：通过ECM或RNDIS接口，蜂窝通信模组可以将自身的蜂窝网络共享给通过USB接口连接的设备，从而实现USB设备的网络接入。
+2. **远程管理**：通过ECM或RNDIS接口，主机设备可以通过网络远程管理和控制蜂窝通信模组，例如查询设备状态、更改配置、进行固件升级等。
+3. **数据通信**：通过ECM或RNDIS接口，蜂窝通信模组可以与主机设备进行高速的数据通信，例如进行文件传输、数据同步等。
+
+综上，蜂窝通信模组的USB模拟ECM和RNDIS接口，提供了一种高效的方式，实现设备间的网络通信和设备的远程管理。
+
+具体使用请参考 **[网络应用文档-USB网卡](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/misc.USBNET.html)**。
+
+
+
+## 固件下载
+
+固件下载示例请参考[QPYcom](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html)工具使用,或参考[快速入门文档](https://developer.quectel.com/doc/quecpython/Getting_started/zh/index.html)
+
+模组的USB固件下载主要涉及以下几个步骤 :
+
+1. **驱动安装**：参考[驱动安装](#驱动安装)章节安装，若已安装则跳过。
+2. **模组识别**：连接模组到计算机的USB接口，你的操作系统应该能识别并成功加载驱动。在Windows上，你可以在设备管理器中查看模组的状态；在Linux上，你可以使用dmesg命令查看系统日志，确认模组已被系统识别。
+3. **进入下载模式**：你需要将模组置于固件下载模式。这通常需要发送特定的AT命令或通过某种特殊的操作。具体的方法应参考模组的[用户手册或开发指南](https://developer.quectel.com/doc/quecpython/Application_guide/zh/firmware-upgrade/firmware-burning.html#%E5%8F%91%E9%80%81-AT%2BQDOWNLOAD-%E6%8C%87%E4%BB%A4)。
+4. **固件下载**：在模组进入固件下载模式后，你可以通过USB接口将新的固件数据发送给模组。在某些情况下，可能需要使用特殊的下载工具或者协议。完成下载后，通常需要重启模组以应用新的固件。
+
+
+
+
+
+## 常见应用
+
+### 插拔检测
+
+USB拔插检测接口请参考[misc.USB](https://developer.quectel.com/doc/quecpython/API_reference/zh/peripherals/misc.USB.html)
+
+蜂窝通信模组作为一个USB设备（或称为USB从设备，USB Device），可以通过USB接口连接到主机（比如PC或嵌入式主控板）。在这种情况下，插拔检测通常由主机端进行，但模组自身也应能够识别这些连接和断开事件。
+
+硬件层面，大多数USB主控制器（Host Controller）都能够在USB设备被插入或拔出时产生一个中断。这是通过USB设备在连接时拉高或拉低USB数据线上的电压来实现的。USB数据线上的电压变化可以被USB主控制器检测到，从而产生一个中断。同时，模组使用 1 个额外 IO 检测 VBUS 电压，用于检测设备是否拔出。
+
+软件层面，USB设备需要使用一个USB设备控制器驱动来管理设备的连接和断开连接事件。当设备被连接到主机时，设备控制器驱动需要识别这个事件，并响应主机的初始化请求，例如提供设备描述符（Device Descriptor），这是一个描述设备特性（例如设备类型、制造商ID、产品ID等）的数据结构。当设备从主机断开连接时，设备控制器驱动需要识别这个事件，并停止所有与主机的通信。
+
+
+
+**模组拔插检测功能主要在以下应用场景中发挥作用：**
+
+  1. 省电模式：
+
+     在低功耗应用中，模组可能会在不需要通信时被断电或断开连接，以节省电力。当需要通信时，再将其重新连接。插拔检测功能可以使主机自动响应这些变化，无需手动干预。
+
+  2.  充电检测：
+
+ 当模组通过USB接口连接到一个电源（例如电脑的USB端口或者USB充电器）时，USB的Vbus线（电源线）会有电压，模组可以通过检测这个电压来知道自己是否正在被充电。这种方法通常被用于判断模组是否正在被USB端口充电
+
+> 尽管模组可以通过USB接口来检测充电状态，但并不能直接控制充电过程。充电过程通常需要通过一个专门的充电控制器（Charge Controller）来管理，这个控制器可能是模组内部的一部分，也可能是外部的一个单独的芯片。
+
+
+
+示例：
+
+```python
+from misc import USB
+usb = USB()
+
+def usb_callback(conn_status):
+    status = conn_status
+    if status == 0:
+    	print('USB disconnected, charging ended.')
+    elif status == 1:
+    	print('USB connected, charging enabled.')
+
+usb.setCallback(usb_callback)
+
+```
+
+
+
+## 常见问题
+
+### RNDIS驱动安装
+
+**RNDIS未安装时，如下所示：**
+
+ <img src="../media/hardware/USB-interfaces/RNDIS.png" alt="1688388626069" style="zoom:150%;" />
+
+ 在 Windows 系统上安装 RNDIS 驱动的步骤如下：
+
+1. 首先连接你的设备到计算机的 USB 端口。在设备管理器中，你可能会看到一个名为 "其他设备" 的未识别设备，或者名为 "RNDIS" 的设备。
+2. 右键点击这个设备，选择 "更新驱动软件"。
+3. 在弹出的窗口中，选择 "浏览计算机以查找驱动软件"。
+4. 接着选择 "从计算机的设备驱动列表中选择"。
+5. 在弹出的列表中，选择 "网络适配器"，然后点击 "下一步"。
+6. 在 "制造商" 列表中选择 "Microsoft"，在 "网络适配器" 列表中选择 "Remote NDIS Compatible Device"，然后点击 "下一步" 完成驱动的安装。
+
+> 以上步骤可能会因为你的设备型号、Windows 版本和系统设置的不同而略有差异。在进行驱动安装时，建议按照你的设备制造商提供的具体指南进行操作。
+>
+
+ 在 Linux 或 macOS 系统上，大部分情况下系统会自动加载 RNDIS 驱动，无需手动安装。如果遇到问题，你可能需要手动加载驱动，或者从设备制造商处获取适合你的系统版本的驱动。
+
+### 没有REPL口
+
+ REPL全称为<font color='red'>**Read-Eval-Print-Loop (交互式解释器)**</font>，可以在REPL中进行QuecPython程序的调试。
+
+![1688389115895](../media/hardware/USB-interfaces/REPL.png)
+
+没有REPL口体现为图中红框中设备不存在。不同的模组REPL口名称可能不同，具体的参考 [QuecPython USB COM口说明](TODO 待添加)
+
+若使用QuecPython系列模组时，发现PC端口管理器中没有REPL口时，请按照如下步骤确定问题：
+
+1. **驱动是否安装**：USB连接设备时，在设备管理器中，是否有模组对应的设备。若存在且有相应的AT等串口时，表示驱动成功安装。 若设备在“其它设备”类别下，且带有一个黄色感叹号，说明驱动并未安装或安装错误。此时参考上面[驱动安装](#驱动安装)章节中，安装模组对应驱动。
+2. **更新固件**：确保模组内为QuecPython提供的固件。可参考[固件下载](#固件下载)一章节。
+
+### 驱动安装错误
+
+**驱动安装失败或未安装时，设备管理显示如下所示：**
+
+![1688388626069](../media/hardware/USB-interfaces/drive_fail.png)
+
+如果在安装模组驱动时出现错误，以下是一些可能的解决方法：
+
+1. **重新启动计算机**：有时，只需简单地重新启动计算机，就可以解决某些安装问题。
+2. **检查模组兼容性**：确保你的模组兼容你正在使用的操作系统。检查设备制造商的技术规格和要求。
+3. **下载最新驱动**：前往QuecPython官方网站下载最新版本的驱动。旧的驱动可能与新的操作系统版本不兼容。
+4. **以管理员身份运行安装程序**：在Windows系统中，右键点击驱动安装程序，然后选择 "以管理员身份运行"。这可以解决由权限问题导致的安装错误。
+5. **关闭防病毒软件**：某些防病毒软件可能会阻止驱动程序的安装。在安装驱动程序时暂时禁用防病毒软件。
+6. **手动安装驱动**：在设备管理器中，你可以手动安装驱动。右键点击设备，选择 "更新驱动"，然后选择 "浏览我计算机以查找驱动"，导航至驱动程序的位置进行安装。
+7. **联系QuecPython团队的技术支持**：如果尝试了上述步骤仍然无法解决问题，那么请联系QuecPython的技术支持以获取帮助。
