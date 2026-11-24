@@ -16,7 +16,7 @@ Note: "Driver Installation / Tool Installation / Firmware Burning / REPL Debuggi
 ## Supported Modules
 
 <!-- TODO: Specific module variant (EG800Z / EG800Z-CN, etc.) — confirm against datasheet -->
-- [EG800Z](https://developer.quectel.com/en/modules-cat/eg800z-series)
+- [EG800Z](https://www.quectel.com.cn/product/lte-standard-eg800z-series)
 
 ## Features
 

@@ -16,7 +16,7 @@ TODO（待规格书 / 配图提供后补全）：
 ## 支持的模组列表
 
 <!-- TODO: 模组具体型号（EG800Z / EG800Z-CN 等）以规格书为准 -->
-- [EG800Z](https://developer.quectel.com/modules-cat/eg800z-series)
+- [EG800Z](https://www.quectel.com.cn/product/lte-standard-eg800z-series)
 
 ## 功能列表
 
