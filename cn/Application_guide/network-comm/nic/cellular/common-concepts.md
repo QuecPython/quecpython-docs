@@ -28,7 +28,7 @@ APN（Access Point Name，接入点名称）指一种网络接入技术，是终
 
 ## CFUN
 
-CFUN（Cellular Functionality，蜂窝功能）指移动终端的功能模式。我们在提到CFUN时，一般都是指使用`net`模块的相关方法或者`AT+CFUN`这个AT命令，来设置或者查询移动终端的功能模式。关于如何查询和设置CFUN，请参考《蜂窝网络API说明》章节的[设备工作模式](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/api-instruction.html#%E8%AE%BE%E5%A4%87%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F)部分。移动终端通常有如下几种功能模式：
+CFUN（Cellular Functionality，蜂窝功能）指移动终端的功能模式。我们在提到CFUN时，一般都是指使用`net`模块的相关方法或者`AT+CFUN`这个AT命令，来设置或者查询移动终端的功能模式。关于如何查询和设置CFUN，请参考《蜂窝网络API说明》章节的[设备工作模式]([蜂窝网络API说明 - QuecPython](https://developer.quectel.com/doc/quecpython/Application_guide/zh/network-comm/nic/cellular/api-instruction.html#设置模组工作模式))部分。移动终端通常有如下几种功能模式：
 
 * 最小功能模式：该模式下，整个射频网络协议栈全部关闭，SIM卡模块停止供电。这种模式下，终端设备功耗是不关机情况下最低的。
 
@@ -255,5 +255,4 @@ EMTC（Enhanced Machine-Type Communication）是指增强型机器类通信。�
 基站时间通常指的是无线基站的内部时钟，这个时钟为移动通信网络提供了一个精确的时间参考。在无线通信系统中，发送和接收数据需要在准确的时间窗口内进行。例如，数据传输需要准确地与基站的时间同步，否则可能会导致数据丢失或错误。因此，基站需要有一个精确的内部时钟，以便控制这些时间敏感的操作。
 
 此外，基站时间还有一个很常见的用处，即一些移动设备可能会通过基站时间来自动校准它们的本地时间，尤其是当移动设备在不同的时区之间移动时。而这个过程就是通过NITZ（Network Identity and Time Zone）来实现的。用户可参考QuecPython官方网站wiki中的[获取当前基站时间](https://developer.quectel.com/doc/quecpython/API_reference/zh/iotlib/net.html#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%9F%BA%E7%AB%99%E6%97%B6%E9%97%B4)部分来获取基站时间。
-
 

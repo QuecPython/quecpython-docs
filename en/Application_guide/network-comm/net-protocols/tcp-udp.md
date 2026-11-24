@@ -665,7 +665,7 @@ How to achieve the two methods above in practical applications where sometimes m
 
 As mentioned earlier, after the module is powered on, it will automatically establish the first cellular data connection and set that NIC as the default NIC.
 
-If multiple connections are established through `dataCall` interfaces, the IP address of the cellular data connection can be obtained through [`dataCall.getInfo()`](#dataCall_getInfo).
+If multiple connections are established through `dataCall` interfaces, the IP address of the cellular data connection can be obtained through [`dataCall.getInfo()`](https://developer.quectel.com/doc/quecpython/API_reference/en/iotlib/net.html#net.getCellInfo).
 
 > Currently, there is no interface to set the NIC connected to the cellular data as the default NIC.
 

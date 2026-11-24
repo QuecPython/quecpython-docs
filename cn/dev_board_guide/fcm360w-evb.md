@@ -2,7 +2,7 @@
 
 ## 支持的模组列表
 
-- [FCM360W](https://developer.quectel.com/modules-cat/fcm360w-series)
+- [FCM360W](https://www.quectel.com.cn/product/wi-fi-bluetooth-fcm360w)
 
 
 ## 功能列表
@@ -65,7 +65,7 @@ QuecPython_FCM360W_EVB 开发板是一款专门针对QuecPython设计的、小�
 ![img](./media/fcm360w-evb/pin-layout.png)
 
 > **小提示**
-> 开发板的更多资料，请访问 <https:/developer.quectel.com/resource-download?cid=23>
+> 开发板的更多资料，请访问 <https://www.quectel.com.cn/download-zone>
 
 ### 开发板配置
 
@@ -104,9 +104,11 @@ QuecPython_FCM360W_EVB 开发板是一款专门针对QuecPython设计的、小�
 
 ### 驱动安装
 
-- 打开[QuecPython官网驱动下载链接](https://developer.quectel.com/resource-download?cid=5)
+- 打开[QuecPython官网驱动下载链接](https://www.quectel.com.cn/download-zone)
 
-- 选择与模组型号匹配的驱动，该开发板搭载的模组有FCM360W，以FCM360W为例，在下载页面右侧选择该型号的USB 转串口驱动[CH343SER](https://developer.quectel.com/wp-content/uploads/2024/09/CH343SER_V1.8.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+- 选择与模组型号匹配的驱动，该开发板搭载的模组有FCM360W，以FCM360W为例，在下载页面搜索该型号的USB 转串口驱动[CH343SER](https://developer.quectel.com/wp-content/uploads/2024/09/CH343SER_V1.8.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+
+  ![](media/readme/driver_eg912u.png)
 
 - 下载后解压驱动压缩包，找到**CH343SER.EXE**，双击运行即可，安装完之后打开设备管理器就可以看到设备管理器中端口的黄色感叹号消失了，说明安装成功，能够正常通信。
 
@@ -119,7 +121,7 @@ QuecPython_FCM360W_EVB 开发板是一款专门针对QuecPython设计的、小�
 
 使用QuecPython进行开发需要用到专用的开发调试工具——**QPYcom**，包括但不限于调试代码、分析日志、文件传输、烧录固件、合并固件等。
 
-打开[QuecPython工具下载页面](https://developer.quectel.com/resource-download?cid=8)，根据操作系统选择对应的工具进行下载。
+打开[QuecPython工具下载页面](https://www.quectel.com.cn/download-zone)，根据操作系统选择对应的工具进行下载。
 
 *注意:该工具无需安装，解压即用。*
 
@@ -139,7 +141,7 @@ QuecPython_FCM360W_EVB 开发板是一款专门针对QuecPython设计的、小�
 
 模组在出厂时通常烧录有标准 AT 固件或 QuecOpen 固件，如需基于 QuecPython 对模块进行开发，需要手动为其重新烧录专门的 QuecPython 固件。
 
-[官网固件下载地址](https://developer.quectel.com/resource-download?cid=15)
+[官网固件下载地址](https://www.quectel.com.cn/download-zone)
 
 ![](media/readme/Firmware.png)
 

@@ -380,7 +380,7 @@ A tuple `(date, abs_time, leap_sec)` containing the base station time and corres
 
 | Parameter  | Type    | Description                                                  |
 | ---------- | ------- | ------------------------------------------------------------ |
-| `date`     | String  | Base time. The part of the time zone varies with module models. See the example below for details.<br>Please use `setTimeZone(offset)` and `getTimeZone()` of `utime` feature if you need to set and get the time zone.<br>The unit of  these two interfaces is hour for different modules. See [`utime`](../QuecPython标准库/utime.md) for details. |
+| `date`     | String  | Base time. The part of the time zone varies with module models. See the example below for details.<br>Please use `setTimeZone(offset)` and `getTimeZone()` of `utime` feature if you need to set and get the time zone.<br>The unit of  these two interfaces is hour for different modules. See [`utime`](../stdlib/utime.md) for details. |
 | `abs_time` | Integer | Absolute seconds of the base station time.                   |
 | `leap_sec` | Integer | Leap seconds.                                                |
 

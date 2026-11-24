@@ -105,12 +105,12 @@ component:
 
 ### Phone screen
 
-<img src="../../media/solutions/Wear\image-20231124095320999.png" style="zoom:80%;" />	
+<img src="../../media/solutions/Wear/image-20231124095320999.png" style="zoom:80%;" />	
 
 Provides modes and displays for making phone calls, going/calling/calling, etc.
 
 ### Detection screen
 
-<img src="../../media/solutions/Wear\2023-11-24_145207.png" style="zoom: 80%;" />	
+<img src="../../media/solutions/Wear/2023-11-24_145207.png" style="zoom: 80%;" />	
 
 The detection interface includes temperature/blood oxygen/heart rate detection, as well as display of detection status and historical detection.

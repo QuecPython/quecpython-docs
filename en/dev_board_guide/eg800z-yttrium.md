@@ -2,7 +2,7 @@
 
 ## Supported Modules
 
-- [EG800Z-CN](https://developer.quectel.com/en/modules-cat/eg800z-series)
+- [EG800Z-CN](https://www.quectel.com.cn/product/lte-standard-eg800z-series)
 
 ## Features
 
@@ -188,13 +188,13 @@ The board features 4 functional buttons and 2 status LEDs:
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for ports starting with "Quectel USB"). Ignore unrelated devices such as "Mobile ECM Network Adapter" or "CDC Ethernet Control Model (ECM)".
 
 ### Tool Installation
 
-- **QPYcom**: The dedicated QuecPython development and debugging tool for code debugging, log analysis, file transfer, firmware burning, and firmware merging. Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). No installation required — extract and use directly.
+- **QPYcom**: The dedicated QuecPython development and debugging tool for code debugging, log analysis, file transfer, firmware burning, and firmware merging. Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). No installation required — extract and use directly.
 
 - **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code extensions marketplace to install the plugin, which provides code hints, code completion, and serial debugging features.
 
@@ -202,7 +202,7 @@ The board features 4 functional buttons and 2 status LEDs:
 
 ### Firmware Burning
 
-1. **Firmware Download**: Get the latest QuecPython firmware from the [QuecPython Firmware](https://developer.quectel.com/en/resource-download?cid=2) page.
+1. **Firmware Download**: Get the latest QuecPython firmware from the [QuecPython Firmware](https://www.quectel.com.cn/download-zone) page.
 
    Select the firmware that matches your module model. The firmware file name follows the pattern `QPY_OCPU_<version>_<module_model>_FW`. Download the latest version unless you have specific requirements.
 

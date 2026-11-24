@@ -34,7 +34,7 @@
 ## Firmware
 
 - version：EC200UEUAAR03A04M08_OCPU_QPY_BETA0418
-- download [Firmware](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0001_EC200U_EUAA_FW.zip)
+- download [Firmware](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac)
 
 ## Source code
 

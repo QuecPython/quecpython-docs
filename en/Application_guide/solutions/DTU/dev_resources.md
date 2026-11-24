@@ -25,7 +25,7 @@ This document collects and lists the required hardware resource list and related
 
 - QPYcom - QuecPython debug tool
   - version：V4.1.0
-  - download [QPYcom](https://developer.quectel.com/python/2022/12/QPYcom_V4.1.0.zip)
+  - download [QPYcom](https://www.quectel.com.cn/wp-content/uploads/2026/03/QPYcom_V4.2.0.zip)
 - QCOM - serial debug tool
   - version：V1.6
   - download link：[click](https://developer.quectel.com/wp-content/uploads/2024/09/QCOM_V1.6.zip)

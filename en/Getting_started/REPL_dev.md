@@ -1,4 +1,4 @@
-## REPL Debug
+## REPL
 
 REPL stands for Read-Eval-Print-Loop (interactive interpreter). You can debug QuecPython programs in REPL.
 
@@ -36,6 +36,6 @@ Click "**Open port**", enter **print('hello world')** on the "REPL" page, and pr
 hello world
 ```
 
-![](media/hello_world.png)
+![](media/readme/hello_world.png)
 
 <font color='red'>*Note: Only English characters can be entered on the "REPL" page, and Chinese characters will be blocked.*</font>

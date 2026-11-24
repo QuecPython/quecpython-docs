@@ -10,11 +10,11 @@ Open VSCode and enter the following string:
 print("hello world")
 ```
 
-<img src="media/VScode1.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/VScode1.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 Next, save the written script locally and name the file `helloworld.py` (only English letters, numbers, and underscores are allowed; **Chinese characters and special characters are prohibited**).
 
-<img src="media/VScode2.png" alt="image-2021081301" style="zoom:150%;"/>
+<img src="media/readme/VScode2.png" alt="image-2021081301" style="zoom:150%;"/>
 
 Next, transfer the edited file to the module via QPYcom and run it.
 
@@ -22,39 +22,39 @@ Next, transfer the edited file to the module via QPYcom and run it.
 
 Before transferring the script file, ensure that the QPYcom serial port is open.
 
-<img src="media/QPYcom1.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom1.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 **Method 1:** Transfer via Drag-and-Drop
 
 Open QPYcom, click `File`, then click the button shown in the figure to select the path of the `helloworld.py` script file.
 
-<img src="media/QPYcom2.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom2.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 After selecting the path where the `helloworld.py` script file is stored, the written script file can be seen on the left side.
 
-<img src="media/QPYcom3.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom3.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 Drag the `helloworld.py` script file from the left side to the `usr` directory on the right side for transfer. The download progress and result will be displayed in the status bar at the bottom.
 
-<img src="media/QPYcom4.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom4.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 The display of `helloworld.py` in the `usr` directory on the right side indicates that it has been successfully transferred to the module.
 
-<img src="media/QPYcom5.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom5.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 **Method 2:** Transfer via Tool Buttons
 
 Click the "**+**" button on the right side to transfer the file.
 
-<img src="media/QPYcom6.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom6.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 Locate the written `helloworld.py` file and click **Open** in the bottom right corner.
 
-<img src="media/QPYcom7.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom7.png" alt="image-2021081301" style="zoom:150%;" />
 
 The display of `helloworld.py` in the `usr` directory on the right side indicates that it has been successfully transferred to the module.
 
-<img src="media/QPYcom8.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom8.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 **Method 3:** Transfer by Creating a User Project
 
@@ -64,23 +64,23 @@ Create a user project (click the "Create" button).
 
 Enter the project name and click "OK".
 
-<img src="media/QPYcom9.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom9.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 The created project is displayed on the left side.
 
-<img src="media/QPYcom10.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom10.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 In the "User Scripts/Files" area, select the root directory of `usr`, right-click and select **Add File**.
 
-<img src="media/QPYcom11.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom11.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 After successful addition, the `helloworld.py` file ready for transfer will be displayed. Click the icon in the bottom right corner <img src="media\readme\QPYcom17.png"/>, and options "Download Script" and "Download Firmware" will appear. Select **Download Script** for transfer.
 
-<img src="media/QPYcom12.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom12.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 After successful download, a prompt "File downloaded successfully" will appear.
 
-<img src="media/QPYcom13.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom13.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 ## Executing the Script File
 
@@ -97,17 +97,17 @@ example.exec("/usr/hello world.py") # filePath is the path of the script file to
 
 On the file page of the tool, select the `helloworld.py` script file to be executed, then click the <img src="media\readme\QPYcom18.png"/> button to run it.
 
-<img src="media/QPYcom14.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom14.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 **Method 3**: Run the Script File via Right-Click Menu
 
 Select the script file and right-click to run it.
 
-<img src="media/QPYcom15.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom15.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 **The execution result is shown in the figure below**
 
-<img src="media/QPYcom16.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom16.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 ### Stop a Running Program
 

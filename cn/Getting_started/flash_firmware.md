@@ -4,9 +4,9 @@
 
 模组在出厂时通常烧录有标准 AT 固件或 QuecOpen 固件，如需基于 QuecPython 对模块进行开发，需要手动为其重新烧录专门的 QuecPython 固件。
 
-官网固件下载地址：**<https://developer.quectel.com/resource-download?cid=15>**
+官网固件下载地址：**<https://www.quectel.com.cn/download-zone>**
 
-![](media/Firmware.png)
+![](media/readme/Firmware.png)
 
 面对官网种类众多的固件，如何选择合适的固件包，首先需要知道使用的模组的型号，模组型号可以通过模组的镭雕或者发送AT指令来获得。
 
@@ -16,7 +16,7 @@
 
 点击下载列的下载按钮即可下载，下载成功后会得到一个固件名称命名的压缩包文件(zip包)
 
-![](media/firmware_zip.png)
+![](media/readme/firmware_zip.png)
 
 从官网下载的固件包为压缩包格式，固件压缩包下载到本地后，需进行解压。解压后可获得两个文件，其中 .bin 、.lod或 .pac 格式的是 QuecPython 固件本体，.md 格式的是更新日志。
 
@@ -63,4 +63,4 @@
 | EC800Z  | 需要短接开发板 BOOT 和 EXT 并按下开发板**“RESET”**按钮出现下载口，其维持时间较短，要快速立即点击**"Download FW"**开始下载固件      |
 | EG800Z  | 需要短接开发板 BOOT 和 EXT 并按下开发板**“RESET”**按钮出现下载口，其维持时间较短，要快速立即点击**"Download FW"**开始下载固件      |
 
-![](media/firmware.gif)
+![](media/readme/firmware.gif)

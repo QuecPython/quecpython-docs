@@ -2,9 +2,9 @@
 
 ## 支持的模组列表
 
-- [BG95-M1](https://developer.quectel.com/modules-cat/bg95-series)
-- [BG95-M3](https://developer.quectel.com/modules-cat/bg95-series)
-- [BG95-M8](https://developer.quectel.com/modules-cat/bg95-series)
+- [BG95-M1](https://www.quectel.com.cn/product/eg95)
+- [BG95-M3](https://www.quectel.com.cn/product/eg95)
+- [BG95-M8](https://www.quectel.com.cn/product/eg95)
 
 
 ## 功能列表
@@ -82,7 +82,7 @@ QuecPython_BG95_EVB 开发板是一款专门针对QuecPython设计的、小巧�
 ![img](./media/bg95/BG95_EVB.png)
 
 > **小提示**
-> 开发板的更多资料，请访问 <https:/developer.quectel.com/resource-download?cid=23>
+> 开发板的更多资料，请访问 <https://www.quectel.com.cn/download-zone>
 
 ### 开发板配置
 
@@ -142,7 +142,9 @@ QuecPython_BG95_EVB 开发板是一款专门针对QuecPython设计的、小巧�
 
 - 打开[QuecPython官网驱动下载链接](https://developer.quectel.com/resource-download?cid=5)
 
-- 选择与模组型号匹配的驱动，该开发板搭载的模组有BG95，在下载页面右侧选择该型号的USB驱动[QuecPython_USB Driver Win10_BG](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverQ_NDIS_V2.7.14.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+- 选择与模组型号匹配的驱动，该开发板搭载的模组有BG95，在下载页面搜索该型号的USB驱动[QuecPython_USB Driver Win10_BG](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverQ_NDIS_V2.7.14.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+
+  ![](media/readme/driver_eg912u.png)
 
 
 - 下载后解压驱动压缩包，找到**"setup.exe"** 或者是**"setup.bat"**，双击运行即可，安装完之后打开设备管理器就可以看到设备管理器中端口的黄色感叹号消失了，说明安装成功，能够正常通信。
@@ -158,7 +160,7 @@ QuecPython_BG95_EVB 开发板是一款专门针对QuecPython设计的、小巧�
 
 使用QuecPython进行开发需要用到专用的开发调试工具——**QPYcom**，包括但不限于调试代码、分析日志、文件传输、烧录固件、合并固件等。
 
-打开[QuecPython工具下载页面](https://developer.quectel.com/resource-download?cid=8)，根据操作系统选择对应的工具进行下载。
+打开[QuecPython工具下载页面](https://www.quectel.com.cn/download-zone)，根据操作系统选择对应的工具进行下载。
 
 *注意:该工具无需安装，解压即用。*
 

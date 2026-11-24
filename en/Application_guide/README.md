@@ -17,6 +17,8 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 
 - [Project Development Process](background/project-dev.md)
 
+  </details>
+
 <details>
     <summary>System Function</summary>
 
@@ -46,6 +48,8 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 
 - [Timer](system/Timer.md)
 
+  </details>
+
 <details>
     <summary>Hardware Function</summary>
 
@@ -54,6 +58,7 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 - [Display Device](hardware/display.md)
 - [Sensor](hardware/sensors/README.md)
 - [Audio Driver](hardware/audio-driver.md)
+  </details>
 
 <details>
     <summary>Network and Communication</summary>
@@ -64,6 +69,7 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 - [eSIM](network-comm/esim/README.md)
 - [Voice Call](network-comm/phone.md)
 - [SMS](network-comm/sms.md)
+  </details>
 
 <details>
     <summary>Firmware Upgrade</summary>
@@ -72,6 +78,7 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 - [Firmware OTA Upgrade](firmware-upgrade/firmware-ota.md)
 - [Firmware OTA Delta Package Making Guide](firmware-upgrade/firmware-ota-delta-package-making.md)
 - [Frequently Asked Questions](firmware-upgrade/firmware-ota-issues.md)
+  </details>
 
 <details>
     <summary>Development Tool</summary>
@@ -83,6 +90,7 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 - [Log Tool User Guide](dev-tools/LogTool/README.md)
 - [OpenClaw Skill Configuration and Usage Tutorial](./dev-tools/Openclaw/README.md)
 - [VSCode Plugin User Guide](dev-tools/VSCode-Plugin-quecpython/README.md)
+  </details>
 
 <details>
     <summary>Product Solution</summary>
@@ -113,9 +121,12 @@ QuecPython Application Guide is a guide on how to use the commonly used function
 
 - [QuecDuion Development Kit](solutions/QuecDuion/README.md)
 
+  </details>
+
 <details>
     <summary>Helios SDK</summary>
 
 - [Helios SDK Development Guide__Getting Started](helios-sdk/quick-start.md)
 - [Helios SDK Development Guide__Intermediate](helios-sdk/junior.md)
 - [Helios SDK Development Guide__Advanced](helios-sdk/advanced.md)
+  </details>

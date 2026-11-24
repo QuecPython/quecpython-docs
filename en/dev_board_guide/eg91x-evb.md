@@ -40,7 +40,7 @@ The main pin placement of the evaluation board is shown in the following figure:
 ![img](./media/eg91x-evb/EG91X_EVB.png)
 
 > **Note**
-> For more information about the evaluation board, please visit <https://developer.quectel.com/en/resource-download?cid=252>.
+> For more information about the evaluation board, please visit <https://www.quectel.com.cn/download-zone>.
 
 
 
@@ -158,13 +158,13 @@ The detailed assignment of the peripheral interfaces on the evaluation board  is
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

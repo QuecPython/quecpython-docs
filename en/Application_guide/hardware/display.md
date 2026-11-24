@@ -212,7 +212,7 @@ In SPI LCD, data and commands are sent to the display via the MOSI line, while t
 
 Normally, the controller (such as a microcontroller) sends appropriate commands and data through SPI based on the specifications of the display (such as resolution and color depth) and the content to be displayed. This may include setting display parameters, writing pixel data, etc.
 
-This section will introduce the debugging of SPI LCD based on the QuecPython EVB driving the [st7789 (240*320)](TODO 链接) screen.
+This section will introduce the debugging of SPI LCD based on the QuecPython EVB driving the [st7789 (240*320)]([QuecPython_lib_bundles/libraries/LCD/ST7789 at master · QuecPython/QuecPython_lib_bundles · GitHub](https://github.com/QuecPython/QuecPython_lib_bundles/tree/master/libraries/LCD/ST7789)) screen.
 
 ##### Preparations
 
@@ -565,7 +565,7 @@ Since the relevant **[API](https://developer.quectel.com/doc/quecpython/API_refe
 
 <font color='red'>**Note:** Currently QuecPython series modules that support MIPI only support the RGB565 format . </font>
 
-<font color='red'>**Note:**</font> In actual use, LCD is often used in conjunction with UI ([LVGL](TODO链接)).
+<font color='red'>**Note:**</font> In actual use, LCD is often used in conjunction with UI ([LVGL ](https://lvgl.100ask.net/master/index.html)).
 
 ##### Preparations
 
@@ -843,15 +843,15 @@ Touch -> Touch Sensor -> Electrical Signal -> Touch Controller -> Data -> Interf
 
 ### Compatibility Notes
 
-For detailed interface description, please refer to [WIKI_Touch](TODO 链接).
+For detailed interface description, please refer to [WIKI_Touch](https://lvgl.100ask.net/master/index.html).
 
 The support status on QuecPython series modules is as follows:
 
-| Name    | Function         | Interface | Driver           | Datasheet          |
-| ------- | ---------------- | --------- | ---------------- | ------------------ |
-| xpt2046 | Resistive Touch  | SPI       | [tm1650.py](XXX) | [xpt2046.pdf](XXX) |
-| gt9xx   | Capacitive Touch | I2C       | [gt9xx.py](XXX)  | [gt9xx.pdf](XXX)   |
-| cst816  | Capacitive Touch | I2C       | [cst816.py](XXX) | [cst816.pdf](XXX)  |
+| Name    | Function         | Interface | Driver                                            | Datasheet                                                    |
+| ------- | ---------------- | --------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| xpt2046 | Resistive Touch  | SPI       | [tm1650.py](../media/hardware/display/tm1650.zip) | [xpt2046.pdf](https://developer.quectel.com/doc/quecpython/Application_guide/zh/media/hardware/display/XPT2046.PDF) |
+| gt9xx   | Capacitive Touch | I2C       | [gt9xx.py](../media/hardware/display/gt9xx.zip)   | [gt9xx.pdf](../media/hardware/display/GT911.PDF)             |
+| cst816  | Capacitive Touch | I2C       | [cst816.py](XXX)                                  | [cst816.pdf](https://datasheet4u.com/pdf/1576442/CST816D.pdf) |
 
 
 
@@ -881,7 +881,7 @@ The resolution setting of the touch screen is also important because the rotatio
 
 QuecPython has already adapted three touch drivers, which can be <font color='red'>**used directly**</font>.
 
-Taking the touch screen (GT911) of the [Uranium EVB](TODO 链接) as an example:
+Taking the touch screen (GT911) of the [Uranium EVB](https://developer.quectel.com/doc/quecpython/Application_guide/en/hardware/display/touch_screen.html)  as an example:
 
 ```python
 from tp import gt9xx
@@ -972,7 +972,7 @@ The QuecPython series modules is compatible with the following device:
 
 | Name   | Function                                                     | Interface | Driver             | Datasheet      |
 | ------ | ------------------------------------------------------------ | --------- | ------------------ | -------------- |
-| TM1650 | LED driver control chip with keyboard scanning, supports 8-segment × 4 digits and 7-segment × 4 digits | I2C       | [tm1650.py](XXX) | [TM1650](XXX) |
+| TM1650 | LED driver control chip with keyboard scanning, supports 8-segment × 4 digits and 7-segment × 4 digits | I2C       | [tm1650.py](../media/hardware/display/tm1650.zip) | [TM1650](../media/hardware/display/tm1650.zip) |
 
 #### TM1650
 
@@ -984,9 +984,9 @@ It can communicate with QuecPython series modules through I2C.
 
 ![typical_application_circuit](../media/hardware/display/tm1650_typical_application_circuit.png)
 
-The [tm1650 script](XXX) has encapsulated the basic operations of TM1650, and users can directly call interfaces such as *Tm1650.show_num*, Tm1650.show_str, *Tm1650.show_dp*, etc. to display on the digital tube.
+The [tm1650 script](https://github.com/QuecPython/QuecPython_lib_bundles/blob/master/libraries/TM1650/tm1650.py) has encapsulated the basic operations of TM1650, and users can directly call interfaces such as *Tm1650.show_num*, Tm1650.show_str, *Tm1650.show_dp*, etc. to display on the digital tube.
 
-[Example](x'x'x)
+**Example**
 
 ```
 from usr.tm1650 import Tm1650

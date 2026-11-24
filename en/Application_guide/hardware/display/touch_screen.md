@@ -48,7 +48,7 @@ Touch -> Touch Sensor -> Electrical Signal -> Touch Controller -> Data -> Interf
 
 ### Compatibility Notes
 
-For detailed interface description, please refer to [WIKI_Touch](TODO 链接).
+For detailed interface description, please refer to [WIKI_Touch](https://developer.quectel.com/doc/quecpython/API_reference/en/peripherals/machine.LCD.html).
 
 The support status on QuecPython series modules is as follows:
 
@@ -86,7 +86,7 @@ The resolution setting of the touch screen is also important because the rotatio
 
 QuecPython has already adapted three touch drivers, which can be <font color='red'>**used directly**</font>.
 
-Taking the touch screen (GT911) of the [Uranium EVB](TODO 链接) as an example:
+Taking the touch screen (GT911) of the [Uranium EVB](https://developer.quectel.com/doc/quecpython/Application_guide/en/hardware/display/touch_screen.html) as an example:
 
 ```python
 from tp import gt9xx

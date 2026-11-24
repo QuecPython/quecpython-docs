@@ -4,12 +4,12 @@
 
 Supported Module List
 
-- [BG95-M1](https://developer.quectel.com/en/modules-cat/bg95-series)
-- [BG95-M3](https://developer.quectel.com/en/modules-cat/bg95-series)
-- [BG95-M8](https://developer.quectel.com/en/modules-cat/bg95-series)
-- [EG915U-LA](https://developer.quectel.com/en/modules-cat/eg915u-series)
-- [EG915U-EU](https://developer.quectel.com/en/modules-cat/eg915u-series)
-- [EG912U-GL](https://developer.quectel.com/en/modules-cat/eg912u-series)
+- [BG95-M1](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [BG95-M3](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [BG95-M8](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG915U-LA](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG915U-EU](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG912U-GL](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
 
 ## Feature List
 
@@ -35,7 +35,7 @@ The QuecPython BG&EG series core board (PH-7 (C4-P02)) is a core development boa
 
 - [QuecPython-PH-7C4-P02_Core_Board_Specification_and_User_Guide_V1.0.0](https://developer.quectel.com/en/wp-content/uploads/sites/2/2024/11/PH-7C4-P02_Core_Board_Specification_and_User_Guide_V1.0.0.pdf)
 - [QuecPython-PH-7C4-P02_Core_Board_SCH](https://developer.quectel.com/en/wp-content/uploads/sites/2/2024/11/PH-7C4-P02_Schematic_Diagram.pdf)
-- [QuecPython-PH-7C4-P02_Core_Board_Silkscreen](https:/developer.quectel.com/en/wp-content/uploads/sites/2/2024/11/PH-7C4-P02_Silkscreen.pdf)
+- [QuecPython-PH-7C4-P02_Core_Board_Silkscreen](https://www.quectel.com.cn/wp-content/uploads/2026/03/Quectel_QuecPython_PH_7C4_P02_%E6%A0%B8%E5%BF%83%E6%9D%BF%E4%B8%9D%E5%8D%B0%E5%9B%BE.pdf)
 
 ## EVB Resources
 
@@ -71,13 +71,13 @@ The main pin layout of the development board is shown in the following figure.![
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

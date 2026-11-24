@@ -9,7 +9,7 @@ ussl模块实现了TLS/SSL加密通信功能, 主要用于单向和双向认证�
 ### `ussl.wrap_socket`
 
 ```python
-ussl.wrap_socket(sock,server_hostname=None,cert=None,key=None)
+ussl.wrap_socket(sock,server_hostname=None,cert=None,key=None,ca=None,ignorelevel=0)
 ```
 
 **参数描述：**
@@ -21,6 +21,10 @@ ussl.wrap_socket(sock,server_hostname=None,cert=None,key=None)
 - `cert` - 字符串类型,  可选参数, 数字证书数据
 
 - `key` - 字符串类型, 可选参数, 私钥数据
+
+- `ca` - 字符串类型, 可选参数, CA证书数据, 用于验证服务器证书。传入后会启用服务器证书校验。
+
+- `ignorelevel` - 整数类型, 可选参数, 默认值为 0, 用于设置证书校验时要忽略的错误标志（位掩码）。仅在设置 `ca` 时生效, 设置非 0 值可能放宽证书校验, 请谨慎使用。
 
 - `sslversion` - 整数类型, 可选参数, 默认值为 4,用于指定 SSL 版本：0:SSL3.0,1:TLS1.0,2:TLS1.1,3:TLS1.2,4:ALL(所有支持的版本)
 

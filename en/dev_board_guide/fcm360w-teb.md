@@ -2,7 +2,7 @@
 
 ## Supported module list
 
-- [FCM360W](https://developer.quectel.com/en/modules-cat/fcm360w-series)
+- [FCM360W](https://www.quectel.com.cn/product/wi-fi-bluetooth-fcm360w)
 
 ## Function list
 
@@ -56,7 +56,7 @@ The main pin layout of the development board is shown in the table below
 - **The pins with _M in the name are directly connected to the module end**
 
 > **Tips**
-> For more information about the development board, please visit <https://developer.quectel.com/en/resource-download?cid=252>
+> For more information about the development board, please visit <https://www.quectel.com.cn/download-zone>
 
 ### Development board configuration
 
@@ -98,13 +98,13 @@ The peripheral resource pin allocation table is as follows:
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](hhttps://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

@@ -56,7 +56,7 @@ The main pin layout of the development board is shown below:
 <img src="./media/eg800z-duino-evb/pin.png" width="60%" />
 
 > **Tip**
-> For more information about the EVB, please visit <https://developer.quectel.com/en/resource-download>
+> For more information about the EVB, please visit <https://www.quectel.com.cn/download-zone>
 
 ### EVB Configuration
 
@@ -95,7 +95,7 @@ Follow the steps below to prepare the hardware before getting started:
 
 ### Driver Installation
 
-- Go to the [QuecPython Official Driver Download](https://developer.quectel.com/en/resource-download?cid=2) page.
+- Go to the [QuecPython Official Driver Download](https://www.quectel.com.cn/download-zone) page.
 
 - Select the driver that matches your module model. This EVB is equipped with the EG800Z module. Taking EG800Z as an example, select the corresponding USB driver [QuecPython_USB Driver Win10_U_G](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverU_V1.0.19.zip) on the right side of the download page and click download. If your EVB is equipped with a different module model, follow the same steps accordingly.
 
@@ -111,7 +111,7 @@ Follow the steps below to prepare the hardware before getting started:
 
   QuecPython development requires a dedicated debugging tool — **QPYcom**, which supports code debugging, log analysis, file transfer, firmware burning, and firmware merging, among other functions.
 
-  Go to the [QuecPython Tools Download](https://developer.quectel.com/en/resource-download?cid=2) page and select the appropriate tool for your operating system.
+  Go to the [QuecPython Tools Download](https://www.quectel.com.cn/download-zone) page and select the appropriate tool for your operating system.
 
   *Note: This tool does not require installation — simply extract and use.*
 
@@ -131,7 +131,7 @@ Follow the steps below to prepare the hardware before getting started:
 
 Modules are typically shipped with standard AT firmware or QuecOpen firmware. If you need to develop based on QuecPython, you must manually re-burn dedicated QuecPython firmware onto the module.
 
-[Official Firmware Download](https://developer.quectel.com/en/resource-download?cid=2)
+[Official Firmware Download](https://www.quectel.com.cn/download-zone)
 
 ![](media/readme/Firmware.png)
 
@@ -142,8 +142,6 @@ Once you have the module model, go to the official website and download the corr
 Click the download button in the download column to download. After a successful download, you will get a compressed package file (zip) named after the firmware.
 
 The firmware package downloaded from the official website is in compressed format. After downloading to your local machine, you need to extract it. After extraction, you will obtain two files: the `.bin` file is the QuecPython firmware itself, and the `.md` file is the changelog.
-
-![](./media/readme/firmware_zip.png)
 
 > Please make sure to extract the contents of the compressed package to a path that does **not contain Chinese characters, spaces, or other special characters**, otherwise the download tool may not be able to recognize the firmware properly. Similarly, the download tool path must **not contain Chinese characters, spaces, or special characters**.
 
@@ -201,8 +199,6 @@ print("hello world")
 ```
 
 Download the edited file to the module using QPYcom and run it.
-
-![](./media/readme/QPYcom_hello.jpg)
 
 ### File Transfer Between PC and Module
 

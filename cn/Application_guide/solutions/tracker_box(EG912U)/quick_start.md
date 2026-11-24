@@ -17,7 +17,7 @@
 - 下载并安装 [VSCode](https://code.visualstudio.com/)。
 - 下载并解压 [QPYCom](https://developer.quectel.com/wp-content/uploads/2024/09/QPYcom_V3.9.0.zip) 工具到电脑的合适位置。
 - 下载[固件包](../../media/solutions/tracker_box(EG912U)/fw/8915DM_cat1_open_EG912UGLAAR05A01M08_TEST0807.zip)。
-- 下载[实验源码](https://codeload.github.com/QuecPython/tracker-box/zip/refs/heads/tracker-box-EG912U?token=BPVDT76BW3R5NJAB7LRL7ILI6G5D2) 
+- 下载[实验源码](https://codeload.github.com/QuecPython/tracker-box/zip/refs/heads/main) 
 
 ## 设置您的智能追踪器
 

@@ -415,7 +415,7 @@ Assigns the pin and mode for detecting the insertion and removal of the SD card.
 
 **Parameter**
 
-* `vfs_obj.GPIOn` - Integer type. GPIO pin number for detecting the insertion and removal of the SD card. Please refer to the definition of [Pin](../QuecPython类库/machine.Pin.md) module.
+* `vfs_obj.GPIOn` - Integer type. GPIO pin number for detecting the insertion and removal of the SD card. Please refer to the definition of [Pin](../peripherals/machine.Pin.md) module.
 * `mode` - Integer type.<br />0: After the SD card is inserted, the detection port is in low level. After the SD card is removed, the detection port is in high level. <br />1: After the SD card is inserted, the detection port is in high level. After the SD card is removed, the detection port is in low level.
 
 **Return Value**

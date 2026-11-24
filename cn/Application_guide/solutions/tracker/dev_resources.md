@@ -34,7 +34,7 @@
 ## 固件包
 
 - 版本：EC200UEUAAR03A04M08_OCPU_QPY_BETA0418
-- 下载[固件](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0001_EC200U_EUAA_FW.zip)
+- 下载[固件](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac)
 
 ## 实验源码
 

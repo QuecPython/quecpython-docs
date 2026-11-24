@@ -4,8 +4,8 @@
 
 ### Supported module models
 - [EG800K](https://developer.quectel.com/modules-cat/eg800k-series)
-- [EC800M](https://developer.quectel.com/modules-cat/ec800m-series)
-- [EC800G](https://developer.quectel.com/modules-cat/ec800g-series)
+- [EC800M](https://www.quectel.com.cn/product/ec800m-cn)
+- [EC800G](https://www.quectel.com.cn/product/ec800g-cn)
 - [EC800E](https://developer.quectel.com/modules-cat/ec800e-series)
 
 ## Feature List
@@ -72,7 +72,7 @@ The main pin layout of the development board is shown in the figure below.
 <img src="./media/ec800x-duino-evb/pin.png" width="60%" />
 
 > **Tips**
-> For more information about the EVB, please visit <https://developer.quectel.com/en/resource-download>
+> For more information about the EVB, please visit <https://www.quectel.com.cn/download-zone>
 
 ### EVB Configuration
 
@@ -115,18 +115,18 @@ The EVB is equipped with various sensors and other peripherals. The pins of peri
 
   ### Driver Installation
 
-  1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+  1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
   2. Extract and run `setup.exe` or `setup.bat`.
   3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
   ### Tool Installation
 
-  1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+  1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
   2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
   ### Firmware Burning
 
-  1. **Firmware Download**: Get the latest QuecPython firmware  from [QuecPython Firmware](https://developer.quectel.com/en/resource-download?cid=2) Page.
+  1. **Firmware Download**: Get the latest QuecPython firmware  from [QuecPython Firmware](https://www.quectel.com.cn/download-zone) Page.
 
   2. **Burning Steps**:
      - Open QPYcom, select the USB REPL port, and create a new project.

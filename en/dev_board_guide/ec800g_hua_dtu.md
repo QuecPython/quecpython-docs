@@ -1,6 +1,6 @@
 # Introduction to the EC800GCN Hua Series DTU Development Board
 ## Supported Module List 
-- EC800G-CN
+- [EC800G-CN](https://www.quectel.com.cn/product/ec800g-cn)
 ## Feature List
 ### Basic Overview
 The Hua series DTU products are equipped with Quectel EC800G-CN modules, supporting 4G Cat1 full network compatibility. They can achieve data transmission between serial ports and 4G (CAT1), offering wider coverage, faster speed, and lower latency compared to traditional 2G/3G networks. They are powered by wide voltage (9~36V). With a variety of interfaces available, including RS232, RS485, and TTL, they are easy to develop and support transparent transmission and Python secondary development. They are safe and reliable, featuring both software and hardware watchdogs. Compact in size and easy to install (22.6 * 74.6 mm). 
@@ -38,7 +38,7 @@ The main components and interface layout of the development board are shown in t
 |Reload	|Keypad Input|	Pin.GPIO29, user-defined purpose.|
 
 >**Note**
-> For more information, please visit https://developer.quectel.com/en/resource-download. 
+> For more information, please visit https://www.quectel.com.cn/download-zone. 
 ## **Data Download**
 [EP-D200 DTU Specification and User Guide](https://developer.quectel.com/en/wp-content/uploads/sites/2/2026/03/QuecPython_EP-D200_DTU_Specification_and_User_Guide_V1.0.0_Preliminary.pdf)
 
@@ -46,7 +46,7 @@ The main components and interface layout of the development board are shown in t
 ### Hardware Preparation
 The following are the hardware preparation steps after getting started with the development board. 
 - <font color='red'>**Step 1: Hardware Preparation**</font>
-The following accessories need to be prepared before starting. 
+  The following accessories need to be prepared before starting. 
   1. **Development board**
   2. **USB data cable (USB-A to USB-TypeC)**
   3. **PC (Windows10)**
@@ -58,7 +58,7 @@ The following accessories need to be prepared before starting.
 Install the included adhesive rod antenna and insert the Nano SIM card into the SIM card slot on the development board. 
 
 ### Driver Installation
-- [Open the QuecPython official website driver download link](https://developer.quectel.com/en/resource-download)
+- [Open the QuecPython official website driver download link](https://www.quectel.com.cn/download-zone)
 - Select the driver that matches the module model. The development board is equipped with the EC800G module. Taking the EC800G as an example, on the download page, select the USB driver for this model, [QuecPython_USB Driver Win10_U_G](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverU_V1.0.19.zip), on the right side and click to download. If the development board is equipped with other models, follow the same operation. 
 
 - After downloading, extract the driver compressed package. Find either **setup.exe** or **setup.bat**, double-click to run it. Once the installation is complete, open the Device Manager and you will see that the yellow exclamation mark next to the port has disappeared, indicating that the installation was successful and normal communication is possible. 
@@ -70,7 +70,7 @@ Install the included adhesive rod antenna and insert the Nano SIM card into the 
 ### Tool Installation
 - QPYcom Acquisition
 To develop with QuecPython, a dedicated development and debugging tool - **QPYcom** is required, including but not limited to debugging code, analyzing logs, file transfer, firmware burning, and firmware merging. 
-Open the [QuecPython tool download page](https://developer.quectel.com/en/resource-download) and select the corresponding tool to download based on your operating system. 
+Open the [QuecPython tool download page](https://www.quectel.com.cn/download-zone) and select the corresponding tool to download based on your operating system. 
 
 *Note: This tool does not require installation. Just extract and use.*
 - VSCode extension
@@ -87,7 +87,7 @@ In VSCode, click on the Extensions tab in the sidebar, search for "QuecPython" i
 **Firmware acquisition**
 Modules are usually burned with standard AT firmware or QuecOpen firmware at the factory. If you need to develop the module based on QuecPython, you need to manually re-burn a dedicated QuecPython firmware for it. 
 
-[Official firmware download address](https://developer.quectel.com/en/resource-download)
+[Official firmware download address](https://www.quectel.com.cn/download-zone)
 ![](media/readme/Firmware.png)
 
 When faced with a wide variety of firmware on the official website, to choose the appropriate firmware package, first, you need to know the model of the module you are using. The model of the module can be obtained through the laser engraving on the module or by sending AT commands. 

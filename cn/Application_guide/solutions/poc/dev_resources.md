@@ -13,7 +13,7 @@
 ## 模组资料
 
 - 型号：[EC600MCN_LE](https://developer.quectel.com/modules-cat/ec600m-series)
-- [规格书](https://developer.quectel.com/python/2023/04/Quectel_EC600M-CN_LTE_Standard_模块产品规格书_V1.2.pdf)
+- [规格书](https://developer.quectel.com/wp-content/uploads/2024/10/EC600X系列开发板产品规格及用户指导.pdf)
 - [驱动下载](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverA_Customer_V1.1.13.zip)
 ## 配件资料
 

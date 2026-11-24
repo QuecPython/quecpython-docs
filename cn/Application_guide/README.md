@@ -1,18 +1,18 @@
 # QuecPython 开发指南
 
-## 文档说明
-
 QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指导说明。包含对各功能模块使用方法的详细指导，以及规范的例程，帮助用户正确、合理、高效的使用QuecPython进行开发。
 
-## 文档目录
+## 目录结构
 
 <details>
     <summary>背景知识</summary>
+
 - [物联网与低代码开发](background/iot-and-low-code.md)
 - [无线通信模块简介](background/wireless-modules.md)
 - [QuecPython 简介](background/about-qpy.md)
 - [硬件平台支持](background/hardware-platform.md)
 - [项目开发流程](background/project-dev.md)
+</details>
 
 <details>
     <summary>系统功能</summary>
@@ -31,6 +31,8 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 - [看门狗](system/watchdog.md)
 - [定时器](system/Timer.md)
 
+  </details>
+
 <details>
     <summary>硬件功能</summary>
 
@@ -39,11 +41,13 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 - [显示设备](hardware/display/display.md)
 - [传感器](hardware/sensors/README.md)
 - [音频驱动](hardware/audio-driver.md)
+</details>
 
 <details>
     <summary>多媒体</summary>
 
 - [GUI](multi-media/lvgl/README.md)
+</details>
 
 <details>
     <summary>网络与通信</summary>
@@ -54,6 +58,7 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 - [eSIM](network-comm/esim/README.md)
 - [电话](network-comm/phone.md)
 - [短信](network-comm/sms.md)
+</details>
 
 <details>
     <summary>固件升级</summary>
@@ -62,6 +67,7 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 - [固件 OTA 升级](firmware-upgrade/firmware-ota.md)
 - [固件 OTA 升级包制作指引](firmware-upgrade/firmware-ota-delta-package-making.md)
 - [固件 OTA 升级常见问题](firmware-upgrade/firmware-ota-issues.md)
+</details>
 
 <details>
     <summary>开发工具</summary>
@@ -73,6 +79,7 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 - [各平台Log工具使用教程](dev-tools/LogTool/README.md)
 - [OpenClaw 技能配置和使用教程](dev-tools/Openclaw/README.md)
 - [VSCode 插件使用教程](dev-tools/VSCode-Plugin-quecpython/README.md)
+  </details>
 
 <details>
     <summary>产品方案</summary>
@@ -107,9 +114,12 @@ QuecPython 开发指南，是对QuecPython常用功能模块如何使用的指�
 
 - [QuecDuion开发套件](solutions/QuecDuion/README.md)
 
+  </details>
+
 <details>
     <summary>HeliosSDK</summary>
 
 - [Helios SDK开发指南__入门](helios-sdk/quick-start.md)
 - [Helios SDK开发指南__进阶](helios-sdk/junior.md)
 - [Helios SDK开发指南__高级](helios-sdk/advanced.md)
+</details>

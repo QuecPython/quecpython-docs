@@ -11,7 +11,7 @@
 
 ## Programming environment setup
 
-- Download and install the EC912U series module driver：[QuecPython_USB_Driver_Win10_U_G](https://developerdeveloper.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverU_V1.0.19.zip)。
+- Download and install the EC912U series module driver：[QuecPython_USB_Driver_Win10_U_G](https://www.quectel.com.cn/wp-content/uploads/2026/03/Quectel_Windows_USB_DriverU_V1.0.19.zip)。
 - Download and install [VSCode](https://code.visualstudio.com/)。
 - Download and extract the [QPYCom](https://developer.quectel.com/wp-content/uploads/2024/09/QPYcom_V4.1.0.zip) tool to a suitable location on your computer.
 - Download and install the firmware package[QPY_OCPU_BETA0002_EG912U_GLAA_FW](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0002_EG912U_GLAA_FW.zip)。（For firmware package burning, please refer to [Using QPYcom for Firmware Burning](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html)）

@@ -2,11 +2,11 @@
 
 ## Supported Module List
 
-- [EC200U-CN](https://developer.quectel.com/en/modules-cat/ec200u-series)
-- [EC200U-EU](https://developer.quectel.com/en/modules-cat/ec200u-series)
-- [EC200A-CN](https://developer.quectel.com/en/modules-cat/ec200a-series)
-- [EC200A-AU](https://developer.quectel.com/en/modules-cat/ec200a-series)
-- [EC200A-EU](https://developer.quectel.com/en/modules-cat/ec200a-series)
+- [EC200U-CN](https://www.quectel.com.cn/product/ec200u-series)
+- [EC200U-EU](https://www.quectel.com.cn/product/ec200u-series)
+- [EC200A-CN](https://www.quectel.com.cn/product/ec200a-series)
+- [EC200A-AU](https://www.quectel.com.cn/product/ec200a-series)
+- [EC200A-EU](https://www.quectel.com.cn/product/ec200a-series)
 
 ## Feature List
 
@@ -41,7 +41,7 @@ The main pin placement of the evaluation board is shown in the following figure:
 >
 >The function multiplexing pins beginning with A/U in the figure indicate the functional difference of EC200A and EC200U series modules, that is, the function multiplexing pins beginning with U will take effect only when the module is EC200U. The function multiplexing pins starting with A takes effect only when the module is EC200A.
 >
->For more information about the evaluation board, please visit <https://developer.quectel.com/en/resource-download?cid=252>.
+>For more information about the evaluation board, please visit <https://www.quectel.com.cn/download-zone>.
 
 ### Resource Download
 
@@ -183,13 +183,13 @@ This evaluation board provides 40 pins compatible with Raspberry Pi, as well as 
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

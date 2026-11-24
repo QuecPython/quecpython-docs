@@ -5,9 +5,10 @@
 
 Supported module models
 
-- [EC200U-EU](https://developer.quectel.com/en/modules-cat/ec200u-series)
-- [EC200A-EU](https://developer.quectel.com/en/modules-cat/ec200a-series)
-- [EC200A-AU](https://developer.quectel.com/en/modules-cat/ec200a-series)
+- [EC200A-CN](https://www.quectel.com.cn/product/ec200a-series)
+- [EC200U-CN](https://www.quectel.com.cn/product/ec200u-series)
+- [EC200A-EU](https://www.quectel.com.cn/product/ec200a-series)
+- [EC200A-AU](https://www.quectel.com.cn/product/ec200a-series)
 
 ## Feature List
 
@@ -17,7 +18,7 @@ The QuecPython_EC2X_EVB is specifically designed for QuecPython. It is a small a
 
 The EVB is equipped with a Type-C interface, so developers only need a USB Type-C cable to easily manipulate the EVB.
 
-The EVB is equipped with the EC200U series module. For details, see [EC200U-EU](https://developer.quectel.com/en/modules-cat/ec200u-series).
+The EVB is equipped with the EC200U series module. For details, see [EC200U-EU](https://www.quectel.com.cn/product/ec200u-series).
 
 ### Feature Description
 
@@ -94,7 +95,7 @@ The following figure shows the pin assignment.
 ![](./media/ec2x-evb/EC2X_EVB.png)
 
 > **Tips**
-> For more information about the EVB, please visit <https://developer.quectel.com/en/resource-download?cid=252>
+> For more information about the EVB, please visit <https://www.quectel.com.cn/download-zone>
 
 ### EVB Configuration
 
@@ -140,13 +141,13 @@ The EVB is equipped with various sensors and other peripherals. The pins of peri
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
 模组启动完成后每秒持续输出`hello world`日志，证明程序已随模组开机自动执行，自启动功能验证完成。
 
-<img src="media/QPYcom19.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom19.png" alt="image-2021081301" style="zoom:150%;" />
 
 > 注意：若`main.py`中仅编写单次执行的`print("hello world")`代码，无循环持续运行逻辑，由于单次执行未打开REPL口时已经打印输出,所以QPYcom看不到单次打印的输出。
 

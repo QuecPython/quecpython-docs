@@ -34,7 +34,7 @@ Bit(0)表示：
 
 Bit(1)表示：
 
-![1692688405075](C:\Users\Felix.Ye\AppData\Roaming\Typora\typora-user-images\1692688405075.png)
+![1692688405075](../../media/hardware/peripheral-interfaces/GPIO/bit1.png)
 
 关于信号定义还有如下一些注意点：
 
