@@ -2,10 +2,10 @@
 
 ## 支持的模组列表
 
-- [EG800K](https://developer.quectel.com/modules-cat/eg800k-series)
+- EG800K
 - [EC800M](https://www.quectel.com.cn/product/ec800m-cn)
 - [EC800G](https://www.quectel.com.cn/product/ec800g-cn)
-- [EC800E](https://developer.quectel.com/modules-cat/ec800e-series)
+- EC800E
 
 ## 功能列表
 

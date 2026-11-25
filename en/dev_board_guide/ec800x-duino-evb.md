@@ -3,10 +3,10 @@
 ## Supported Modules
 
 ### Supported module models
-- [EG800K](https://developer.quectel.com/modules-cat/eg800k-series)
+- EG800K
 - [EC800M](https://www.quectel.com.cn/product/ec800m-cn)
 - [EC800G](https://www.quectel.com.cn/product/ec800g-cn)
-- [EC800E](https://developer.quectel.com/modules-cat/ec800e-series)
+- EC800E
 
 ## Feature List
 
@@ -180,52 +180,51 @@ The EVB is equipped with various sensors and other peripherals. The pins of peri
 
   How to stop a running program. The following methods are provided according to the type of the running script file: 
 
-
-	<table valign="center">
-		<thead>
-		<tr>
-			<th>Is the program name main.py?</th>
-			<th>Does the program contain a dead loop?</th>
-			<th>Does the program use multiple threads?</th>
-			<th valign="middle">Stopping Steps</th>
-		</tr>
-		 </thead>
-		<tr>
-			<td rowspan="4">✓</td>
-			<td rowspan="2">✓</td>
-			<td rowspan="1">✓</td>
-			<td>(1) Press Ctrl + A to enter RAW mode</br>(2) Press Ctrl + D to restart the QuePython virtual machine</br>(3) Press Ctrl + B to return to the normal interactive mode</br>(4) If the above methods fail, re-flash the firmware</td>
-		</tr>
-		<tr>
-			<td rowspan="1">✗</td>
-			<td>(1) Press Ctrl + C to interrupt the program execution</br>(2) If the above method fails, re-flash the firmware</td>
-		</tr>
-		<tr>
-			<td rowspan="2">✗</td>
-			<td rowspan="1">✓</td>
-			<td>(1) Press Ctrl + A to enter RAW mode</br>(2) Press Ctrl + D to restart the QuePython virtual machine</br>(3) Press Ctrl + B to return to the normal interactive mode</br>(4) If the above methods fail, wait for the program to finish running</td>
-		</tr>
-		<tr>
-			<td rowspan="1">✗</td>
-			<td>(1) Press Ctrl + C to interrupt the program execution<br>(2) If the above method fails, re-flash the firmware</td>
-		</tr>
-		<tr>
-			<td rowspan="4">✗</td>
-			<td rowspan="2">✓</td>
-			<td rowspan="1">✓</td>
-			<td>(1) Press Ctrl + D to restart the QuePython virtual machine<br>(2) If the above method fails, directly restart the module</td>
-		</tr>
-		<tr>
-			<td rowspan="1">✗</td>
-			<td>(1) Press Ctrl + D to restart the QuePython virtual machine<br>(2) If the above method fails, directly restart the module</td>
-		</tr>
-		<tr>
-			<td rowspan="2">✗</td>
-			<td rowspan="1">✓</td>
-			<td>(1) Press Ctrl + C to interrupt the program execution<br>(2) If the above method fails, re-flash the firmware or directly restart the module</td>
-		</tr>
-		<tr>
-			<td rowspan="1">✗</td>
-			<td>(1) Press Ctrl + C to interrupt the program execution<br>(2) If the above method fails, re-flash the firmware or directly restart the module</td>
-		</tr>
-	</table>
+<table valign="center">
+	<thead>
+    <tr>
+		<th>Is the program name<br/>main.py?</th>
+		<th>Does the program contain<br/>a dead loop?</th>
+		<th>Does the program<br/>use multiple threads?</th>
+		<th valign="middle">Stopping Steps</th>
+	</tr>
+	 </thead>
+    <tr>
+		<td rowspan="4">✓</td>
+		<td rowspan="2">✓</td>
+		<td rowspan="1">✓</td>
+		<td>(1) Press Ctrl + A to enter RAW mode<br/>(2) Press Ctrl + D to restart the QuecPython VM<br/>(3) Press Ctrl + B to return to normal interactive mode<br/>(4) If the above fails, re-burn the firmware</td>
+	</tr>
+	<tr>
+		<td rowspan="1">✗</td>
+		<td>(1) Press Ctrl + C to interrupt program execution<br/>(2) If the above fails, re-burn the firmware</td>
+	</tr>
+	<tr>
+		<td rowspan="2">✗</td>
+		<td rowspan="1">✓</td>
+		<td>(1) Press Ctrl + A to enter RAW mode<br/>(2) Press Ctrl + D to restart the QuecPython VM<br/>(3) Press Ctrl + B to return to normal interactive mode<br/>(4) If the above fails, wait for the program to finish running</td>
+	</tr>
+	<tr>
+		<td rowspan="1">✗</td>
+		<td>(1) Press Ctrl + C to interrupt program execution<br/>(2) If the above fails, re-burn the firmware</td>
+	</tr>
+	<tr>
+		<td rowspan="4">✗</td>
+		<td rowspan="2">✓</td>
+		<td rowspan="1">✓</td>
+		<td>(1) Press Ctrl + D to restart the QuecPython VM<br/>(2) If the above fails, directly restart the module</td>
+	</tr>
+	<tr>
+		<td rowspan="1">✗</td>
+		<td>(1) Press Ctrl + D to restart the QuecPython VM<br/>(2) If the above fails, directly restart the module</td>
+	</tr>
+	<tr>
+		<td rowspan="2">✗</td>
+		<td rowspan="1">✓</td>
+		<td>(1) Press Ctrl + C to interrupt program execution<br/>(2) If the above fails, re-burn the firmware or directly restart the module</td>
+	</tr>
+	<tr>
+		<td rowspan="1">✗</td>
+		<td>(1) Press Ctrl + C to interrupt program execution<br/>(2) If the above fails, re-burn the firmware or directly restart the module</td>
+	</tr>
+</table>

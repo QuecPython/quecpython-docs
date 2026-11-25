@@ -850,8 +850,8 @@ The support status on QuecPython series modules is as follows:
 | Name    | Function         | Interface | Driver                                            | Datasheet                                                    |
 | ------- | ---------------- | --------- | ------------------------------------------------- | ------------------------------------------------------------ |
 | xpt2046 | Resistive Touch  | SPI       | [tm1650.py](../media/hardware/display/tm1650.zip) | [xpt2046.pdf](https://developer.quectel.com/doc/quecpython/Application_guide/zh/media/hardware/display/XPT2046.PDF) |
-| gt9xx   | Capacitive Touch | I2C       | [gt9xx.py](../media/hardware/display/gt9xx.zip)   | [gt9xx.pdf](../media/hardware/display/GT911.PDF)             |
-| cst816  | Capacitive Touch | I2C       | [cst816.py](XXX)                                  | [cst816.pdf](https://datasheet4u.com/pdf/1576442/CST816D.pdf) |
+| gt9xx   | Capacitive Touch | I2C       | gt9xx.py                                          | [gt9xx.pdf](../media/hardware/display/GT911.PDF)             |
+| cst816  | Capacitive Touch | I2C       | cst816.py                                         | [cst816.pdf](https://datasheet4u.com/pdf/1576442/CST816D.pdf) |
 
 
 

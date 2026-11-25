@@ -4,7 +4,7 @@
 
 支持的模组列表
 
-- [EC800K-CN](https://developer.quectel.com/modules-cat/ec800k-series)
+- EC800K-CN
 - [EC800M-CN](https://www.quectel.com.cn/product/ec800m-cn)
 
 ## 功能列表
