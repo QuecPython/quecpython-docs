@@ -170,10 +170,10 @@ data.value = 42           # 整数
 print(data.value)         # 输出42
 
 data.value = b"\x01\x02"  # 字节串
-print(data.value)         # 输出DLMS协议的b'\x01\x02' 
+print(data.value)         # 输出b'\x01\x02' 
 
 data.value = "hello"      # 字符串
-print(data.value)         # 输出DLMS协议的"hello"
+print(data.value)         # 输出"hello"
 
 data.value = True         # 布尔值
 print(data.value)         # 输出True
@@ -311,7 +311,7 @@ raw_value = reg.value * (10 ** reg.scaler) # 1234.789
 
 ```python
 # 默认行为：C 层直接恢复 value → 0
-# reg.reset() 该方法并注册开到python库中，而是在通信时，触发before_reset回调
+# reg.reset() 该方法并未注册开到python库中，而是在通信时，触发before_reset回调执行复位
 # 成功return ture则调用C层的reset方法，否则不调用C层的reset方法
 import dlms
 def before_reset(self, event):
@@ -441,7 +441,7 @@ raw_value = ext_reg.value * (10 ** ext_reg.scaler) # 1234.789
 
 ```python
 # 默认行为：C 层直接恢复 value → 0
-# reext_regg.reset() 该方法并注册开到python库中，而是在通信时，触发before_reset回调
+# reext_regg.reset() 该方法并注册开到python库中；在通信时，也能通过回调进行复位
 # 成功return ture则调用C层的reset方法，否则不调用C层的reset方法
 import dlms
 def before_reset(self, event):
@@ -1554,7 +1554,7 @@ SingleActionSchedule(logical_name: str, executed_script: tuple = None,
 |------|------|--------|------|
 | `logical_name` | `str` | 必传 | OBIS 代码字符串，如 `"0.0.15.0.1.255"` |
 | `executed_script` | `tuple` | `None` | `(script_table_instance, script_id)` 二元组 |
-| `execution_type` | `int` | `1` | 执行类型，固定为 `1`（Type 1：日期/时间表达式） |
+| `execution_type` | `int` | `1` | 执行类型，默认为 `1`（Type 1：日期/时间表达式） |
 | `execution_times` | `list` | `None` | 时间表达式列表，每项 6 或 7 元组；`-1` 表示通配 |
 | `access` | `dict` | `None` | 实例级权限，格式 `{attr_index: (AccessMode, Authentication)}` |
 
@@ -1572,7 +1572,7 @@ SingleActionSchedule(logical_name: str, executed_script: tuple = None,
 | 3 | `hour` | 0–23 / `ANY` | 小时 |
 | 4 | `minute` | 0–59 / `ANY` | 分钟 |
 | 5 | `second` | 0–59 / `ANY` | 秒 |
-| 6 | `day_of_week` | 0–7 / `ANY` | 0=全周, 1=周一, ..., 7=周日 |
+| 6 | `day_of_week` | 0–7 / `ANY` | 1 为周一，7 为周日；ANY（-1）表示不限星期 |
 
 > 任意位置使用 `dlms.ANY`（值为 `-1`）表示通配，如 `(ANY, ANY, ANY, 2, 0, 0, ANY)` = 每天 02:00:00。6 元组（省略 `day_of_week`）等价于 7 元组末尾补 `-1`。`dlms.ANY` = `-1`。
 ```python

@@ -4,10 +4,10 @@
 
 Supported Module List
 
-- [EC800M-CNGB](https://developer.quectel.com/en/modules-cat/ec800m-series)
-- [EC800M-CNGD](https://developer.quectel.com/en/modules-cat/ec800m-series)
-- [EC800E-CNLE](https://developer.quectel.com/en/modules-cat/ec800m-series)
-- [EC800M-CNLF](https://developer.quectel.com/en/modules-cat/ec800m-series)
+- [EC800M-CNGC](https://www.quectel.com.cn/product/ec800m-cn)
+- [EC800M-CNLC](https://www.quectel.com.cn/product/ec800m-cn)
+- [EC800M-CNLF](https://www.quectel.com.cn/product/ec800m-cn)
+- [EC800E-CNLE](https://developer.quectel.com/modules-cat/ec800e-series)
 
 ## Feature List
 

@@ -93,7 +93,7 @@ This method sets the GPIO of the output PA.
 
 **Parameter:**
 
-- `gpio` - Integer type. The output GPIO. Refer to [Pin](./machine.Pin.md).
+- `gpio` - Integer type. The output GPIO. Refer to [Pin](../peripherals/machine.Pin.md).
 - `num` - Integer type. Number of power-on pulses.
 
 **Return Value**

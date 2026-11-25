@@ -552,7 +552,7 @@ MIPI 协议实际上是一系列接口的协议，包含液晶、摄像头等等
 
 <font color='red'>**注意：** 目前 QuecPython 支持 mipi 的平台仅支持 RGB565 格式. </font>
 
-<font color='red'>**注意：**</font>实际使用中，LCD 多与 UI([LVGL](TODO 链接))搭配使用。
+<font color='red'>**注意：**</font>实际使用中，LCD 多与 UI([LVGL ](https://lvgl.100ask.net/master/index.html))搭配使用。
 
 ##### 前期准备工作
 

@@ -93,7 +93,7 @@ In the ETSI protocol document, the byte encoding of the command APDU is specifie
 
 The Response APDU is a data structure returned by a smart card to the interface device (such as a card reader or a mobile phone) after receiving and processing a Command APDU (C-APDU). The Response APDU consists of two parts: the data field and the status field. The data structure is as follows:
 
-![](C:\Users\florence.he\Desktop\软件文档相关\软件文档\Application_guide\zh\media\network-comm\sim\响应APDU数据结构.png)
+![](../../media/network-comm/sim/响应APDU数据结构.png)
 
 The data field is optional and contains the result data of the command execution. For example, if the command is a file read operation, the data field will contain the content of the file being read. The length of the data field is variable. In the C-APDU, there is an optional field called Le, which specifies the expected length of the response data. If the C-APDU does not include the Le field, the data field of the R-APDU can have any length. However, the actual data length depends on the type of command and the execution result. For example, if the C-APDU is a read file operation, the data field of the R-APDU will contain the data read from the file, and the length will depend on the size of the file and the value of the Le field. If the size of the file exceeds the value of the Le field, only the first Le bytes of data will be returned. If the size of the file is smaller than the value of the Le field, the entire file data will be returned.
 
@@ -101,7 +101,7 @@ The status field is an essential part and consists of two bytes, SW1 and SW2, wh
 
 In the ETSI protocol, the description of the Response APDU is as follows:
 
-![](C:\Users\florence.he\Desktop\软件文档相关\软件文档\Application_guide\zh\media\network-comm\sim\响应APDU组成.png)
+![](../../media/network-comm/sim/响应APDU组成.png)
 
 Below are some common explanations of Response APDU status values. For more information, please refer to the ISO 7816 standard protocol and the ETSI TS 102 221 protocol document.
 

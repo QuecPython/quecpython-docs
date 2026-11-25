@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
 After the module is fully started, the `hello world` log is continuously output every second. This proves that the program is automatically executed upon module startup, and the verification of the auto-start function is completed.
 
-<img src="media/QPYcom19.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom19.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 > Note: If only the one-time execution code `print("hello world")` is written in `main.py` (without loop-based continuous running logic), the one-time print output will be generated before the REPL port is opened. As a result, QPYcom cannot capture the one-time print output.
 

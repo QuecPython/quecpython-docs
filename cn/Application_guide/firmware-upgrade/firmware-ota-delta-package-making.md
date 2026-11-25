@@ -90,7 +90,7 @@
 
 将原始固件包中BF_AVAS_02_02与BF_CORE_02_02文件压缩为一个压缩包，得到该固件包的压缩文件。
 
-![](../media/firmware-upgrade/firmware-ota/OTA12.png)
+![](../media/firmware-upgrade/firmware-ota/OTA12.jpg)
 
 1、点击升级按钮，选择BG950S Fota，弹出对话框。
 

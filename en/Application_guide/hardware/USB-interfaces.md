@@ -198,7 +198,7 @@ The USB interface of cellular communication modules can simulate ECM (Ethernet C
 
 In summary, the USB-simulated ECM/RNDIS interfaces of cellular communication modules provide an efficient way to achieve network communication between devices and remote management of devices.
 
-Please refer to **[Network Application Guide - USB NIC](TODO 链接)** for specific usage.
+Please refer to **[Network Application Guide - USB NIC](https://lvgl.100ask.net/master/index.html)** for specific usage.
 
 ## Firmware Download
 
@@ -210,7 +210,7 @@ The USB firmware download for modules includes the following steps:
 
 2. **Module Recognition**: Connect the module to the computer's USB interface. Your operating system will recognize and successfully load the driver. In Windows, you can view the module status in "Device Manager". In Linux, you can execute the **dmesg** command to view system logs and confirm the module has been recognized by the system.
 
-3. **Enter Download Mode**: You need to set the module in firmware download mode, which usually requires specific AT commands or some special operation. Please refer to [User Manual/Development Guide](TODO 待快速入门添加) of the module for details. 
+3. **Enter Download Mode**: You need to set the module in firmware download mode, which usually requires specific AT commands or some special operation. Please refer to [User Manual/Development Guide](https://www.quectel.com.cn/quecpython/quick-start)of the module for details. 
 
 4. **Firmware Download**: After the module enters firmware download mode, you can send the new firmware data to the module via the USB interface. In some cases, you may need special download tools or protocols. After the download is complete, you usually need to reboot the module to apply the new firmware.
 
@@ -291,7 +291,7 @@ REPL stands for <font color='red'>**Read-Eval-Print-Loop (interactive interprete
 
 ![1688389115895](../media/hardware/USB-interfaces/REPL.png)
 
-No REPL port means the device in the red box does not exist. Different modules may have different REPL port names. Please refer to the [QuecPython USB COM Port](TODO 待添加) for details.
+No REPL port means the device in the red box does not exist. Different modules may have different REPL port names. Please refer to the [QuecPython USB COM Port](https://www.quectel.com.cn/quecpython/quick-start) for details.
 
 If you find no REPL port in the PC port manager when using QuecPython series modules, please follow these steps to determine the problem.
 

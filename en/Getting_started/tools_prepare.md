@@ -16,8 +16,8 @@ For VScode, QuecPython has launched a dedicated extension to serial port debuggi
 
 - In VSCode, click the extension marketplace in the sidebar. In the extension marketplace, search for "QuecPython" and download the extension based on the search result.
 
-![](media/VScode_1.png)
+![](media/readme/VScode_1.png)
 
 - You can also search for "QuecPython" in the [VSCode Extension Marketplace](https://marketplace.visualstudio.com/vscode). After downloading the extension based on the search result, VSCode will automatically be opened and installed.
 
-![](media/VScode_2.png)
+![](media/readme/VScode_2.png)

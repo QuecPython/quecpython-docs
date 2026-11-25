@@ -91,7 +91,7 @@ Method for obtaining compressed files：
 
 Compress the BF_AVAS_02_02 and BF_CORE_02_02 files in the original firmware package into one compressed file, and obtain the compressed file of this firmware package.
 
-![](../media/firmware-upgrade/firmware-ota/ota_package_make_4.png)
+![](../media/firmware-upgrade/firmware-ota/ota_package_make_4.jpg)
 
 1. Click the "upgrade" icon and select "**Unisoc Fota**".
 

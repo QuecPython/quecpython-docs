@@ -26,6 +26,8 @@ class ethernet.CH395(mac, ip='', subnet='', gateway='', spi_port=-1, spi_cs_pin=
 - `reset_pin` - 连接`CH395`的重置[GPIO管脚](./machine.Pin.md), 表示上次配置的值，程序中默认配置为 `Pin.GPIO30`。
 - `work_mode` - 以太网工作模式配置，默认为终端模式，`0`/`1` 分别表示终端模式/网关模式。终端模式表示该模块作为终端设备连接供网设备上网。网关模式表示该模块作为网关，为外部设备提供网络访问，通过`4G`上网。
 
+> 注意：请勿使用spi_port的硬件CS脚，另选一个GPIO作为CS脚
+
 ## 方法
 
 ### `CH395.set_addr`

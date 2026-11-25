@@ -3,9 +3,9 @@
 
 ## Supported Module List
 
-- [BG95-M1](https://developer.quectel.com/en/modules-cat/bg95-series)
-- [BG95-M3](https://developer.quectel.com/en/modules-cat/bg95-series)
-- [BG95-M8](https://developer.quectel.com/en/modules-cat/bg95-series)
+- [BG95-M1](https://www.quectel.com.cn/product/eg95)
+- [BG95-M3](https://www.quectel.com.cn/product/eg95)
+- [BG95-M8](https://www.quectel.com.cn/product/eg95)
 
 
 ## Feature List
@@ -88,7 +88,7 @@ The main pin layout of the EVB is shown in the figure below.
 ![img](./media/bg95/BG95_EVB.png)
 
 > **Note**
-> For more information about QuecPython_BG95_EVB, please visit <https://developer.quectel.com/en/resource-download?cid=5&pid=238>.
+> For more information about QuecPython_BG95_EVB, please visit <https://www.quectel.com.cn/download-zone>.
 
 ### EVB Configuration
 
@@ -140,13 +140,13 @@ The peripheral pin assignments are detailed as follows.
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

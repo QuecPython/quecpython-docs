@@ -13,7 +13,7 @@
 - Download and install EC200U series module driver: [QuecPython_USB_Driver_Win10_U_G]( https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverU_V1.0.19.zip )
 - Download and install [VSCode](https://code.visualstudio.com/ )
 - Download and unzip [QPYcom](https://developer.quectel.com/wp-content/uploads/2024/09/QPYcom_V4.1.0.zip) Tool to the appropriate location on the computer
-- Use QPYcom to burn [firmware package](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0001_EC200U_EUAA_FW.zip)
+- Use QPYcom to burn [firmware package](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac)
 - Download [Experimental Source Code](https://codeload.github.com/QuecPython/solution-tracker/zip/refs/heads/master)
 
 ## Hardware connection
@@ -182,7 +182,7 @@ After completing the hardware connection work, the development board will automa
 
 ### Download firmware
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html), burn firmware package [QPy_OCPU_SETA0001_EC200U_SUAA_FW](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0001_EC200U_EUAA_FW.zip) To the development board.
+Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html), burn firmware package [QPy_OCPU_SETA0001_EC200U_SUAA_FW](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac) To the development board.
 
 ### Script import and execution
 

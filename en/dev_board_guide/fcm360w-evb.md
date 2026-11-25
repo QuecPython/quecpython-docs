@@ -4,7 +4,7 @@
 
 Supported module model
 
-- [FCM360W](https://developer.quectel.com/en/modules-cat/fcm360w-series)
+- [FCM360W](https://www.quectel.com.cn/product/wi-fi-bluetooth-fcm360w)
 
 ## Feature List
 
@@ -66,7 +66,7 @@ The following figure shows the pin assignment.
 
 > **Tips**
 >
-> For more information about the EVB, please visit [QuecPython Download](https://developer.quectel.com/en/resource-download?cid=252)
+> For more information about the EVB, please visit [QuecPython Download](https://www.quectel.com.cn/download-zone)
 
 ### EVB Configuration
 
@@ -107,13 +107,13 @@ The pins of peripherals are shown in the table below.
 
 ### Driver Installation
 
-1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://developer.quectel.com/en/resource-download?cid=2).
+1. Download the **QuecPython USB Driver** from [QuecPython Official Drivers](https://www.quectel.com.cn/download-zone).
 2. Extract and run `setup.exe` or `setup.bat`.
 3. Verify installation in **Device Manager** (look for "Quectel USB" ports). Ignore unrelated devices like "Mobile ECM Network Adapter."
 
 ### Tool Installation
 
-1. **QPYcom**: Download from [QuecPython Tools](https://developer.quectel.com/en/resource-download?cid=2). Extract and use directly.
+1. **QPYcom**: Download from [QuecPython Tools](https://www.quectel.com.cn/download-zone). Extract and use directly.
 2. **VSCode Plugin**: Search for "QuecPython" in the Visual Studio Code marketplace.![](./media/readme/VScode_1.png)
 
 ### Firmware Burning

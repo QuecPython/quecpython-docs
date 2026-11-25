@@ -10,11 +10,11 @@ The "device driver" is a special program that allows the PC to communicate with 
 
 - You can obtain the module model from the laser engraving on the module itself or by using AT commands. The laser engraving is illustrated in the image below, with the model "EG912U" shown on the engraving.
 
-<img src="media/EG912u-GL.png" style="zoom: 80%;" />
+<img src="media/readme/EG912u-GL.png" style="zoom: 80%;" />
 
 - In the search box, type "EG912U" to find the appropriate driver for EG912U, and then click the download button to download the driver: [QuecPython_USB Driver Win10_U_G](https://developer.quectel.com/en/wp-content/uploads/sites/2/2024/11/Quectel_Windows_USB_DriverU_V1.0.19.zip).
 
-<img src="media/driver_eg912u.png" style="zoom: 80%;" />
+<img src="media/readme/driver_eg912u.png" style="zoom: 80%;" />
 
 | Module Model                                                 | Host Platform  | Driver Name                                       |
 | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
@@ -37,4 +37,4 @@ After opening the page by following the steps above, you can refresh the page an
 
 **After the driver is installed**
 
-<img src="media/driver_after.jpg"  style="zoom: 130%;"/>
+<img src="media/readme/driver_after.jpg"  style="zoom: 130%;"/>

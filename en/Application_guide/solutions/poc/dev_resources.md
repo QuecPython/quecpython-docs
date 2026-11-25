@@ -8,7 +8,7 @@
   - [specification](https://developer.quectel.com/wp-content/uploads/2024/10/EC600X系列开发板产品规格及用户指导.pdf)
   - [schematic](https://developer.quectel.com/en/wp-content/uploads/sites/2/2024/12/EC600X_Series_EVB_SCH.pdf)
   - [screen priting](https://developer.quectel.com/en/wp-content/uploads/sites/2/2024/12/EC600X_Series_EVB_SilkScreen.pdf)
-  - [user guidance](https://developer.quectel.com/doc/quecpython/Getting_started/zh/evb/ec600x-evb.html)
+  - [user guidance](https://www.quectel.com.cn/wp-content/uploads/2026/03/Quectel_QuecPython_EC600X%E7%B3%BB%E5%88%97_%E5%BC%80%E5%8F%91%E6%9D%BF%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E5%8F%8A%E7%94%A8%E6%88%B7%E6%8C%87%E5%AF%BC.pdf)
 
 ## Module information
 

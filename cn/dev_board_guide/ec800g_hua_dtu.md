@@ -2,7 +2,7 @@
 
 ## 支持的模块列表
 
-- [EC800G-CN](https://developer.quectel.com/modules-cat/ec800g-series)
+- [EC800G-CN](https://www.quectel.com.cn/product/ec800g-cn)
 
 
 ## 功能列表

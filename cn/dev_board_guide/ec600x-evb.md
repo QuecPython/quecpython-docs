@@ -6,9 +6,9 @@
 
 - [EC600N-CN](https://developer.quectel.com/modules-cat/ec600n-series)
 
-- [EC600U-CN](https://developer.quectel.com/modules-cat/ec600u-series)
+- [EC600U-CN](https://www.quectel.com.cn/product/ec600u-series)
 
-- [EC600M-CN](https://developer.quectel.com/modules-cat/ec600m-series)
+- [EC600M-CN](https://www.quectel.com.cn/product/ec600m)
 
 ## 功能列表
 
@@ -85,7 +85,7 @@ QuecPython_EC600X_EVB 开发板是专门针对 QuecPython 制造的、小巧便�
 ![](./media/ec600x-evb/600Uperipheral.png)
 
 > **小提示**
-> 开发板的更多资料，请访问 <https://developer.quectel.com/resource-download?cid=23>
+> 开发板的更多资料，请访问 <https://www.quectel.com.cn/download-zone>
 
 ### 开发板配置
 
@@ -131,9 +131,11 @@ QuecPython_EC600X_EVB 开发板是专门针对 QuecPython 制造的、小巧便�
 
 ### 驱动安装
 
-- 打开[QuecPython官网驱动下载链接](https://developer.quectel.com/resource-download?cid=5)
+- 打开[QuecPython官网驱动下载链接](https://www.quectel.com.cn/download-zone)
 
 - 选择与模组型号匹配的驱动，该开发板搭载的模组有EC600U，以EC600U为例，在下载页面右侧选择该型号的USB驱动[QuecPython_USB Driver Win10_U_G](https://developer.quectel.com/wp-content/uploads/2024/09/Quectel_Windows_USB_DriverU_V1.0.19.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+
+  ![](media/readme/driver_eg912u.png)
 
 - 下载后解压驱动压缩包，找到**"setup.exe"** 或者是**"setup.bat"**，双击运行即可，安装完之后打开设备管理器就可以看到设备管理器中端口的黄色感叹号消失了，说明安装成功，能够正常通信。
 
@@ -148,7 +150,7 @@ QuecPython_EC600X_EVB 开发板是专门针对 QuecPython 制造的、小巧便�
 
 使用QuecPython进行开发需要用到专用的开发调试工具——**QPYcom**，包括但不限于调试代码、分析日志、文件传输、烧录固件、合并固件等。
 
-打开[QuecPython工具下载页面](https://developer.quectel.com/resource-download?cid=8)，根据操作系统选择对应的工具进行下载。
+打开[QuecPython工具下载页面](https://www.quectel.com.cn/download-zone)，根据操作系统选择对应的工具进行下载。
 
 *注意:该工具无需安装，解压即用。*
 
@@ -168,7 +170,7 @@ QuecPython_EC600X_EVB 开发板是专门针对 QuecPython 制造的、小巧便�
 
 模组在出厂时通常烧录有标准 AT 固件或 QuecOpen 固件，如需基于 QuecPython 对模块进行开发，需要手动为其重新烧录专门的 QuecPython 固件。
 
-[官网固件下载地址](https://developer.quectel.com/resource-download?cid=15)
+[官网固件下载地址](https://www.quectel.com.cn/download-zone)
 
 ![](media/readme/Firmware.png)
 

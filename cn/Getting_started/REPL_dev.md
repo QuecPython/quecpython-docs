@@ -36,6 +36,6 @@ BG95、BG600L系列模组交互口名称为**Quectel USB NEMA Port**
 hello world
 ```
 
-![](media/hello_world.png)
+![](media/readme/hello_world.png)
 
 <font color='red'>*注意：工具交互页面输入时需要输入英文字符，中文字符将会被屏蔽*</font>

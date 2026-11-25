@@ -16,7 +16,7 @@ Windows电脑一台，建议 `Win10` 系统。
 - 下载并安装 [VSCode](https://code.visualstudio.com/)。
 - 下载并解压 [QPYCom](https://developer.quectel.com/wp-content/uploads/2024/09/QPYcom_V4.1.0.zip) 工具到电脑的合适位置。
 - 下载[固件包](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_V0005_EC200U_EUAA_FW.zip)。
-- 下载[实验源码](https://gitee.com/dustin-wei/solution-sensorhub) 
+- 下载[实验源码](https://github.com/QuecPython/solution-Sensorhub/archive/refs/heads/main.zip) 
 
 ## 硬件连接
 

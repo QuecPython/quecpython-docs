@@ -10,11 +10,11 @@
 print("hello world")
 ```
 
-<img src="media/VScode1.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/VScode1.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 接下来将编写好的脚本保存在本地，将文件名命名为 `helloworld.py`（仅允许英文、数字和下划线，**禁止使用中文和特殊字符**）
 
-<img src="media/VScode2.png" alt="image-2021081301" style="zoom:150%;"/>
+<img src="media/readme/VScode2.png" alt="image-2021081301" style="zoom:150%;"/>
 
 下面通过QPYcom将上面编辑好的文件传输到模组中并运行
 
@@ -22,37 +22,37 @@ print("hello world")
 
 在传输脚本文件前要确保QPYcom串口已打开
 
-<img src="media/QPYcom1.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom1.png" alt="image-2021081301" style="zoom:150%;" />
 
 **方法一:** 通过拖拽形式传输
 
 打开QPYcom点击`文件`，点击图示上的按钮选择`helloworld.py`脚本文件路径
 
-<img src="media/QPYcom2.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom2.png" alt="image-2021081301" style="zoom:150%;" />
 
 选择存放`helloworld.py`脚本文件路径后，在左侧可以看到编写好的脚本文件
 
-<img src="media/QPYcom3.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom3.png" alt="image-2021081301" style="zoom:150%;" />
 
-将左侧`helloworld.py`脚本文件拖拽到右侧`usr`中进行传输，下载进度和结果会在下方状态栏显示<img src="media/QPYcom4.png" alt="image-2021081301" style="zoom:150%;" />
+将左侧`helloworld.py`脚本文件拖拽到右侧`usr`中进行传输，下载进度和结果会在下方状态栏显示<img src="media/readme/QPYcom4.png" alt="image-2021081301" style="zoom:150%;" />
 
 右侧usr显示`helloworld.py`说明成功传输到模组中
 
-<img src="media/QPYcom5.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom5.png" alt="image-2021081301" style="zoom:150%;" />
 
 **方法二**:通过工具按钮传输
 
 点击右侧 "**+**"按钮进行传输文件
 
-<img src="media/QPYcom6.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom6.png" alt="image-2021081301" style="zoom:150%;" />
 
 找到编写好的`helloworld.py`文件，点击右下角**打开**
 
-<img src="media/QPYcom7.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom7.png" alt="image-2021081301" style="zoom:150%;" />
 
 右侧usr显示`helloworld.py`说明成功传输到模组中
 
-<img src="media/QPYcom8.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom8.png" alt="image-2021081301" style="zoom:150%;" />
 
 **方法三:**创建用户项目进行传输
 
@@ -62,23 +62,23 @@ print("hello world")
 
 创建好项目名称，点击"OK"
 
-<img src="media/QPYcom9.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom9.png" alt="image-2021081301" style="zoom:150%;" />
 
 左侧显示创建好的项目
 
-<img src="media/QPYcom10.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom10.png" alt="image-2021081301" style="zoom:150%;" />
 
 在"用户脚本/文件"区域选择`usr`根目录鼠标右键**添加文件**
 
-<img src="media/QPYcom11.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom11.png" alt="image-2021081301" style="zoom:150%;" />
 
 添加成功后会显示准备好进行传输的`helloword.py`文件，点击右下角<img src="media\readme\QPYcom17.png"/>会出现“下载脚本“与”下载固件”，选择**下载脚本**进行传输
 
-<img src="media/QPYcom12.jpg" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom12.jpg" alt="image-2021081301" style="zoom:150%;" />
 
 下载好后会提示”文件下载成功“
 
-<img src="media/QPYcom13.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom13.png" alt="image-2021081301" style="zoom:150%;" />
 
 ## 执行脚本文件
 
@@ -95,17 +95,17 @@ example.exec("/usr/hello world.py") # filePath为要执行的脚本文件路径
 
 在工具的文件页面选择要执行的`helloworld.py`脚本文件然后点击<img src="media\readme\QPYcom18.png"/>按钮运行
 
-<img src="media/QPYcom14.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom14.png" alt="image-2021081301" style="zoom:150%;" />
 
 **方法三**：通过右键菜单运行脚本文件
 
 选择脚本文件，右键点击运行
 
-<img src="media/QPYcom15.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom15.png" alt="image-2021081301" style="zoom:150%;" />
 
 **执行结果如图所示**
 
-<img src="media/QPYcom16.png" alt="image-2021081301" style="zoom:150%;" />
+<img src="media/readme/QPYcom16.png" alt="image-2021081301" style="zoom:150%;" />
 
 ## 停止程序运行
 

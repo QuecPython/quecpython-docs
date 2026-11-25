@@ -1,7 +1,7 @@
 # QuecPython 标准库
 
-> - QuecPython 提供了内置模块，这些模块反映了 Python 标准库（例如 `os`，`time`），以及 QuecPython 特定的模块（例如 `bluetooth`，`machine`）。
-> - 大多数标准库模块实现了等效的 Python 模块，并在少数情况下提供一些特定于 QuecPython 的扩展模块（例如`array`，`os`）。
+> - QuecPython 提供了内置模块，这些模块反映了 Python 标准库（例如 `os`，`time`），以及 QuecPython 特定的模块（例如 `bluetooth`，`machine`）。<br><br>
+> - 大多数标准库模块实现了等效的 Python 模块，并在少数情况下提供一些特定于 QuecPython 的扩展模块（例如`array`，`os`）。<br><br>
 > - 为了允许扩展，内置模块可以从加载到设备上的 Python 代码扩展而来。
 
 本文描述了 QuecPython 内置的模块（函数和类库）。

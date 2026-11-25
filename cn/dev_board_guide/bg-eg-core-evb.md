@@ -4,12 +4,12 @@
 
 支持的模组列表
 
-- [BG95-M1](https://developer.quectel.com/modules-cat/bg95-series)
-- [BG95-M3](https://developer.quectel.com/modules-cat/bg95-series)
-- [BG95-M8](https://developer.quectel.com/modules-cat/bg95-series)
-- [EG915U-LA](https://developer.quectel.com/modules-cat/eg915u-series)
-- [EG915U-EU](https://developer.quectel.com/modules-cat/eg915u-series)
-- [EG912U-GL](https://developer.quectel.com/modules-cat/eg912u-series)
+- [BG95-M1](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [BG95-M3](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [BG95-M8](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG915U-LA](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG915U-EU](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
+- [EG912U-GL](https://www.quectel.com.cn/product/bg95-bg95x-eg9x-compatible-design)
 
 ## 功能列表
 
@@ -75,9 +75,9 @@ QuecPython BG&EG 系列核心板(PH-7(C4-P02))是专门针对 QuecPython 制造�
 
 ### 驱动安装
 
-- 打开[QuecPython官网驱动下载链接](https://developer.quectel.com/resource-download?cid=5)
+- 打开[QuecPython官网驱动下载链接](https://www.quectel.com.cn/download-zone)
 
-- 选择与模组型号匹配的驱动，该开发板搭载的模组有BG95和EG91XU两种型号，以EG912U为例，在下载页面右侧选择该型号的USB驱动[QuecPython_USB Driver Win10_U_G](https://images.quectel.com/python/2023/04/Quectel_Windows_USB_DriverU_V1.0.19.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
+- 选择与模组型号匹配的驱动，该开发板搭载的模组有BG95和EG91XU两种型号，以EG912U为例，在下载页面搜索该型号的USB驱动[QuecPython_USB Driver Win10_U_G](https://images.quectel.com/python/2023/04/Quectel_Windows_USB_DriverU_V1.0.19.zip)点击下载，如果开发板搭载的是其他型号同样按照以上操作即可。
 
 <img src="media/readme/driver_eg912u.png" style="zoom: 80%;" />
 
@@ -94,7 +94,7 @@ QuecPython BG&EG 系列核心板(PH-7(C4-P02))是专门针对 QuecPython 制造�
 
 使用QuecPython进行开发需要用到专用的开发调试工具——**QPYcom**，包括但不限于调试代码、分析日志、文件传输、烧录固件、合并固件等。
 
-打开[QuecPython工具下载页面](https://developer.quectel.com/resource-download?cid=8)，根据操作系统选择对应的工具进行下载。
+打开[QuecPython工具下载页面](https://www.quectel.com.cn/download-zone)，根据操作系统选择对应的工具进行下载。
 
 *注意:该工具无需安装，解压即用。*
 
@@ -114,7 +114,7 @@ QuecPython BG&EG 系列核心板(PH-7(C4-P02))是专门针对 QuecPython 制造�
 
 模组在出厂时通常烧录有标准 AT 固件或 QuecOpen 固件，如需基于 QuecPython 对模块进行开发，需要手动为其重新烧录专门的 QuecPython 固件。
 
-[官网固件下载地址](https://developer.quectel.com/resource-download?cid=15)
+[官网固件下载地址](https://www.quectel.com.cn/download-zone)
 
 ![](media/readme/Firmware.png)
 

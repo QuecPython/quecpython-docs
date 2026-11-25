@@ -16,8 +16,8 @@
 
 - 在VSCode中点击侧边栏插件市场，在插件市场中搜索 “QuecPython”，根据搜索结果下载该插件即可
 
-![](media/VScode_1.png)
+![](media/readme/VScode_1.png)
 
 - 在[VSCode插件商店网站](https://marketplace.visualstudio.com/vscode) 搜索“QuecPython”，根据搜索结果下载该插件后会自动打开VSCode并安装
 
-![](media/VScode_2.png)
+![](media/readme/VScode_2.png)

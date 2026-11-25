@@ -188,7 +188,7 @@ In SPI LCD, data and commands are sent to the display via the MOSI line, while t
 
 Normally, the controller (such as a microcontroller) sends appropriate commands and data through SPI based on the specifications of the display (such as resolution and color depth) and the content to be displayed. This may include setting display parameters, writing pixel data, etc.
 
-This section will introduce the debugging of SPI LCD based on the QuecPython EVB driving the [st7789 (240*320)](TODO 链接) screen.
+This section will introduce the debugging of SPI LCD based on the QuecPython EVB driving the [st7789 (240*320)](https://developer.quectel.com/doc/quecpython/API_reference/en/peripherals/machine.LCD.html#Methods) screen.
 
 ##### Preparations
 
@@ -541,7 +541,7 @@ Since the relevant **[API](https://developer.quectel.com/doc/quecpython/API_refe
 
 <font color='red'>**Note:** Currently QuecPython series modules that support MIPI only support the RGB565 format . </font>
 
-<font color='red'>**Note:**</font> In actual use, LCD is often used in conjunction with UI ([LVGL](TODO链接)).
+<font color='red'>**Note:**</font> In actual use, LCD is often used in conjunction with UI([LVGL ](https://lvgl.100ask.net/master/index.html)).
 
 ##### Preparations
 

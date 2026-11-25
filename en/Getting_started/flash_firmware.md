@@ -6,7 +6,7 @@ Standard AT firmware or QuecOpen firmware is usually downloaded into a module wh
 
 The official firmware download URL is https://developer.quectel.com/en/resource-download?cid=4.
 
-![](media/Firmware.png)
+![](media/readme/Firmware.png)
 
 When faced with a wide variety of firmware options on the official website, how to choose the appropriate firmware package? First, you need to know the model of the module you are using. You can obtain the module model by checking the module's engraving or by sending AT commands.
 
@@ -16,7 +16,7 @@ The firmware name is generally in the format `QPY_OCPU_<module_model>_FW`, for e
 
 Click the download button in the download column to start downloading. After a successful download, you will get a compressed package (zip file) named after the firmware.
 
-![](media/firmware_zip.png)
+![](media/readme/firmware_zip.png)
 
 > After downloading the firmware zip file to your PC, you need to unzip it. After unzipping, you can get two files. The .bin, .lod or .pac file is the QuecPython firmware, and the .md file is the update logs.
 
@@ -63,4 +63,4 @@ Click on **"Download FW"** to initiate the firmware download. The download proce
 | EC800Z | Short-circuit the BOOT and EXT pins on the development board and press the **"RESET"** button to bring up the download port. The duration is short, so quickly click **"Download FW"** to start downloading the firmware. |
 | EG800Z | Short-circuit the BOOT and EXT pins on the development board and press the **"RESET"** button to bring up the download port. The duration is short, so quickly click **"Download FW"** to start downloading the firmware. |
 
-![](media/firmware.gif)
+![](media/readme/firmware.gif)
