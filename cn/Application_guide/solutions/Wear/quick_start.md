@@ -47,20 +47,20 @@
 
 ### 烧录固件包
 
-参考[此章节](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html#下载固件)，烧录固件包 [EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222.zip](https://github.com/QuecPython/solution-wearable/blob/master/EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222_20250317-1147_20250317-1152.zip) 至开发板。
+参考[此章节](../../../Getting_started/flash_firmware.md)，烧录固件包 [EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222.zip](https://github.com/QuecPython/solution-wearable/blob/master/EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222_20250317-1147_20250317-1152.zip) 至开发板。
 
 
 
 ### 脚本导入与运行
 
 
-1. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#PC与模组间的文件传输)，将源码目录下 `code`文件夹中的所有以`.py`结尾文件导入到模组文件系统，如下图所示：
+1. 参考[此章节](../../../Getting_started/first_python.md#传输脚本文件到模组)，将源码目录下 `code`文件夹中的所有以`.py`结尾文件导入到模组文件系统，如下图所示：
 
    <img src="../../media/solutions/Wear/Downloadfile.png" style="zoom: 80%;" />
 
-2. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#执行脚本文件)，执行主程序文件`main_t.py
+   2.参考[此章节](../../../Getting_started/first_python.md#执行脚本文件)，执行主程序文件_main.py
 
-3. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行)，停止程序运行
+   3.参考[此章节](../../../Getting_started/first_python.md#停止程序运行)，停止程序运行。
 
 
 

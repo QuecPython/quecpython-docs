@@ -52,7 +52,7 @@
 
 ### 烧录固件包
 
-参考[此章节](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html#下载固件)烧录固件包 [QPY_OCPU_BETA0002_EG912U_GLAA_FW.zip](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0002_EG912U_GLAA_FW.zip) 至EG912U模组开发板。
+参考[此章节](../../../Getting_started/flash_firmware.md)烧录固件包 [QPY_OCPU_BETA0002_EG912U_GLAA_FW.zip](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_BETA0002_EG912U_GLAA_FW.zip) 至EG912U模组开发板。
 
 ​	
 
@@ -62,13 +62,13 @@
 
 <img src="../../media/solutions/electricity-meter/TCPandUART.png" style="zoom: 100%;" />	
 
-2. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#PC与模组间的文件传输)，将源码目录下 `code`文件夹中的所有文件导入到模组文件系统，如下图所示：
+2. 参考[此章节](../../../Getting_started/first_python.md#传输脚本文件到模组)，将源码目录下 `code`文件夹中的所有文件导入到模组文件系统，如下图所示：
 
 <img src="../../media/solutions/electricity-meter/downloadfile.png" style="zoom: 72%;" />	
 
-3. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#执行脚本文件)，执行主程序文件`demo.py`
+3. 参考[此章节](../../../Getting_started/first_python.md#执行脚本文件)，执行主程序文件`demo.py`
 
-4. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行)，停止程序运行
+4. 参考[此章节](../../../Getting_started/first_python.md##停止程序运行)，停止程序运行
 
 
 

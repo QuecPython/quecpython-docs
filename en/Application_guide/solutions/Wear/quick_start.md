@@ -47,18 +47,18 @@ After completing the hardware connection work, long press the button labeled 'PW
 
 ### Download firmware
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html), burn firmware package [EG810MCNGAR06A01M08_VOEXT_SCPU_QPYBETA0222. zip](https://raw.githubusercontent.com/QuecPython/solution-wearable/refs/heads/master/EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222_20250317-1147_20250317-1152.zip) To the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md), burn firmware package [EG810MCNGAR06A01M08_VOEXT_SCPU_QPYBETA0222. zip](https://raw.githubusercontent.com/QuecPython/solution-wearable/refs/heads/master/EG810MCNGAR06A01M08_VOEXT_OCPU_QPY_BETA0222_20250317-1147_20250317-1152.zip) To the development board.
 
 ### Script import and execution
 
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transfer-Files-Between-PC-and-Module) To transfer files between modules, import all files ending in '. py' from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File)  To transfer files between modules, import all files ending in '. py' from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
 
    <img src="../../media/solutions/Wear/Downloadfile.png" style="zoom: 80%;" />		
 
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Run-Script), execute the main program file ` main_t.py`
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
 
-3. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program), stop program running
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 
 

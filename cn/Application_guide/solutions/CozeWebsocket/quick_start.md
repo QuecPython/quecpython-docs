@@ -41,17 +41,17 @@
 
 ### 烧录固件包
 
-参考[此章节](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html#%E4%B8%8B%E8%BD%BD%E5%9B%BA%E4%BB%B6)，烧录对应型号固件包至开发板。
+参考[此章节](../../../Getting_started/flash_firmware.md)，烧录对应型号固件包至开发板。
 
 ### 脚本导入与运行
 
-1. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html)，将源码目录下 `src` 文件夹中的所有文件导入到模组文件系统，如下图所示：
+1. 参考[此章节](../../../Getting_started/first_python.md#传输脚本文件到模组)，将源码目录下 `src` 文件夹中的所有文件导入到模组文件系统，如下图所示：
 
    <img src="../../media/solutions/CozeWebsocket/src.png" style="zoom:80%;" />
 
-2. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#执行脚本文件)，执行主程序文件 `_main.py`。
+2. 参考[此章节](../../../Getting_started/first_python.md#执行脚本文件)，执行主程序文件 `_main.py`。
 
-3. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行)，停止程序运行。
+3. 参考[此章节](../../../Getting_started/first_python.md##停止程序运行)，停止程序运行。
 
 ## 业务调试
 

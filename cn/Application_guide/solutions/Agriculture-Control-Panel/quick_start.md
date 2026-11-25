@@ -48,20 +48,20 @@
 
 ### 烧录固件包
 
-参考[此章节](https://developer.quectel.com/doc/quecpython/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html#下载固件)，烧录固件包 [EC600UEUAB_R03A01M8_OCPU_QPY_BETA1107.zip](https://objects.githubusercontent.com/github-production-release-asset-2e65be/718904250/839d5c8d-81fb-49d5-982f-73c45ceb5f9b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250220T034410Z&X-Amz-Expires=300&X-Amz-Signature=ba55b3e1f47a0e7b842d315dc04b1e20b975a9f6a2fe76239989ffbbf24e42d5&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D8915DM_cat1_open_EC600UEUAB_R03A01M8_OCPU_QPY_BETA1107_merge_20241108-1415_20250205-1611.zip&response-content-type=application%2Foctet-stream) 至开发板。
+参考[此章节](../../../Getting_started/flash_firmware.md)，烧录固件包 [EC600UEUAB_R03A01M8_OCPU_QPY_BETA1107.zip](https://objects.githubusercontent.com/github-production-release-asset-2e65be/718904250/839d5c8d-81fb-49d5-982f-73c45ceb5f9b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250220T034410Z&X-Amz-Expires=300&X-Amz-Signature=ba55b3e1f47a0e7b842d315dc04b1e20b975a9f6a2fe76239989ffbbf24e42d5&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D8915DM_cat1_open_EC600UEUAB_R03A01M8_OCPU_QPY_BETA1107_merge_20241108-1415_20250205-1611.zip&response-content-type=application%2Foctet-stream) 至开发板。
 
 
 
 ### 脚本导入与运行
 
 
-1. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#%E4%BC%A0%E8%BE%93%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E5%88%B0%E6%A8%A1%E7%BB%84)，将源码目录下 `code`文件夹中的所有文件导入到模组文件系统，如下图所示：
+1. 参考[此章节](../../../Getting_started/first_python.md#传输脚本文件到模组)，将源码目录下 `code`文件夹中的所有文件导入到模组文件系统，如下图所示：
 
    <img src="../../media/solutions/Agriculture-Control-Panel/Downloadfile.png" style="zoom:80%;" />·
 
-2. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html)，执行主程序文件`main.py`。(正常开机时，模组会自动执行`main.py`文件)
+2. 参考[此章节](../../../Getting_started/first_python.md#执行脚本文件)，执行主程序文件`main.py`。(正常开机时，模组会自动执行`main.py`文件)
 
-3. 参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行)，停止程序运行。
+3. 参考[此章节](../../../Getting_started/first_python.md#停止程序运行)，停止程序运行。
 
 
 

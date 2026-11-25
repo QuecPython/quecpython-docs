@@ -51,13 +51,13 @@ Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application
 
 ### Script import and execution
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transfer-Files-Between-PC-and-Module) Import all files from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File)  Import all files from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
 
 <img src="../../media/solutions/AIChatBot-Volcengine-webRTC/code_ai.png" style="zoom:80%;" />
 <img src="../../media/solutions/AIChatBot-Volcengine-webRTC/code_ai_audio.png" style="zoom:80%;" />
 
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Run-Script) Execute the main program file `ai_main.py`.
-3. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program) Stop the program from running.
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 ## Debugging
 
