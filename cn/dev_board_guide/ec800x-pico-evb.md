@@ -4,10 +4,10 @@
 
 支持的模组列表
 
-- [EC800K-CN](https://developer.quectel.com/modules-cat/ec800k-series)
+- EC800K-CN
 - [EC800M-CN](https://www.quectel.com.cn/product/ec800m-cn)
-- [EC800E-CN](https://developer.quectel.com/modules-cat/ec800e-series)
-- [EG800K-CN](https://developer.quectel.com/modules-cat/eg800k-series)
+- EC800E-CN
+- EG800K-CN
 - [EG800Z-CN](https://www.quectel.com.cn/product/lte-standard-eg800z-series)
 
 ## 功能列表

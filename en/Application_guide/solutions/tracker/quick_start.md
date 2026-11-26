@@ -182,16 +182,17 @@ After completing the hardware connection work, the development board will automa
 
 ### Download firmware
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html), burn firmware package [QPy_OCPU_SETA0001_EC200U_SUAA_FW](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac) To the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md), burn firmware package [QPy_OCPU_SETA0001_EC200U_SUAA_FW](https://raw.githubusercontent.com/QuecPython/solution-tracker/refs/heads/master/QPY_OCPU_BETA0001_EC200U_EUAA_FW/QPY_OCPU_BETA0001_EC200U_EUAA_FW.pac) To the development board.
 
 ### Script import and execution
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transfer-Files-Between-PC-and-Module)) To transfer files between modules, import all files from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File)  To transfer files between modules, import all files from the 'code' folder in the source code directory into the module file system, as shown in the following figure:
 
    ![](../../media/solutions/tracker/code.png)
 
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Run-Script), Execute the script file and execute the main program file ` _main. py `.
-3. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program), stop program running.
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
+
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 ## Debugging
 

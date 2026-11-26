@@ -4,7 +4,7 @@
 
 Standard AT firmware or QuecOpen firmware is usually downloaded into a module when the module leaves the factory. If you want to develop the module based on QuecPython, you need to manually re-download the dedicated QuecPython firmware into it.
 
-The official firmware download URL is https://developer.quectel.com/en/resource-download?cid=4.
+The official firmware download URL is https://www.quectel.com.cn/download-zone.
 
 ![](media/readme/Firmware.png)
 

@@ -42,13 +42,13 @@ After completing the hardware connection, if a COM port containing `Quectel USB`
 
 ### Firmware Package Burning
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html#Download-Firmware), burn the corresponding model firmware package to the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md), burn the corresponding model firmware package to the development board.
 
 ### Script Import and Execution
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html), import all files in the `src` folder under the source code directory into the module file system, as shown in the following figure:&#x20;<img src="../../media/solutions/meter-box/download.png" style="zoom:80%;" />
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#执行脚本文件), execute the main program file `_main.py`.
-3. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行), stop program execution.
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File) , import all files in the `src` folder under the source code directory into the module file system, as shown in the following figure:&#x20;<img src="../../media/solutions/meter-box/download.png" style="zoom:80%;" />
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 ## Business debugging
 

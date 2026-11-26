@@ -45,20 +45,20 @@ After completing the hardware connection, long press the button labeled 'PWR' on
 
 ### Download firmware
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Application_guide/en/dev-tools/QPYcom/qpycom-dw.html), burn firmware package EC600UEUAB_R03A01M8_SCPU_QPYBETA10107 to the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md), burn firmware package EC600UEUAB_R03A01M8_SCPU_QPYBETA10107 to the development board.
 
 
 
 ### Script import and execution
 
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transfer-Files-Between-PC-and-Module) To transfer files between modules, import all files from the `code` folder in the source code directory into the module file system, as shown in the following figure:
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File) To transfer files between modules, import all files from the `code` folder in the source code directory into the module file system, as shown in the following figure:
 
    <img src="../../media/solutions/Agriculture-Control-Panel/Downloadfile.png" style="zoom:80%;display: block; margin: 0 auto;" />·
 
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Run-Script) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
 
-3. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program), stop program running.
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 
 

@@ -46,17 +46,17 @@ Windows电脑一台，建议 `Win10` 系统。
 
 - ### 烧录固件包
 
-参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/flash_firmware.html)，烧录[固件包](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_V0005_EC200U_EUAA_FW.zip)至开发板。
+参考[此章节](../../../Getting_started/flash_firmware.md)，烧录[固件包](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_V0005_EC200U_EUAA_FW.zip)至开发板。
 
 - ### 脚本导入与运行
 
-1.参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#PC与模组间的文件传输)，将源码目录下的code文件夹中的所有文件按原目录结构导入到模组文件系统中，如下图所示
+1.参考[此章节](../../../Getting_started/first_python.md#传输脚本文件到模组)，将源码目录下的code文件夹中的所有文件按原目录结构导入到模组文件系统中，如下图所示
 
 <img src="../../media/solutions/SensorHub/Qpycom.png"  />
 
-2.参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#执行脚本文件)，执行主程序文件_main.py
+2.参考[此章节](../../../Getting_started/first_python.md#执行脚本文件)，执行主程序文件_main.py
 
-3.参考[此章节](https://developer.quectel.com/doc/quecpython/Getting_started/zh/4G/first_python.html#停止程序运行)，停止程序运行。
+3.参考[此章节](../../../Getting_started/first_python.md##停止程序运行)，停止程序运行。
 
 ## 业务调试
 

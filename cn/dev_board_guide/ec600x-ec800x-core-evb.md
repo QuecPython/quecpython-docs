@@ -4,13 +4,13 @@
 
 支持的模组列表
 
-- [EC600N-CNLA](https://developer.quectel.com/modules-cat/ec600n-series)
+- EC600N-CNLA
 - [EC600M-CNLA](https://www.quectel.com.cn/product/ec600m)
 - [EC800M-CNGA](https://www.quectel.com.cn/product/ec800m-cn)
 - [EC800M-CNGC](https://www.quectel.com.cn/product/ec800m-cn)
 - [EC800M-CNLC](https://www.quectel.com.cn/product/ec800m-cn)
 - [EC800M-CNLF](https://www.quectel.com.cn/product/ec800m-cn)
-- [EC800E-CNLE](https://developer.quectel.com/modules-cat/ec800e-series)
+- EC800E-CNLE
 
 ## 功能列表
 

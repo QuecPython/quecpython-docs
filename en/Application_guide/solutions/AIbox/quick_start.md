@@ -37,16 +37,17 @@ After completing the hardware connection work, if a COM port containing the word
 
 ###  Burn firmware package
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/flash_firmware.html#Flash-Firmware) Burn the corresponding firmware package to the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md) Burn the corresponding firmware package to the development board.
 
 ### Script import and execution
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transferring-the-Script-File-to-the-Module) Import all files from the 'src' folder in the source code directory into the module file system, as shown in the following figure:
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File)  Import all files from the 'src' folder in the source code directory into the module file system, as shown in the following figure:
 
 <img src="../../media/solutions/AIbox/src.png" style="zoom:100%;" />
 
-1. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Executing-the-Script-File) Execute the main program file `ai_main.py`.
-2. Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program) Stop the program from running.
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
+
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 ## Debugging
 

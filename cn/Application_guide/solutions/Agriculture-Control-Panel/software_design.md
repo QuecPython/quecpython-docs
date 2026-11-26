@@ -4,8 +4,6 @@
 
 ## 软件框架
 
-
-
 ### 软件设计图
 
 <img src="../../media/solutions/Agriculture-Control-Panel/software.png" alt="image-20250205105239936" style="zoom:80%;display: block; margin: 0 auto;" />	

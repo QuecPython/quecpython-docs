@@ -4,7 +4,7 @@
 
 支持的模组列表
 
-- [EC600N-CN](https://developer.quectel.com/modules-cat/ec600n-series)
+- EC600N-CN
 
 - [EC600U-CN](https://www.quectel.com.cn/product/ec600u-series)
 

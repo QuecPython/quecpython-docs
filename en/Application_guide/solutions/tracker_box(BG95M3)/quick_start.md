@@ -46,17 +46,17 @@ After completing the hardware connection work, when PWR and SCK1 are lit up or a
 
 ### Burn firmware package
 
-Refer to [this chapter](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/flash_firmware.html) to flash the [firmware package](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_V0003_BG95M3_FW.zip ) to the development board.
+Refer to [this chapter](../../../Getting_started/flash_firmware.md) to flash the [firmware package](https://developer.quectel.com/wp-content/uploads/2024/09/QPY_OCPU_V0003_BG95M3_FW.zip ) to the development board.
 
 ## Script import and run
 
-1.Refer to [this section](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Transferring-the-Script-File-to-the-Module) to import all files in the code folder under the source code directory into the module file system according to the original directory structure, as shown in the figure below.
+1. Refer to [this chapter](../../../Getting_started/first_python.md#Writing the First Script File)  to import all files in the code folder under the source code directory into the module file system according to the original directory structure, as shown in the figure below.
 
 <img src="../../media/solutions/tracker_box(BG95M3)/Qpycom.png" style="zoom: 100%;" />
 
-2.Refer to  [this chapter ](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Executing-the-Script-File)and execute the main program file _main.py.
+2. Refer to [this chapter](../../../Getting_started/first_python.md#Executing the Script File) Execute the script file and execute the main program file `main.py`. (During normal startup, the module will automatically execute the `main.py` file)
 
-3.Refer to [this section](https://developer.quectel.com/doc/quecpython/Getting_started/en/4G/first_python.html#Stop-a-Running-Program) to stop the program.
+3. Refer to [this chapter](../../../Getting_started/first_python.md#Stop-a-Running-Program), stop program running.
 
 ### Business debugging
 
